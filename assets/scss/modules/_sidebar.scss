@@ -7,4 +7,15 @@
     @include grid-column(4);
     margin-top: 1rem;
   }
+
+  // increase spacing between widgets
+  .widget {
+    margin-bottom: 2rem;
+  }
+
+  // remove bullets from list items
+  ul {
+    @extend .no-bullet;
+  }
+
 }

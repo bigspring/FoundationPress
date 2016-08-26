@@ -4,24 +4,13 @@ Template Name: Front
 */
 get_header(); ?>
 
-<header id="front-hero" role="banner">
+<header class="hero-unit" role="banner">
 	<div class="marketing">
 		<div class="tagline">
 			<h1><?php bloginfo( 'name' ); ?></h1>
 			<h4 class="subheader"><?php bloginfo( 'description' ); ?></h4>
-			<a role="button" class="download large button sites-button hide-for-small-only" href="https://github.com/olefredrik/foundationpress">Download FoundationPress</a>
+			<a role="button" class="success large button" href="https://github.com/olefredrik/foundationpress">Do something great</a>
 		</div>
-
-		<div id="watch">
-			<section id="stargazers">
-				<a href="https://github.com/olefredrik/foundationpress">1.5k stargazers</a>
-			</section>
-			<section id="twitter">
-				<a href="https://twitter.com/olefredrik">@olefredrik</a>
-			</section>
-		</div>
-	</div>
-
 </header>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
@@ -54,7 +43,7 @@ get_header(); ?>
 </div>
 
 
-<section class="benefits">
+<section class="band">
 	<header>
 		<h2>Build Foundation based sites, powered by WordPress</h2>
 		<h4>Foundation is the professional choice for designers, developers and teams. <br /> WordPress is by far, <a href="http://trends.builtwith.com/cms">the world's most popular CMS</a> (currently powering 38% of the web).</h4>
@@ -86,9 +75,9 @@ get_header(); ?>
 		<p>Millions of designers and developers depend on Foundation. We have business support, training and consulting to help grow your product or service.</p>
 	</div>
 
-	<div class="why-foundation">
-		<a href="/kitchen-sink">See what's in Foundation out of the box →</a>
-	</div>
+	<footer>
+		The band footer, where the CTA can go
+	</footer>
 
 </section>
 
