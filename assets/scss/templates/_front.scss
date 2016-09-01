@@ -1,81 +1,18 @@
-// Page header
-.hero-unit {
-	.marketing {
-		@include grid-row();
-		max-width: 55rem;
-	}
-
-	// settings for small screens
-	@include breakpoint(small) {
-		background-color: map-get($foundation-palette, primary);
-		background-size: cover;
-		background-position: bottom;
-		padding: 15% 0;
-		margin: 0 0 2rem;
-		height: auto;
-		position: relative;
-		text-align: center;
-	}
-
-	// settings for medium and up
-	@include breakpoint(medium) {
-		background-size: cover;
-		background-position: center;
-		text-align: center;
-	}
-
-	.tagline {
-
-		@include breakpoint(small) {
-			@include grid-column(10);
-			@include grid-column-offset(1);
-		}
-
-		@include breakpoint(medium) {
-			@include grid-column(10);
-			@include grid-column-offset(1);
-		}
-
-	}
-
-	// overrides for headings
-	h1 {
-		color: #fff;
-
-		@include breakpoint(small) {
-			font-size: 2.2rem;
-		}
-
-		@include breakpoint(medium) {
-			font-size: 2.875rem;
-		}
-
-	}
-
-	h4 {
-		color: #fefefe;
-		font-size: 1.3125rem;
-	}
-
-	.button {
-		margin-top: 1rem;
-	}
-
-}
-
 // Intro
 .intro {
 	@include grid-row();
+	// background: red;
 
 	.fp-intro {
 
 		@include breakpoint(small) {
 			@include grid-column(12);
+			text-align: center;
 		}
 
 		@include breakpoint(medium) {
-			@include grid-column(10);
-			@include grid-column-offset(1);
+			@include grid-column(8);
+			@include grid-column-offset(2);
 
 			h2 {
 				font-weight: 300;
@@ -93,22 +30,14 @@
 	}
 }
 
-// Section divider
-.section-divider {
-	@include grid-row();
-
-	hr {
-		@include grid-column(12);
-		@extend .dotted;
-		box-sizing: border-box;
-	}
-}
-
 
 // Band
+// The main band element wraps
 .band {
-	@include grid-row();
+
 	text-align: center;
+	padding: 3rem 0;
+	@include grid-row();
 
 	// the band header
 	header {
@@ -141,5 +70,10 @@
 	&.primary {
 		background-color: map-get($foundation-palette, primary);
 	}
+
+	&.light-gray {
+		background-color: $light-gray;
+	}
+
 
 }
