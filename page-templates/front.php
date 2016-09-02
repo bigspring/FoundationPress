@@ -4,7 +4,7 @@ Template Name: Front
 */
 get_header(); ?>
 
-<?php get_template_part('template-parts/hero'); ?>
+<?php get_template_part('template-parts/header-hero'); ?>
 
 <?php do_action( 'foundationpress_before_content' ); ?>
 <?php while ( have_posts() ) : the_post(); ?>

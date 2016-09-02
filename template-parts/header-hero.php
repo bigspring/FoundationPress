@@ -15,4 +15,5 @@
 			<h4 class="subheader"><?php get_the_excerpt(); ?></h4>
 			<a role="button" class="success large button" href="http://www.bigspring.co.uk">Do something great</a>
 		</div>
+	</div>
 </header>
