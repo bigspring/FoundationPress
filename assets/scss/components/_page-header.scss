@@ -1,0 +1,11 @@
+.page-header {
+  padding: 3% 0;
+  background-color: map-get($foundation-palette, primary);
+  color: white;
+  @include grid-row();
+
+  .caption {
+    @include grid-column(12);
+  }
+
+}
