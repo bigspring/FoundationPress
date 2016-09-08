@@ -28,13 +28,25 @@ class Builder
 
     public function __construct($layout = null, $args = null, $query = null)
     {
+
+        $default_layout = 'snippets';
+        $default_part = 'snippet';
+
         $this->layouts_path = get_template_directory() . '/builder-parts/';
         $this->parts_path = get_template_directory() . '/template-parts/';
 
-        $this->layout = $layout ? $layout : 'list'; // get the layout or default to list
+        $this->layout = $layout ? $layout : array('layout' => $default_layout, 'part' => $default_part); // get the layout or default to list
+
+        if(!array_key_exists('layout', $this->layout)) {
+            $this->layout['layout'] = $default_layout;
+        }
+
+        if(!array_key_exists('part', $this->layout)) {
+            $this->layout['part'] = $default_part;
+        }
+
         $this->query = $query ? $query : null; // set the query object if we have one
         $this->args = $args ? $args : array(); // set our args if we have any
-        $this->part = 'snippet';
 
         $this->_set_loop(); // set the loop object
         $this->_set_args(); // set any custom arguments we have
@@ -66,7 +78,7 @@ class Builder
     private function _set_args()
     {
         $this->args = array_merge($this->default_args, $this->args); // merge in any custom arguments we have
-        $this->args['classes'] = 'builder builder-'.$this->layout.' '. $this->args['classes']; // we do this to add all dynamically generated classes
+        $this->args['classes'] = 'builder builder-'.$this->layout['layout'].' '. $this->args['classes']; // we do this to add all dynamically generated classes
 
         return true;
     }
@@ -79,8 +91,9 @@ class Builder
     {
         $loop = &$this->loop;
         $args = &$this->args;
+        $layout = $this->layout;
         $layouts_path = $this->layouts_path;
-        $part = (array_key_exists('part', $args)) ? $args['part'] : $this->part;
+        $part = (array_key_exists('part', $layout)) ? $layout['part'] : $this->part;
         $part = $this->parts_path . $part . '.php';
         global $post;
 
@@ -114,7 +127,7 @@ class Builder
 
     private function _get_layout_file()
     {
-        return $this->layouts_path . $this->layout . '.php';
+        return $this->layouts_path . $this->layout['layout'] . '.php';
     }
 }
 
@@ -124,7 +137,31 @@ class Builder
  * @param array|null $args The arguments to be passed to the function
  * @param object|null $query The Wordpress WP_Query object to be used
  */
-function build($layout = null, $args = null, $query = null)
+function monolith_build($layout = null, $args = null, $query = null)
 {
     new Builder($layout, $args, $query);
+}
+
+function monolith_grid($part = null, $classes = null, $args = null, $query = null )
+{
+    if($classes) { // ensure we set the right builder arg for the size parameter
+        $args['classes'] = $classes;
+    }
+
+    new Builder(array('layout' => 'grid', 'part' => $part), $args, $query);
+}
+
+function monolith_accordion($args = null, $query = null)
+{
+    new Builder(array('layout' => 'accordion', 'part' => 'accordion-item'), $args, $query);
+}
+
+function monolith_list($args = null, $query = null)
+{
+    new Builder(array('layout' => 'list', 'part' => 'list-item'), $args, $query);
+}
+
+function monolith_tabs($args = null, $query = null)
+{
+    new Builder(array('layout' => 'tabs', 'part' => 'tab-item'), $args, $query);
 }

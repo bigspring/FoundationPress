@@ -18,8 +18,16 @@ get_header(); ?>
 <div id="page" role="main">
 	<article class="main-content">
 
-		<?php //build('snippets', array('part' => 'snippet2')); ?>
-		<?php build('snippets', array('classes' => 'row')); ?>
+		<?php monolith_build( array('layout' => 'snippets', 'part' => 'snippet') ); ?>
+
+
+		<?php //monolith_grid( 'card', 'row columns' ); ?>
+		<?php //monolith_accordion(); ?>
+		<?php //monolith_list(); ?>
+		<?php //monolith_tabs(); ?>
+
+
+		<?php //build('snippets', array('classes' => 'row')); ?>
 
 	</article>
 	<?php get_sidebar(); ?>
