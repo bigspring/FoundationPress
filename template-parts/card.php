@@ -1,12 +1,12 @@
+<?php
+/**
+ * The card template, used by the builder function
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
+ */
 
-<!-- <div class="card">
-  <a href="<?= get_permalink(); ?>">
-    <?php the_post_thumbnail( 'fp-medium' ); ?>
-    <h3><?php the_title(); ?></h3>
-    <p><?= get_the_excerpt(); ?></p>
-  </a>
-</div> -->
-
+?>
 
 <a id="<?= sanitize_title( get_the_title() ) ?>" href="<?php the_permalink(); ?>">
 
