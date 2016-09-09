@@ -1,0 +1,18 @@
+.m3-card {
+
+  border: 1px solid $light-gray;
+
+  .caption {
+    padding: 1rem;
+    h3 {margin-top: 0;}
+  }
+
+  @include breakpoint(small) {
+    margin-bottom: map-get($grid-column-gutter, small);
+  }
+
+  @include breakpoint(medium) {
+    margin-bottom: map-get($grid-column-gutter, medium);
+  }
+
+}
