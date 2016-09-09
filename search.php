@@ -8,12 +8,12 @@
 
 get_header(); ?>
 
+<?php get_template_part('template-parts/header-standard'); ?>
+
 <div class="row">
 	<div class="small-12 large-8 columns" role="main">
 
 		<?php do_action( 'foundationpress_before_content' ); ?>
-
-		<h2><?php _e( 'Search Results for', 'foundationpress' ); ?> "<?php echo get_search_query(); ?>"</h2>
 
 	<?php if ( have_posts() ) : ?>
 
@@ -22,6 +22,7 @@ get_header(); ?>
 		<?php endwhile; ?>
 
 		<?php else : ?>
+
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 	<?php endif;?>
@@ -39,6 +40,5 @@ get_header(); ?>
 	<?php do_action( 'foundationpress_after_content' ); ?>
 
 	</div>
-	<?php get_sidebar(); ?>
 </div>
 <?php get_footer();
