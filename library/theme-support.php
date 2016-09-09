@@ -40,6 +40,12 @@ function foundationpress_theme_support() {
 
 	// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
 	add_editor_style( 'assets/stylesheets/foundation.css' );
+
+	// Add excerpt area to pages and posts
+	function m3_add_excerpts_to_pages() {
+		add_post_type_support( 'page', 'excerpt' );
+	}
+	add_action( 'init', 'm3_add_excerpts_to_pages' );
 }
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );

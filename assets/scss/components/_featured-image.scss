@@ -1,3 +1,9 @@
+#featured-hero {
+	.caption {
+		@include grid-row();
+	}
+}
+
 @include breakpoint(small) {
 	#featured-hero {
 		background-size: cover;
