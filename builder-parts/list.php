@@ -9,11 +9,13 @@
   <!-- start ul wrapper -->
   <ul class="<?= $args['classes'] ?>">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-      <?php include( $layouts_path . 'molecules/list-item.php' ); ?>
+      <li>
+        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+      </li>
     <?php endwhile; ?>
   </ul>
   <!-- end ul wrapper -->
 
 <?php else : // otherwise show the content none organism ?>
-  <?php include( $layouts_path . 'organisms/content-none.php' ); ?>
-<?php endif; ?>
+  <?php get_template_part('template-parts/content-none'); ?>
+<?php endif;
