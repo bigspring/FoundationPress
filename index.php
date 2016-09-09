@@ -17,20 +17,10 @@ get_header(); ?>
 
 <?php get_template_part( 'template-parts/header-standard' ); ?>
 
-
 <div id="page" role="main">
 	<article class="main-content">
 
-		<?php // monolith_build( array('layout' => 'snippets', 'part' => 'snippet') ); ?>
-
-
-		<?php // monolith_grid( 'snippet'); ?>
-		<?php // monolith_accordion(); ?>
-		<?php //monolith_list(); ?>
-		<?php monolith_tabs(); ?>
-
-
-		<?php //build('snippets', array('classes' => 'row')); ?>
+		<?php monolith_grid('snippet'); ?>
 
 	</article>
 	<?php get_sidebar(); ?>
