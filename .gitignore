@@ -9,3 +9,5 @@ assets/javascript/foundation.js
 assets/javascript/custom/demosite.js
 packaged/
 wpcs/
+/gulpfile.js
+/config.codekit
