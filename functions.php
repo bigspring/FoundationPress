@@ -50,5 +50,9 @@ require_once( 'library/responsive-images.php' );
 /** load the builder functions */
 require_once( 'library/builder.php' );
 
+/** load the shortcodes */
+require_once( 'library/shortcodes.php' );
+
+
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/protocol-relative-theme-assets.php' );
