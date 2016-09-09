@@ -9,8 +9,8 @@
 ?>
 
 <a id="<?= sanitize_title( get_the_title() ) ?>" href="<?php the_permalink(); ?>">
-
   <div class="m3-card" data-equalizer-watch>
+
     <?php if ( $args['has_image'] ) : // display the featured image if argument is true ?>
       <div class="featured-image">
         <?php the_post_thumbnail( 'fp-medium' ); ?>
@@ -28,6 +28,6 @@
         </div>
       <?php endif; // end has_summary ?>
     </div>
-  </div>
 
+  </div>
 </a>

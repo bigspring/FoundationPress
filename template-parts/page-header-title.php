@@ -40,7 +40,7 @@
 	    	if(get_option( 'monolith_blog_page_title' )) :
 	    		echo get_option( 'monolith_blog_page_title' ); // display site option
 	    	else :
-	    		echo 'Latest New';
+	    		echo 'Latest News';
 	    	endif;
 	    ?>
     </h1>
