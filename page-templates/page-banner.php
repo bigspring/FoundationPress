@@ -1,13 +1,13 @@
 <?php
 /*
-Template Name: Featured Image
+Template Name: Banner Page
  *
  * @package FoundationPress
  * @since FoundationPress 1.0.0
 */
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
+<?php get_template_part( 'template-parts/header-banner' ); ?>
 
 	<div id="page-full-width" role="main">
 
@@ -18,10 +18,6 @@ get_header(); ?>
 				<div class="entry-content">
 					<?php the_content(); ?>
 				</div>
-				<footer>
-					<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
-					<p><?php the_tags(); ?></p>
-				</footer>
 			</article>
 		<?php endwhile;?>
 
