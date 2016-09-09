@@ -1,11 +1,13 @@
-.page-header {
+.header-standard {
   padding: 3% 0;
-  background-color: map-get($foundation-palette, primary);
-  color: white;
+  color: $body-font-color;
   @include grid-row();
-
   .caption {
     @include grid-column(12);
-  }
 
-}
+    h1 {
+	    margin: 0;
+    }
+
+  }//caption
+}//.header-standard

@@ -1,9 +1,19 @@
-#featured-hero {
+#header-banner {
+
+	padding: 5% 0;
+	margin-bottom: 2rem;
+
+	@include breakpoint(large) {
+		padding: 4rem 0;
+	}
+
+
 	.caption {
-		@include grid-row();
+		@include grid-column(12);
 	}
 }
 
+/*
 @include breakpoint(small) {
 	#featured-hero {
 		background-size: cover;
@@ -24,3 +34,4 @@
 		height: rem-calc(400);
 		}
 }
+*/

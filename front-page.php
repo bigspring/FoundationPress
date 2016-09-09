@@ -1,13 +1,18 @@
 <?php
-/*
-Template Name: Featured Image
+/**
+ * The template for displaying the front page
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages and that
+ * other "pages" on your WordPress site will use a different template.
  *
  * @package FoundationPress
  * @since FoundationPress 1.0.0
-*/
-get_header(); ?>
+ */
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
+ get_header(); ?>
+
+<?php get_template_part( 'template-parts/header-hero' ); ?>
 
 	<div id="page-full-width" role="main">
 
@@ -18,10 +23,6 @@ get_header(); ?>
 				<div class="entry-content">
 					<?php the_content(); ?>
 				</div>
-				<footer>
-					<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
-					<p><?php the_tags(); ?></p>
-				</footer>
 			</article>
 		<?php endwhile;?>
 
