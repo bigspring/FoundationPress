@@ -3,6 +3,10 @@
 	padding: 5% 0;
 	margin-bottom: 2rem;
 
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+
 	@include breakpoint(large) {
 		padding: 4rem 0;
 	}

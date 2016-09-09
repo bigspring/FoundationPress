@@ -35,7 +35,15 @@
 
   <?php elseif ( is_home() ) : // on the blog page, show the site option ?>
 
-    <h1><?= get_option( 'monolith_blog_page_title' ); // display site option   ?></h1>
+    <h1>
+    	<?php
+	    	if(get_option( 'monolith_blog_page_title' )) :
+	    		echo get_option( 'monolith_blog_page_title' ); // display site option
+	    	else :
+	    		echo 'Latest New';
+	    	endif;
+	    ?>
+    </h1>
 
   <?php elseif ( is_search() ) : ?>
 

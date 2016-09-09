@@ -27,6 +27,10 @@
 		<?= $term->description; ?>
 	</p>
 
+<?php elseif(is_search()) : ?>
+
+	<!-- 	We hit nothing  -->
+
 <?php endif; ?>
 
 
