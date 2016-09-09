@@ -10,18 +10,20 @@
 
 ?>
 
-<header class="page-header">
-	<h1 class="page-title"><?php _e( 'Nothing Found', 'foundationpress' ); ?></h1>
-</header>
 
-<div class="page-content">
+<div class="page-content callout">
+
+	<header class="page-header">
+		<h2 class="page-title"><?php _e( 'Nothing Found', 'foundationpress' ); ?></h2>
+	</header>
+
 	<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
 	<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'foundationpress' ), admin_url( 'post-new.php' ) ); ?></p>
 
 	<?php elseif ( is_search() ) : ?>
 
-	<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'foundationpress' ); ?></p>
+	<p><?php _e( 'Sorry, but nothing matched your search terms. Please try seatching again with some different keywords.', 'foundationpress' ); ?></p>
 	<?php get_search_form(); ?>
 
 	<?php else : ?>
