@@ -22,7 +22,7 @@ get_header(); ?>
 		<?php endwhile; ?>
 
 		<?php else : ?>
-			
+
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 	<?php endif;?>
@@ -40,6 +40,5 @@ get_header(); ?>
 	<?php do_action( 'foundationpress_after_content' ); ?>
 
 	</div>
-	<?php get_sidebar(); ?>
 </div>
 <?php get_footer();
