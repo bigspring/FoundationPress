@@ -1,6 +1,9 @@
 <?php
 /*
 Template Name: Front
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
 */
 get_header(); ?>
 

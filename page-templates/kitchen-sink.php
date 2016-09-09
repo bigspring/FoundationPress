@@ -1,6 +1,9 @@
 <?php
 /*
 Template Name: Kitchen Sink
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
 */
 get_header(); ?>
 
