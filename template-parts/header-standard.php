@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for page header, used as a banner header on most templates
+ * Template part for page header
  *
  * @package FoundationPress
  * @since FoundationPress 1.0.0

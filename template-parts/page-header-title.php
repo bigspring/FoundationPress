@@ -1,9 +1,11 @@
 <?php
 /**
- * The title part that handles all titles for all views
- * @package monolith
+ * Template part for the page titles
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
  */
-?>
+ ?>
 
 <div class="page-header-title">
 

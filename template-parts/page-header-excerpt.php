@@ -1,3 +1,12 @@
+<?php
+/**
+ * Template part for the excerpts
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
+ */
+ ?>
+
 <?php if(is_home() && get_option( 'monolith_blog_page_introtext' )) : ?>
   <p class="lead sub-heading">
     <?= get_option( 'monolith_blog_page_introtext' ); // display site option  ?>
