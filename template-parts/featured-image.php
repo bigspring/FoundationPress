@@ -6,5 +6,11 @@
 		?>
 
 	<header id="featured-hero" role="banner" style="background-image: url('<?php echo $image ?>')">
+
+			<div class="caption">
+				<h1><?php the_title(); ?></h1>
+				<p class="lead"><?= get_the_excerpt(); ?></p>
+			</div>
+
 	</header>
 	<?php endif;
