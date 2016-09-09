@@ -11,6 +11,8 @@
 <header class="header-standard" role="banner">
 	<div class="caption">
 		<?php get_template_part('/template-parts/page-header-title'); ?>
+		<?php if(!is_home()) : ?>
 		<?php get_template_part('/template-parts/page-header-excerpt'); ?>
+		<?php endif; ?>
 	</div>
 </header>
