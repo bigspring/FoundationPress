@@ -8,9 +8,9 @@
 
 ?>
 
-<header class="page-header" role="banner">
+<header class="header-standard" role="banner">
 	<div class="caption">
-		<h1><?php the_title(); ?></h1>
-		<p class="lead"><?= get_the_excerpt(); ?></p>
+		<?php get_template_part('/template-parts/page-header-title'); ?>
+		<?php get_template_part('/template-parts/page-header-excerpt'); ?>
 	</div>
 </header>

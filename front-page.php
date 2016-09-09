@@ -12,7 +12,7 @@
 
  get_header(); ?>
 
-<?php get_template_part( 'template-parts/header-standard' ); ?>
+<?php get_template_part( 'template-parts/header-hero' ); ?>
 
 	<div id="page-full-width" role="main">
 

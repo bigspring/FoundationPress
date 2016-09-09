@@ -5,12 +5,12 @@
 		$image = $image[0];
 		?>
 
-	<header id="featured-hero" role="banner" style="background-image: url('<?php echo $image ?>')">
-
+	<header id="header-banner" role="banner" style="background-image: url('<?php echo $image ?>')">
+		<div class="row">
 			<div class="caption">
-				<h1><?php the_title(); ?></h1>
-				<p class="lead"><?= get_the_excerpt(); ?></p>
+				<?php get_template_part('/template-parts/page-header-title'); ?>
+				<?php get_template_part('/template-parts/page-header-excerpt'); ?>
 			</div>
-
+		</div>
 	</header>
 	<?php endif;
