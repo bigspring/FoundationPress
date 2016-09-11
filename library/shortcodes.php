@@ -490,14 +490,14 @@ add_shortcode('monolith_address', 'address_shortcode');
 
 
 /**
- * Stretch Block shortcode [stretch_block]
+ * Stretch Band shortcode [stretch_band]
  */
-function stretch_block_shortcode($atts, $content = null) {
+function stretch_band_shortcode($atts, $content = null) {
 	extract( shortcode_atts( array(
 			'type' => ''
 	), $atts ) );
 
-	return '<div class="m3-shortcode block block-stretch '. $type .'"><div class="row"><div class="columns">'.apply_filters('the_content', $content).'</div></div></div>';
+	return '<div class="m3-shortcode stretch-band '. $type .'"><div class="row"><div class="columns">'.apply_filters('the_content', $content).'</div></div></div>';
 }
-add_shortcode('stretch_block', 'stretch_block_shortcode');
+add_shortcode('stretch_band', 'stretch_band_shortcode');
 

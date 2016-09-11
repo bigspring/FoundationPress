@@ -765,15 +765,15 @@
 				// ====================================
 
 				{
-					text: 'Stretch Block',
+					text: 'Stretch Band',
 					onclick: function() {
 						editor.windowManager.open( {
-							title: 'Choose callout style',
+							title: 'Choose Stretch Band Style',
 							body: [
 								{
 									type: 'listbox',
 									name: 'listboxListTypes',
-									label: 'Stretch Box Type',
+									label: 'Stretch Band Type',
 									'values': [
 										{text: 'Default', value: ''},
 										{text: 'Primary', value: 'primary'},
@@ -785,7 +785,7 @@
 								},
 							],
 							onsubmit: function( e ) {
-								editor.insertContent( '[stretch_block type="' + e.data.listboxListTypes + '" ]<p>Stretch Block </p>[/stretch_block]');
+								editor.insertContent( '[stretch_band type="' + e.data.listboxListTypes + '" ]<p>Stretch Band </p>[/stretch_band]');
 							}
 						});
 					}
