@@ -202,17 +202,17 @@ function hr_shortcode($atts, $content = null)
 add_shortcode('divider', 'hr_shortcode'); // hr divider shortcode
 
 /**
- * Panel shortcode [panel]
+ * Callout shortcode [callout]
  */
-function panel_shortcode($atts, $content = null) {
+function callout_shortcode($atts, $content = null) {
 	extract( shortcode_atts( array(
 			'type' => ''
 	), $atts ) );
 
 
-	return '<div class="shortcode-panel panel '. $type .'">'.apply_filters('the_content', $content).'</div>';
+	return '<div class="shortcode-callout callout '. $type .'">'.apply_filters('the_content', $content).'</div>';
 }
-add_shortcode('panel', 'panel_shortcode');
+add_shortcode('callout', 'callout_shortcode');
 
 /**
  * Renders Foundation buttons
@@ -323,7 +323,7 @@ function childpages($atts, $content = null)
     }
 
 	ob_start();
-    build($layout, $builder_args, $args);
+    monolith_build($layout, $builder_args, $args);
 	return ob_get_clean();
 }
 add_shortcode('childpages', 'childpages');
@@ -487,3 +487,17 @@ function address_shortcode( $atts, $content = null ) {
     return ob_get_clean();
 }
 add_shortcode('monolith_address', 'address_shortcode');
+
+
+/**
+ * Stretch Block shortcode [stretch_block]
+ */
+function stretch_block_shortcode($atts, $content = null) {
+	extract( shortcode_atts( array(
+			'type' => ''
+	), $atts ) );
+
+	return '<div class="m3-shortcode block block-stretch '. $type .'"><div class="row"><div class="columns">'.apply_filters('the_content', $content).'</div></div></div>';
+}
+add_shortcode('stretch_block', 'stretch_block_shortcode');
+
