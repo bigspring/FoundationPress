@@ -114,7 +114,8 @@ function childpages( $atts, $content = null ) {
 	// set defaults
 	global $post;
 	extract( shortcode_atts( array( // set our defaults for the shortcode
-		'layout'        => 'list', // default layout
+		'layout'        => 'snippets', // default layout
+		'part'          => 'snippet',
 		'id'            => $post->ID,
 		'class'         => '',
 		'size'          => '',
@@ -152,7 +153,7 @@ function childpages( $atts, $content = null ) {
 	}
 
 	ob_start();
-	monolith_build( array( 'layout' => $layout ), $builder_args, $args );
+	monolith_build( array( 'layout' => $layout, 'part' => $part ), $builder_args, $args );
 
 	return ob_get_clean();
 }
@@ -164,7 +165,8 @@ add_shortcode( 'childpages', 'childpages' );
 function pages_shortcode( $atts, $content = null ) {
 
 	extract( shortcode_atts( array( // set our defaults for the shortcode
-		'layout'        => 'list', // default layout
+		'layout'        => 'snippets', // default layout
+		'part'          => 'snippet',
 		'ids'           => '',
 		'class'         => '',
 		'size'          => '',
@@ -204,7 +206,7 @@ function pages_shortcode( $atts, $content = null ) {
 	$builder_args['size']         = $size;
 
 	ob_start();
-	monolith_build( array( $layout ), $builder_args, $args );
+	monolith_build( array( 'layout' => $layout, 'part' => $part ), $builder_args, $args );
 
 	return ob_get_clean();
 
