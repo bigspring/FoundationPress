@@ -62,7 +62,7 @@ var PATHS = {
     'assets/components/motion-ui/motion-ui.js',
 
     // Include your own custom scripts (located in the custom folder)
-    'assets/javascript/custom/*.js',
+    // 'assets/javascript/custom/*.js',
 	  'assets/javascript/m3-custom/custom.js'
   ],
   phpcs: [
@@ -90,7 +90,7 @@ gulp.task('browser-sync', ['build'], function() {
 
   var files = [
             '**/*.php',
-            'assets/images/**/*.{png,jpg,gif}',
+            'assets/images/**/*.{png,jpg,gif}'
           ];
 
   browserSync.init(files, {
@@ -264,7 +264,7 @@ gulp.task('default', ['build', 'browser-sync'], function() {
     });
 
   // JS Watch
-  gulp.watch(['assets/javascript/custom/**/*.js'], ['clean:javascript', 'javascript', 'lint'])
+  gulp.watch(['assets/javascript/custom/**/*.js', 'assets/javascript/m3-custom/*.js'], ['clean:javascript', 'javascript', 'lint'])
     .on('change', function(event) {
       logFileChange(event);
     });
