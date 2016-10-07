@@ -483,7 +483,7 @@ function address_shortcode( $atts, $content = null ) {
 	), $atts ) );
 
     ob_start();
-    include(get_template_directory() . '/layouts/organisms/address.php');
+    include(get_template_directory() . '/builder-parts/address.php');
     return ob_get_clean();
 }
 add_shortcode('monolith_address', 'address_shortcode');
