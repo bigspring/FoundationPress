@@ -14,7 +14,7 @@ get_header(); ?>
 
 <?php get_template_part( 'template-parts/header-standard' ); ?>
 	
-	<div id="page-full-width" role="main">
+	<div id="page" role="main">
 		
 		<?php do_action( 'foundationpress_before_content' ); ?>
 		
@@ -22,7 +22,7 @@ get_header(); ?>
 			<article <?php post_class( 'main-content' ) ?> id="post-<?php the_ID(); ?>">
 				<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 				<div class="entry-content">
-					<?php monolith_build( 'content' ); ?>
+					<?php the_content() ?>
 				</div>
 			</article>
 		<?php endwhile; ?>
