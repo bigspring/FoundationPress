@@ -13,7 +13,7 @@ if ( ! function_exists( 'login_css' ) ) {
 	function login_css() {
 		wp_enqueue_style( 'login_css', get_template_directory_uri() . '/assets/css/login.css' );
 	}
-
+	
 	add_action( 'login_head', 'login_css' );
 }
 
@@ -24,12 +24,12 @@ if ( ! function_exists( 'wpb_imagelink_setup' ) ) {
 	 */
 	function wpb_imagelink_setup() {
 		$image_set = get_option( 'image_default_link_type' );
-
+		
 		if ( $image_set !== 'none' ) {
 			update_option( 'image_default_link_type', 'none' );
 		}
 	}
-
+	
 	add_action( 'admin_init', 'wpb_imagelink_setup', 10 );
 }
 
@@ -40,7 +40,7 @@ if ( ! function_exists( 'my_add_mce_button' ) ) {
 	 * Hooks your functions into the correct filters
 	 * @return array
 	 */
-
+	
 	// Hooks your functions into the correct filters
 	function my_add_mce_button() {
 		// check user permissions
@@ -53,7 +53,7 @@ if ( ! function_exists( 'my_add_mce_button' ) ) {
 			add_filter( 'mce_buttons', 'my_register_mce_button' );
 		}
 	}
-
+	
 	add_action( 'admin_head', 'my_add_mce_button' );
 }
 
@@ -62,11 +62,11 @@ if ( ! function_exists( 'my_add_tinymce_plugin' ) ) {
 	 * Register new button in the editor
 	 * @return array
 	 */
-
+	
 	// Declare script for new button
 	function my_add_tinymce_plugin( $plugin_array ) {
 		$plugin_array['my_mce_button'] = get_template_directory_uri() . '/assets/js/mce-button.js';
-
+		
 		return $plugin_array;
 	}
 }
@@ -78,10 +78,10 @@ if ( ! function_exists( 'my_register_mce_button' ) ) {
 	 */
 	function my_register_mce_button( $buttons ) {
 		array_push( $buttons, 'my_mce_button' );
-
+		
 		return $buttons;
 	}
-
+	
 }
 
 if ( ! function_exists( 'get_address' ) ) {
@@ -104,7 +104,7 @@ if ( ! function_exists( 'get_address' ) ) {
 				'postcode'
 			);
 		}
-
+		
 		foreach ( $details as &$detail ) {
 			if ( get_option( 'monolith_' . $detail ) ) {
 				$detail = get_option( 'monolith_' . $detail );
@@ -112,7 +112,7 @@ if ( ! function_exists( 'get_address' ) ) {
 				unset( $detail );
 			}
 		}
-
+		
 		return array_values( $details );
 	}
 }
@@ -132,12 +132,12 @@ add_filter( 'default_hidden_meta_boxes', function ( $hidden, $screen ) {
 			'revisionsdiv'
 		);
 	}
-
+	
 	// removed 'postcustom',
 	return $hidden;
 }, 10, 2 );
 
 // create custom gravity forms error message
-  add_filter( 'gform_validation_message', function( $message, $form ) {
-      return "<div class='validation_error'>".__('Sorry, there was a problem with the form.  Check the fields and try again.', 'monolith').'</div>';
-  }, 10, 2 );
+add_filter( 'gform_validation_message', function ( $message, $form ) {
+	return "<div class='validation_error'>" . __( 'Sorry, there was a problem with the form.  Check the fields and try again.', 'monolith' ) . '</div>';
+}, 10, 2 );
