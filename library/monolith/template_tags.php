@@ -104,12 +104,12 @@ if ( ! function_exists( 'is_descendant' ) ) {
 }
 
 
-if ( ! function_exists( 'the_post_thumbnail_caption' ) ) {
+if ( ! function_exists( 'monolith_post_thumbnail_caption' ) ) {
   /**
    * Echoes the caption for a post thumbnail
    * return void
    */
-  function the_post_thumbnail_caption() {
+  function monolith_post_thumbnail_caption() {
     global $post;
 
     $thumbnail_id    = get_post_thumbnail_id( $post->ID );
@@ -272,81 +272,6 @@ if ( ! function_exists( 'time_ago' ) ) {
       return human_time_diff( $d( 'U' ), current_time( 'timestamp' ) ) . " " . __( 'ago' );
     }
   }
-}
-
-if ( ! function_exists( 'get_asset_uri' ) ) {
-
-  /**
-   * Return the URI for the required asset files based on whether we're in production or development environment
-   *
-   * @param string $type The type of file (must be 'css' or 'js')
-   * @param string $file The name of the required file (without extension)
-   * @param bool $minified If true, ignore environment definition and get minified file
-   *
-   * @return bool|string
-   */
-  function get_asset_uri( $type, $file, $minified = false ) {
-	  $base_uri = get_template_directory_uri() . '/assets';
-	  $path = get_asset_path( $type, $file, $minified );
-
-	  return $path ? $base_uri . $path : false;
-  }
-}
-
-if ( ! function_exists ( 'get_asset_path' )) {
-	/**
-	 * Return the directory for the required asset files based on whether we're in production or development environment
-	 *
-	 * @param string $type The type of file (must be 'css' or 'js')
-	 * @param string $file The name of the required file (without extension)
-   * @param bool $minified If true, ignore environment definition and get minified file
-	 * @return bool|string
-	 */
-	function get_asset_directory( $type, $file, $minified = false ) {
-		$base_uri = get_template_directory() . '/assets';
-		$path = get_asset_path( $type, $file, $minified );
-
-		return $path ? $base_uri . $path : false;
-
-	}
-}
-
-if ( ! function_exists ( 'get_asset_path' )) {
-	/**
-	 * Returns the correct path for a file, depending on whether we're in production or development
-	 *
-	 * @param string $type The type of file (must be 'css' or 'js')
-	 * @param string $file The name of the required file (without extension)
-   * @param bool $minified If true, ignore environment definition and get minified file
-	 * @return bool|string
-	 */
-	function get_asset_path( $type, $file, $minified = false ) {
-
-		$final_uri     = '';
-		$allowed_types = array( 'css', 'js' );
-
-		// escape if the type of file is invalid
-		if ( ! in_array( $type, $allowed_types ) ) {
-			return false;
-		}
-
-    if ($minified) { // get minified filepath
-      $final_uri = "/dist/$file.min.$type";
-    } else {
-      switch ( ENVIRONMENT ) {
-        case 'development':
-          $final_uri = "/$type/$file.$type";
-          break;
-        case 'production':
-          $final_uri = "/dist/$file.min.$type";
-          break;
-        default:
-          return false;
-      }
-    }
-
-		return $final_uri;
-	}
 }
 
 if ( ! function_exists( 'get_monolith_post_thumbnail' ) ) {
