@@ -373,7 +373,7 @@ function pages_shortcode($atts, $content = null) {
     $builder_args['size'] = $size;
 
     ob_start();
-    build($layout, $builder_args, $args);
+    monolith_build($layout, $builder_args, $args);
     return ob_get_clean();
 
 }//end function
