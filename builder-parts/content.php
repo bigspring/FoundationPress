@@ -40,6 +40,6 @@
   <?php endwhile; ?>
 
 <?php else : // otherwise, load the no-content layout ?>
-  <?php include( $layouts_path . 'organisms/content-none.php' ); ?>
+  <?php include( $layouts_path . 'content-none.php' ); ?>
 <?php endif; ?>
 <!-- end content organism -->

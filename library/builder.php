@@ -15,7 +15,7 @@ class Builder {
 	private $loop = null;
 	private $default_args = array( // default arguments
 		'classes'       => '',
-		'size'          => BLOCK_GRID_SIZE,
+		'size'          => '',
 		'has_image'     => true,
 		'has_caption'   => true,
 		'has_title'     => true,

@@ -17,5 +17,5 @@
   <!-- end ol wrapper -->
 
 <?php else : // otherwise show the content none organism ?>
-  <?php include( $layouts_path . 'organisms/content-none.php' ); ?>
+  <?php include( $layouts_path . 'content-none.php' ); ?>
 <?php endif; ?>
