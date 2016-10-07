@@ -45,7 +45,7 @@ require_once( 'library/custom-nav.php' );
 require_once( 'library/sticky-posts.php' );
 
 /** Configure responsive image sizes */
-require_once( 'library/responsive-images.php' );
+//require_once( 'library/responsive-images.php' ); // @TODO consider whether we need this or not
 
 /** Add Monolith Builder functions */
 require_once( 'library/monolith/builder/builder.php' );
@@ -55,12 +55,15 @@ require_once( 'library/monolith/builder/builder-functions.php' );
 require_once( 'library/monolith/settings/blog.php' );
 require_once( 'library/monolith/settings/contact-details.php' );
 require_once( 'library/monolith/settings/social-media.php' );
+require_once( 'library/monolith/filters.php' );
+require_once( 'library/monolith/hooks.php' );
+require_once( 'library/monolith/template_tags.php' );
 
 /** Load Monolith shortcodes */
 require_once( 'library/shortcodes.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
- require_once( 'library/protocol-relative-theme-assets.php' );
+require_once( 'library/protocol-relative-theme-assets.php' );
 
 /**
  * Featured image sizes
