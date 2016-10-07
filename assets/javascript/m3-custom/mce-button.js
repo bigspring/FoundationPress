@@ -80,7 +80,8 @@
 										{text: 'Primary', value: 'primary'},
 										{text: 'Secondary', value: 'secondary'}	,
 										{text: 'Success', value: 'success'},
-										{text: 'Alert', value: 'alert'}
+										{text: 'Alert', value: 'alert'},
+										{text: 'Warning', value: 'warning'},
 									]
 								},
 
