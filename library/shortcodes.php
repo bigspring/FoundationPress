@@ -250,9 +250,9 @@ function monolith_foundation_accordion_shortcode( $atts, $content ) {
 		'class' => ''
 	), $atts ) );
 
-	$output = '<dl class="accordion ' . $class . '" data-accordion role="tablist">';
+	$output = '<ul class="accordion ' . $class . '" data-accordion>';
 	$output .= do_shortcode( $content );
-	$output .= '</dl>';
+	$output .= '</ul>';
 
 	return apply_filters( 'the_content', $output );
 }
@@ -268,12 +268,12 @@ function monolith_accordion_panel_shortcode( $atts, $content ) {
 
 	$id = rand( 1, 1000 );
 
-	$output = '<dd class="accordion-navigation ' . $class . '">';
-	$output .= '<a href="#panel' . $id . '" role="tab" id="panel' . $id . '-heading" aria-controls="panel' . $id . '">' . $title . '</a>';
-	$output .= '<div id="panel' . $id . '" class="content" role="tabpanel" aria-labelledby="panel' . $id . '-heading">';
+	$output = '<li class="accordion-item" data-accordion-item>';
+	$output .= '<a href="#" class="accordion-title">' . $title . '</a>';
+	$output .= '<div class="accordion-content" data-tab-content>';
 	$output .= $content;
 	$output .= '</div>';
-	$output .= '</dd>';
+	$output .= '</li>';
 
 	return apply_filters( 'accordion_panel', $output );
 }
