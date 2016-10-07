@@ -77,7 +77,7 @@ $img_config['imgSize']['newthumbnail'] = array( 'width' => 200, 'height' => 200 
 
 add_filter( 'image_size_names_choose', function ( $sizes ) {
 	global $img_config;
-	
+
 	$img_config['selectableImgSize'] = array(
 		'square'          => __( 'Square', 'monolith' ),
 		'small-square'    => __( 'Small Square', 'monolith' ),
@@ -85,8 +85,16 @@ add_filter( 'image_size_names_choose', function ( $sizes ) {
 		'small-landscape' => __( 'Small Landscape', 'monolith' ),
 		'portrait'        => __( 'Portrait', 'monolith' ),
 	);
-	
+
 	$sizes = array_merge( $sizes, $img_config['selectableImgSize'] );
-	
+
 	return $sizes;
 }, 10, 1 );
+
+/**
+ * New menus
+ */
+
+// create a custom footer menu
+register_nav_menu( 'footer', 'Footer Menu' );
+
