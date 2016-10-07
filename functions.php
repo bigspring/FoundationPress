@@ -94,3 +94,7 @@ add_filter( 'image_size_names_choose', function ( $sizes ) {
 /**
  * New menus
  */
+
+// create a custom footer menu
+register_nav_menu( 'footer', 'Footer Menu' );
+
