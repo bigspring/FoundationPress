@@ -8,7 +8,7 @@
  * @param object|null $query The Wordpress WP_Query object to be used
  */
 function monolith_build( $layout = null, $args = null, $query = null ) {
-	new Bigspring\Monolith\Builder( array( $layout, $args, $query ) );
+	new Bigspring\Monolith\Builder( $layout, $args, $query );
 }
 
 function monolith_grid( $part = null, $classes = null, $args = null, $query = null ) {
