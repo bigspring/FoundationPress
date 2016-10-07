@@ -1,14 +1,13 @@
 <?php
 /*
-Template Name: Fullwidth Page
+Template Name: Banner Page
  *
  * @package FoundationPress
  * @since FoundationPress 1.0.0
 */
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/header-standard' ); ?>
-
+<?php get_template_part( 'template-parts/header-banner' ); ?>
 
 	<div id="page-full-width" role="main">
 
