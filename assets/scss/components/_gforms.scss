@@ -1,0 +1,64 @@
+ul.gform_fields {
+  list-style: none;
+  margin: 0;
+  li {
+    clear: both;
+    position: relative;
+
+    @media#{$large-up} {
+      &.gf_left_half {
+        width: 49%;
+        float: left;
+        clear: none;
+      }
+      &.gf_right_half {
+        width: 49%;
+        float: right;
+        clear: none;
+      }
+
+    }//@large-up
+
+    //validationo messagio
+    &.gfield_error  {
+      input, textarea {
+        background-color: scale-color($alert-color, $lightness: 75%);
+        border-color: $alert-color;
+        &:focus {
+          background-color: $white;
+          border-color: $white;
+        }
+      }
+    }
+
+    .validation_message {
+
+      position: absolute;
+      right: 1rem;
+      top: 0.75rem;
+      color: $alert-color;
+
+    }//validation_message
+
+    &:focus {
+      .validation_message {display: none !important;}
+    }
+
+    // radio buttons
+    .ginput_container_radio {
+	    ul.gfield_radio {
+		    list-style: none;
+		    margin-left: 0;
+	    }//ul.gfield_radio
+    }//ginput_container_radio
+
+    // checkbox
+    .ginput_container_checkbox {
+	    ul.gfield_checkbox {
+		    list-style: none;
+		    margin-left: 0;
+	    }//ul.gfield_radio
+    }//ginput_container_radio
+
+  }//li
+}//gform_fields
