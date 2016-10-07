@@ -190,28 +190,28 @@
 											type: 'checkbox',
 											name: 'checkboxImage',
 											label: 'Featured Image',
-                      checked: true
+											checked: true
 										},
 
-                    {
-                        type: 'checkbox',
-                        name: 'checkboxThumbnail',
-                        label: 'Image border',
-                        checked: false
-                    },
+										{
+											type: 'checkbox',
+											name: 'checkboxThumbnail',
+											label: 'Image border',
+											checked: false
+										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxTitle',
 											label: 'Page Title',
-                      checked: false
+											checked: false
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxLinkTitle',
 											label: 'Link Title',
-                      checked: false
+											checked: false
 										},
 
 
@@ -219,18 +219,18 @@
 											type: 'checkbox',
 											name: 'checkboxExcerpt',
 											label: 'Page Summary',
-                      checked: false
+											checked: false
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxReadMore',
 											label: '"Read More" link',
-                      checked: false
+											checked: false
 										}
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[pages ids="' + e.data.pageIds + '" size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[pages ids="' + e.data.pageIds + '" size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="card" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -320,28 +320,28 @@
 											type: 'checkbox',
 											name: 'checkboxTitle',
 											label: 'Page Title',
-                      checked: true
+											checked: true
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxLinkTitle',
 											label: 'Link Title',
-                      checked: true
+											checked: true
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxExcerpt',
 											label: 'Include Excerpt?',
-                      checked: 'true'
+											checked: 'true'
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxReadMore',
 											label: 'Include Readmore Link?',
-                      checked: 'true'
+											checked: 'true'
 										},
 
 										{
@@ -359,7 +359,7 @@
 
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[pages ids="' + e.data.pageIds + '" layout="snippets" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
+										editor.insertContent( '[pages ids="' + e.data.pageIds + '" layout="grid" part="snippet" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
 									}
 								});
 							}
@@ -451,21 +451,21 @@
 											type: 'checkbox',
 											name: 'checkboxImage',
 											label: 'Display Featured Image',
-                      checked: true
+											checked: true
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxTitle',
 											label: 'Display Page Title',
-                      checked: true
+											checked: true
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxLinked',
 											label: 'Link to Page',
-                      checked: true
+											checked: true
 										},
 
 
@@ -473,18 +473,18 @@
 											type: 'checkbox',
 											name: 'checkboxExcerpt',
 											label: 'Display Excerpt',
-                      checked: false
+											checked: false
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxReadMore',
 											label: 'Display a \"Read More\" link',
-                      checked: false
+											checked: false
 										}
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="block-grid" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" linked="'+ e.data.checkboxLinked+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="card" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" linked="'+ e.data.checkboxLinked+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -556,28 +556,28 @@
 											type: 'checkbox',
 											name: 'checkboxTitle',
 											label: 'Page Title',
-                      checked: true
+											checked: true
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxLinkTitle',
 											label: 'Link Title',
-                      checked: true
+											checked: true
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxExcerpt',
 											label: 'Include Excerpt?',
-                      checked: 'true'
+											checked: 'true'
 										},
 
 										{
 											type: 'checkbox',
 											name: 'checkboxReadMore',
 											label: 'Include Readmore Link?',
-                      checked: 'true'
+											checked: 'true'
 										},
 
 										{
@@ -595,7 +595,7 @@
 
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="snippets" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
+										editor.insertContent( '[childpages layout="snippets" part="snippet" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'" readmore="'+ e.data.checkboxReadMore+'"]');
 									}
 								});
 							}
@@ -673,62 +673,62 @@
 				// ====================================
 				{
 					text: 'Intro',
-						onclick: function() {
-							editor.windowManager.open( {
-								title: 'Insert intro Shortcode',
-								body: [
-									{
-										type: 'textbox',
-										name: 'textboxIntro',
-										label: 'Intro Text',
-										value: '',
-										multiline: true,
-										minWidth: 300,
-										minHeight: 100
-									},
-								],
-								onsubmit: function( e ) {
-									editor.insertContent( '[intro]' + e.data.textboxIntro + '[/intro]');
-								}
-							});
-						}
+					onclick: function() {
+						editor.windowManager.open( {
+							title: 'Insert intro Shortcode',
+							body: [
+								{
+									type: 'textbox',
+									name: 'textboxIntro',
+									label: 'Intro Text',
+									value: '',
+									multiline: true,
+									minWidth: 300,
+									minHeight: 100
+								},
+							],
+							onsubmit: function( e ) {
+								editor.insertContent( '[intro]' + e.data.textboxIntro + '[/intro]');
+							}
+						});
+					}
 				},
 
 				// Accordion shortcode
 				// ====================================
 				{
 					text: 'Accordion',
-						onclick: function() {
-							editor.windowManager.open( {
-								title: 'Insert Accordion Shortcode',
-								body: [
+					onclick: function() {
+						editor.windowManager.open( {
+							title: 'Insert Accordion Shortcode',
+							body: [
 
-									{
-										type: 'textbox',
-										name: 'accordionTitle',
-										label: 'Accordion Panel Title',
-										value: '',
-										multiline: true,
-										minWidth: 300,
-										minHeight: 50
-									},
+								{
+									type: 'textbox',
+									name: 'accordionTitle',
+									label: 'Accordion Panel Title',
+									value: '',
+									multiline: true,
+									minWidth: 300,
+									minHeight: 50
+								},
 
-									{
-										type: 'textbox',
-										name: 'accordionContent',
-										label: 'Accordion Panel Text',
-										value: '',
-										multiline: true,
-										minWidth: 300,
-										minHeight: 100
-									},
+								{
+									type: 'textbox',
+									name: 'accordionContent',
+									label: 'Accordion Panel Text',
+									value: '',
+									multiline: true,
+									minWidth: 300,
+									minHeight: 100
+								},
 
-								],
-								onsubmit: function( e ) {
-									editor.insertContent( '[accordion][accordion_panel title="' + e.data.accordionTitle + '"]' + e.data.accordionContent + '[/accordion_panel][/accordion]');
-								}
-							});
-						}
+							],
+							onsubmit: function( e ) {
+								editor.insertContent( '[accordion][accordion_panel title="' + e.data.accordionTitle + '"]' + e.data.accordionContent + '[/accordion_panel][/accordion]');
+							}
+						});
+					}
 				},
 
 
