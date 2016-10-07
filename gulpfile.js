@@ -63,11 +63,12 @@ var PATHS = {
 
     // Include your own custom scripts (located in the custom folder)
     'assets/javascript/custom/*.js',
+	  'assets/javascript/m3-custom/custom.js'
   ],
   phpcs: [
     '**/*.php',
     '!wpcs',
-    '!wpcs/**',
+    '!wpcs/**'
   ],
   pkg: [
     '**/*',
@@ -80,7 +81,7 @@ var PATHS = {
     '!**/composer.json',
     '!**/composer.lock',
     '!**/codesniffer.ruleset.xml',
-    '!**/packaged/*',
+    '!**/packaged/*'
   ]
 };
 
@@ -94,7 +95,7 @@ gulp.task('browser-sync', ['build'], function() {
 
   browserSync.init(files, {
     // Proxy address
-    proxy: URL,
+    proxy: URL
 
     // Port #
     // port: PORT
