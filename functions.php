@@ -49,6 +49,7 @@ require_once( 'library/responsive-images.php' );
 
 /** load the builder functions */
 require_once( 'library/builder.php' );
+require_once( 'library/builder-functions.php' );
 
 /** load the shortcodes */
 require_once( 'library/shortcodes.php' );
