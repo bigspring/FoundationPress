@@ -9,7 +9,7 @@ namespace Bigspring\Monolith;
  */
 class Builder {
 	private $layouts_path;
-	private $layout = 'list';
+	private $layout = array();
 	private $query = null;
 	private $args = array();
 	private $loop = null;
@@ -27,7 +27,7 @@ class Builder {
 	);
 	private $part = null;
 	
-	public function __construct( $layout = null, $args = null, $query = null ) {
+	public function __construct( $layout = array(), $args = null, $query = null ) {
 		
 		$default_layout = 'snippets';
 		$default_part   = 'snippet';
@@ -51,10 +51,10 @@ class Builder {
 		$this->query = $query ? $query : null; // set the query object if we have one
 		$this->args  = $args ? $args : array(); // set our args if we have any
 		
-		$this->_set_loop(); // set the loop object
-		$this->_set_args(); // set any custom arguments we have
+		$this->set_loop(); // set the loop object
+		$this->set_args(); // set any custom arguments we have
 		
-		echo $this->_render(); // render the view
+		echo $this->render(); // render the view
 		wp_reset_query();
 	}
 	
@@ -62,7 +62,7 @@ class Builder {
 	 * Sets the loop object to be the supplied one, or the global wp_query object if not
 	 * @return bool
 	 */
-	private function _set_loop() {
+	private function set_loop() {
 		if ( ! $this->query ) {
 			global $wp_query;
 			$this->loop = $wp_query;
@@ -77,7 +77,7 @@ class Builder {
 	 * Sets up the arguments by merging in supplied args with default args, then applies any custom rules required
 	 * @return bool
 	 */
-	private function _set_args() {
+	private function set_args() {
 		$this->args            = array_merge( $this->default_args, $this->args ); // merge in any custom arguments we have
 		$this->args['classes'] = 'builder builder-' . $this->layout['layout'] . ' ' . $this->args['classes']; // we do this to add all dynamically generated classes
 		
@@ -88,7 +88,7 @@ class Builder {
 	 * Echos the full layout
 	 * @return bool
 	 */
-	private function _render() {
+	private function render() {
 		$loop         = &$this->loop;
 		$args         = &$this->args;
 		$layout       = $this->layout;
@@ -99,15 +99,15 @@ class Builder {
 		
 		ob_start();
 		
-		if ( ! file_exists( $this->_get_layout_file() ) ) { // if the file doesn't exist, handle the error
+		if ( ! file_exists( $this->get_layout_file() ) ) { // if the file doesn't exist, handle the error
 			if ( ENVIRONMENT === 'development' ) { // if we're in development mode then show the error
-				return $this->_raise_alert( 'The layout file "' . $this->layout . '"could not be found' );
+				return $this->raise_alert( 'The layout file "' . $this->layout . '"could not be found' );
 			} else { // otherwise default to the list layout
 				$this->layout = 'list';
 			}
 		}
 		
-		include( $this->_get_layout_file() );
+		include( $this->get_layout_file() );
 		
 		return ob_get_clean();
 	}
@@ -119,14 +119,14 @@ class Builder {
 	 *
 	 * @return string
 	 */
-	private function _raise_alert( $message ) {
+	private function raise_alert( $message ) {
 		// only display error when in development environment
 		if ( ENVIRONMENT === 'development' ) {
 			return '<p class="alert-box alert">' . $message . '</p>';
 		}
 	}
 	
-	private function _get_layout_file() {
+	private function get_layout_file() {
 		return $this->layouts_path . $this->layout['layout'] . '.php';
 	}
 }
