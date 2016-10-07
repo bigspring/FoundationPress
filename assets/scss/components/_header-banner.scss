@@ -1,8 +1,8 @@
-#header-banner {
+.header-banner {
 
 	padding: 5% 0;
 	margin-bottom: 2rem;
-
+	position: relative;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -11,31 +11,24 @@
 		padding: 4rem 0;
 	}
 
-
 	.caption {
 		@include grid-column(12);
-	}
-}
-
-/*
-@include breakpoint(small) {
-	#featured-hero {
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		margin: 0 0 rem-calc(32);
 		position: relative;
-		height: rem-calc(200);
-		}
+		z-index: 1;
+	}
+}//.header-banner
 
-		.no-featured-image-set {
-			height: rem-calc(16) !important;
-		}
-}
+// BLACKUP DIV
+// Just include <div class="blackup"></div>
+// within the header part and you will be blacked
+// up real good
+// -----------
 
-@include breakpoint(medium) {
-	#featured-hero {
-		height: rem-calc(400);
-		}
-}
-*/
+.blackup {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba($black, 0.5)
+}//blackup
