@@ -141,3 +141,17 @@ add_filter( 'default_hidden_meta_boxes', function ( $hidden, $screen ) {
 add_filter( 'gform_validation_message', function ( $message, $form ) {
 	return "<div class='validation_error'>" . __( 'Sorry, there was a problem with the form.  Check the fields and try again.', 'monolith' ) . '</div>';
 }, 10, 2 );
+
+/**
+ * Add browserSync code before closing body tag
+ */
+add_action( 'foundationpress_before_closing_body', function () {
+	
+	if ( ! defined( 'ENVIRONMENT' ) || ENVIRONMENT !== 'development' ) {
+		return false;
+	}
+	
+	echo "<script id=\"__bs_script__\">//<![CDATA[
+		document.write(\"<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.17.0'><\/script>\".replace(\"HOST\", location.hostname));
+		//]]></script>";
+}, 99 );
