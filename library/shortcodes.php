@@ -144,8 +144,8 @@ function childpages( $atts, $content = null ) {
 	$builder_args['has_link']     = ( $linked == 'false' ) ? false : true;
 	$builder_args['has_summary']  = ( $excerpt == 'false' ) ? false : true;
 	$builder_args['has_readmore'] = ( $readmore == 'false' ) ? false : true;
-	$builder_args['classes']      = $class;
-	$builder_args['size']         = $size;
+	$builder_args['classes']      = $size;
+	//$builder_args['size']         = $size;
 
 
 	if ( $exclude_pages ) {
@@ -202,8 +202,8 @@ function pages_shortcode( $atts, $content = null ) {
 	$builder_args['has_summary']  = ( $excerpt == 'false' ) ? false : true;
 	$builder_args['has_readmore'] = ( $readmore == 'false' ) ? false : true;
 	$builder_args['orderby']      = $orderby;
-	$builder_args['classes']      = $class;
-	$builder_args['size']         = $size;
+	$builder_args['classes']      = $size;
+	//$builder_args['size']         = $size;
 
 	ob_start();
 	monolith_build( array( 'layout' => $layout, 'part' => $part ), $builder_args, $args );
