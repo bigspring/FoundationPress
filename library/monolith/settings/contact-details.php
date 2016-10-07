@@ -9,6 +9,9 @@
  */
 add_action( 'admin_init', function () {
 	
+	// registration
+	register_setting( 'monolith-contact-group', 'monolith_company_number' );
+	
 	// contact
 	register_setting( 'monolith-contact-group', 'monolith_address_1' );
 	register_setting( 'monolith-contact-group', 'monolith_address_2' );
@@ -21,7 +24,6 @@ add_action( 'admin_init', function () {
 	register_setting( 'monolith-contact-group', 'monolith_secondary_phone' );
 	register_setting( 'monolith-contact-group', 'monolith_fax' );
 	register_setting( 'monolith-contact-group', 'monolith_email' );
-	register_setting( 'monolith-contact-group', 'monolith_company_number' );
 	
 	// secondary contact
 	register_setting( 'monolith-contact-group', 'monolith_secondary_address_1' );
@@ -36,7 +38,6 @@ add_action( 'admin_init', function () {
 	register_setting( 'monolith-contact-group', 'monolith_secondary_fax' );
 	register_setting( 'monolith-contact-group', 'monolith_secondary_email' );
 	register_setting( 'monolith-contact-group', 'monolith_secondary_company_number' );
-	
 } );
 
 /**
@@ -290,12 +291,29 @@ add_action( 'admin_menu', function () {
 		);
 		?>
 		<div class="wrap">
-			<h1><?php _e( 'Contact Details', 'monolith' ); ?></h1>
+			<h1><?php _e( 'Company Details', 'monolith' ); ?></h1>
 			<hr/>
 			<form method="post" action="options.php">
+				
 				<?php @settings_fields( 'monolith-contact-group' ); ?>
 				<?php @do_settings_sections( 'monolith-contact-group' ); ?>
-				<h3><?php _e( 'Nottingham contact details', 'monolith' ); ?></h3>
+				
+				<h3><?php _e( 'Registration number', 'monolith' ); ?></h3>
+				<table class="form-table">
+					<tr valign="top">
+						<th scope="row"><label
+								for="monolith_company_number"><?php _e( 'Company Registration Number', 'monolith' ); ?></label></th>
+						<td>
+							<input type="text" name="monolith_company_number" id="monolith_company_number"
+							       value="<?= get_option( 'monolith_company_number' ) ? get_option( 'monolith_company_number' ) : '' ?>"
+							       size="35"
+							       placeholder="123456789">
+						</td>
+					</tr>
+				</table>
+				
+				<h3><?php _e( 'Primary contact details', 'monolith' ); ?></h3>
+				
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row"><label for="monolith_address_1"><?php _e( 'Address 1', 'monolith' ); ?></label></th>
@@ -390,21 +408,10 @@ add_action( 'admin_menu', function () {
 							       placeholder="hello@website.com">
 						</td>
 					</tr>
-					
-					<tr valign="top">
-						<th scope="row"><label
-								for="monolith_company_number"><?php _e( 'Company Registration Number', 'monolith' ); ?></label></th>
-						<td>
-							<input type="text" name="monolith_company_number" id="monolith_company_number"
-							       value="<?= get_option( 'monolith_company_number' ) ? get_option( 'monolith_company_number' ) : '' ?>"
-							       size="35"
-							       placeholder="123456789">
-						</td>
-					</tr>
 				</table>
 				
-				<!-- secondary address -->
-				<h3><?php _e( 'London contact details', 'monolith' ); ?></h3>
+				<h3><?php _e( 'Secondary Contact Details', 'monolith' ); ?></h3>
+				
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row"><label for="monolith_secondary_address_1"><?php _e( 'Address 1', 'monolith' ); ?></label>
@@ -507,17 +514,6 @@ add_action( 'admin_menu', function () {
 							       value="<?= get_option( 'monolith_secondary_email' ) ? get_option( 'monolith_secondary_email' ) : '' ?>"
 							       size="35"
 							       placeholder="hello@website.com">
-						</td>
-					</tr>
-					<tr valign="top">
-						<th scope="row"><label
-								for="monolith_secondary_company_number"><?php _e( 'Company Registration Number', 'monolith' ); ?></label>
-						</th>
-						<td>
-							<input type="text" name="monolith_secondary_company_number" id="monolith_secondary_company_number"
-							       value="<?= get_option( 'monolith_secondary_company_number' ) ? get_option( 'monolith_secondary_company_number' ) : '' ?>"
-							       size="35"
-							       placeholder="123456789">
 						</td>
 					</tr>
 				</table>
