@@ -11,7 +11,7 @@
   <nav class="block-breadcrumbs">
     <div class="row">
       <div class="columns small-12">
-        <ul class="breadcrumbs">
+        <ul class="breadcrumbs menu">
           <?php bcn_display_list(); ?>
         </ul>
       </div>

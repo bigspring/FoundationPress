@@ -13,7 +13,7 @@
   <?php $count = 0; // initiate the count ?>
 
     <!-- the tabs navigation   -->
-    <ul class="tabs <?= $args['classes'] ?>" data-tabs id="builder-tabs">
+    <ul class="tabs" data-tabs id="builder-tabs">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
       <li class="tabs-title <?= $count === 0 ? 'is-active' : '' ?>"><a href="#panel-<?= get_the_id() ?>"><?php the_title(); ?></a></li>
       <?php $count ++ ?>
