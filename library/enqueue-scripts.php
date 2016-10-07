@@ -39,7 +39,6 @@ endif;
 // M3 custom enqueued scripts
 // ---------------------------
 
-
 // Add a tinyMCE button
 if ( ! function_exists( 'my_add_mce_button' ) ) {
 	/**
@@ -62,7 +61,6 @@ if ( ! function_exists( 'my_add_mce_button' ) ) {
 
 	add_action( 'admin_head', 'my_add_mce_button' );
 }
-
 
 if ( ! function_exists( 'my_add_tinymce_plugin' ) ) {
 	/**
@@ -88,5 +86,4 @@ if ( ! function_exists( 'my_register_mce_button' ) ) {
 
 		return $buttons;
 	}
-
 }
