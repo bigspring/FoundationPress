@@ -656,8 +656,8 @@
 									name: 'addressListTypes',
 									label: 'Address Type',
 									'values': [
-										{text: 'Vertical', value: 'no-bullet'},
-										{text: 'Horizontal', value: 'inline-list'}
+										{text: 'Vertical', value: 'vertical'},
+										{text: 'Horizontal', value: 'horizontal'}
 									]
 								},
 							],
