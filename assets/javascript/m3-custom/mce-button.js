@@ -80,7 +80,8 @@
 										{text: 'Primary', value: 'primary'},
 										{text: 'Secondary', value: 'secondary'}	,
 										{text: 'Success', value: 'success'},
-										{text: 'Alert', value: 'alert'}
+										{text: 'Alert', value: 'alert'},
+										{text: 'Warning', value: 'warning'},
 									]
 								},
 
@@ -655,8 +656,8 @@
 									name: 'addressListTypes',
 									label: 'Address Type',
 									'values': [
-										{text: 'Vertical', value: 'no-bullet'},
-										{text: 'Horizontal', value: 'inline-list'}
+										{text: 'Vertical', value: 'vertical'},
+										{text: 'Horizontal', value: 'horizontal'}
 									]
 								},
 							],
@@ -747,10 +748,10 @@
 									'values': [
 										{text: 'Default', value: ''},
 										{text: 'Primary', value: 'primary'},
-										{text: 'Secondary', value: 'primary'},
-										{text: 'Success', value: 'primary'},
-										{text: 'Warning', value: 'primary'},
-										{text: 'Alert', value: 'primary'},
+										{text: 'Secondary', value: 'secondary'},
+										{text: 'Success', value: 'success'},
+										{text: 'Warning', value: 'warning'},
+										{text: 'Alert', value: 'alert'},
 									]
 								},
 							],

@@ -1,3 +1,6 @@
+// this is a fail as we are using builder-grid to create loops and that has a wrapping column around every looped item
+/*
 .snippet {
   @include grid-column;
 }
+*/
