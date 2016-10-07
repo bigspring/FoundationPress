@@ -67,7 +67,7 @@ class Builder {
 			global $wp_query;
 			$this->loop = $wp_query;
 		} else {
-			$this->loop = new WP_Query( $this->query );
+			$this->loop = new \WP_Query( $this->query );
 		}
 		
 		return true;
