@@ -8,6 +8,8 @@
 
 get_header(); ?>
 
+<?php get_template_part('template-parts/breadcrumbs'); ?>
+
 <div id="single-post" role="main">
 
 <?php do_action( 'foundationpress_before_content' ); ?>
@@ -30,7 +32,7 @@ get_header(); ?>
 		<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 		</div>
 		<footer>
-			<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>			
+			<?php wp_link_pages( array('before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ), 'after' => '</p></nav>' ) ); ?>
 		</footer>
 	</article>
 <?php endwhile;?>

@@ -219,3 +219,27 @@
     column-count: 2;
 
   }
+
+// 05 - ADDRESS
+// =========================
+
+	ul.address-list.menu {
+
+		&.horizontal {
+			li {
+				padding-right: 0.5rem;
+				&:after {
+					content: ",";
+				}
+
+				&:last-child() {
+					margin-right: 0;
+					&:after {
+						content: none;
+					}
+				}//last-child
+
+			}//li
+		}//horizontal
+
+	}//ul.address-list
