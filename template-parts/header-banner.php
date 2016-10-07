@@ -12,7 +12,7 @@
 		$image = $image[0];
 		?>
 
-	<header id="header-banner" role="banner" style="background-image: url('<?php echo $image ?>')">
+	<header class="header-banner" role="banner" style="background-image: url('<?php echo $image ?>')">
 		<div class="row">
 			<div class="caption">
 				<?php get_template_part('/template-parts/page-header-title'); ?>
