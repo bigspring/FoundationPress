@@ -10,13 +10,13 @@
 
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class('blogpost-entry'); ?>>
+<div id="post-<?php the_ID(); ?>" <?php post_class('snippet'); ?>>
 	<header>
 		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-		<?php foundationpress_entry_meta(); ?>
+		<?php // foundationpress_entry_meta(); ?>
 	</header>
 	<div class="entry-content">
-		<?php the_content( __( 'Continue reading...', 'foundationpress' ) ); ?>
+		<p><?= wp_trim_words( get_the_excerpt(), 30, '...' ); ?></p>
 	</div>
 	<footer>
 		<a href="<?php the_permalink(); ?>" class="read-more"><?php _e( 'Read more', 'foundationpress' ); ?></a>

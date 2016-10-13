@@ -1,6 +1,6 @@
 #page {
-  @include grid-row();
-  margin-top: 3rem;
+
+  @include grid-row;
 
   .main-content {
     @include breakpoint(small) {

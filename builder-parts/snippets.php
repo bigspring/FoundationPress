@@ -14,16 +14,14 @@
         <?php if ( is_search() ) : ?>
           <?php include( $layouts_path . 'molecules/search-result.php' ); ?>
         <?php else : ?>
-
-
           <?php include( $part ); ?>
         <?php endif; ?>
       <?php endwhile; ?>
     </div>
-    <!-- end snippets loop -->  
+    <!-- end snippets loop -->
 
 <?php else  :// otherwise show the content none organism ?>
-  <?php include( $layouts_path . 'organisms/content-none.php' ); ?>
+  <?php include( $layouts_path . 'content-none.php' ); ?>
 <?php endif; ?>
 
-<?php include( $layouts_path . 'organisms/pagination.php' ); ?>
+<?php include( $layouts_path . 'pagination.php' ); ?>

@@ -92,3 +92,54 @@
   }
 
 }
+
+//Full width Bands sections
+.m3-band {
+	padding: 2rem 0;
+
+	&.primary {
+		background-color: map-get($foundation-palette, primary);
+		color: $white;
+
+		.button {
+			background-color: $secondary-color;
+			&:hover {
+				background-color: scale-color($secondary-color, $lightness: -15%);
+			}
+		}//button
+	}//primary
+
+	&.secondary {
+		background-color: map-get($foundation-palette, secondary);
+		color: $white;
+	}//secondary
+
+	&.grey {
+		background-color: $light-gray;
+		color: $body-font-color;
+	}//grey
+
+	.m3-band-content-container {
+		@include grid-row();
+	}//m3-band-content-container
+
+	header {
+		@include grid-row();
+		@include grid-column(12);
+	}//header
+
+	.m3-band-content {
+		@include grid-row();
+		@include grid-column(12);
+	}//m3-band-content
+
+	footer {
+		@include grid-row();
+		@include grid-column(12);
+	}//footer
+
+	.button {
+		margin-top: 1rem;
+	}//button
+
+}//.m3-band

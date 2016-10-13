@@ -1,0 +1,245 @@
+// Monolith by BigSpring
+// Licensed under MIT Open Source
+
+// Description: Utility classes used by Monolith for lists, text styles etc
+
+// CONTENTS
+// =========================
+
+// 01 – MARGINS
+// 02 – TYPO
+// 03 – SPACERS
+// 04 – TEXT COLUMNS
+
+
+// 01 – MARGINS
+// =========================
+.no-margin {margin: 0;}
+.no-margin-top {margin-top: 0;}
+.no-margin-right {margin-right: 0;}
+.no-margin-bottom {margin-bottom: 0;}
+.no-margin-left {margin-left: 0;}
+
+// 02 – TYPO
+// =========================
+
+  // text muted – a relic from the Bootstrap Years <3
+  // ------------------------------------------------------------
+  .text-muted {
+    color: $light-gray;
+  }
+
+  // Styled <ul> lists
+  // ------------------------------
+
+  // ninja mixin to reset list styles
+  @mixin reset-list() {
+    list-style: none;
+    margin-left: 0;
+
+    li {
+
+      // float the icon left and apply some ninja magics
+      &:before {
+        font-family: 'fontAwesome';
+        float: left;
+      } //:before
+
+    } // li
+
+  } //mixin
+
+  // tick list
+  ul.tick {
+    @include reset-list;
+
+    li {padding-left: 1.3rem;}
+
+    li:before {
+      content: $fa-var-check;
+      color: $success-color;
+      margin-left: -1.3rem;
+    }
+  }
+
+  // chevron
+  ul.chevron {
+    @include reset-list;
+
+    li {padding-left: 0.7rem;}
+
+    li:before {
+      content: $fa-var-angle-right;
+      margin-left: -0.6rem;
+    }
+
+  }
+
+  // caret right
+  ul.caret {
+    @include reset-list;
+
+    li {padding-left: 0.7rem;}
+
+    li:before {
+      content: $fa-var-caret-right;
+      margin-left: -0.6rem;
+    }
+
+  }
+
+
+ // Styled <ul> lists using monolith lists shortcode
+ // NB no real way of using the markup above as a mixin as it is the
+ // wrapping div which gets the specific name
+ // rather than the ul itself, maybe we can improve this in the future?
+ // --------------------------------------------------------------------
+
+ .styled-list {
+
+	 ul {
+    @include reset-list;
+
+    li {
+
+      // float the icon left and apply some ninja magics
+      &:before {
+        font-family: 'fontAwesome';
+        float: left;
+      } //:before
+
+    } // li
+
+	 }//ul
+
+	 //chevron
+	 &.chevron {
+    li {padding-left: 0.7rem;}
+
+    li:before {
+      content: $fa-var-angle-right;
+      margin-left: -0.6rem;
+    }
+	 }//chevron
+
+  // caret right
+  &.caret {
+
+    li {padding-left: 0.7rem;}
+
+    li:before {
+      content: $fa-var-caret-right;
+      margin-left: -0.6rem;
+    }
+  }// caret right
+
+  // tick list
+  &.tick {
+
+    li {padding-left: 1.3rem;}
+
+    li:before {
+      content: $fa-var-check;
+      color: $success-color;
+      margin-left: -1.3rem;
+    }
+  }// tick list
+
+
+ }//monolith-list
+
+
+ 	// centered list
+ 	// -------------
+
+ 	.inline-list {
+
+	 	&.centered-inline-list {
+
+		 	@media#{$small-only} { // I reckon this will only be useful on mobile
+
+			 	list-style-type: none;
+			 	text-align: center;
+			 	margin: 0 auto;
+
+			 	li {
+				 	float: none;
+				 	display: inline-block;
+			 	}
+
+		 	}//$small-only
+
+	 	}//centered-inline-list
+
+ 	}//inline-list
+
+  // inline address lists
+  // ------------------------------
+
+	.address-list.inline-list {
+		li {
+			margin-left: 0.33rem;
+
+			&:first-child {
+				margin-left: 1.375rem;
+			}
+
+			&:after {
+				content: ","
+			}
+
+			&:last-child:after {
+				content: none;
+			}
+
+		}//li
+	}//address-list
+
+// 03 – SPACERS
+// =========================
+
+
+  // a class to create a 1rem vertical space using a transparent <hr/>
+  hr.spacer {
+
+    border-color: transparent;
+    display: block;
+    height: 1rem;
+    margin: 0;
+
+  }
+
+// 04 - TEXT COLUMNS
+// =========================
+
+  .text-columns {
+
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+
+  }
+
+// 05 - ADDRESS
+// =========================
+
+	ul.address-list.menu {
+
+		&.horizontal {
+			li {
+				padding-right: 0.5rem;
+				&:after {
+					content: ",";
+				}
+
+				&:last-child() {
+					margin-right: 0;
+					&:after {
+						content: none;
+					}
+				}//last-child
+
+			}//li
+		}//horizontal
+
+	}//ul.address-list

@@ -1,6 +1,9 @@
 <?php
 /*
 Template Name: Kitchen Sink
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
 */
 get_header(); ?>
 
@@ -880,6 +883,50 @@ get_header(); ?>
 		<div class="entry-content">
 			<?php the_content(); ?>
 		</div>
+
+		<div class="row column full-width-bands">
+			<h2>Full width band classes</h2>
+		</div>
+
+		<!-- Full width bands sections -->
+		<section class="m3-band">
+			<div class="m3-band-content-container">
+				<header><h2>Default band title</h2></header>
+				<div class="m3-band-content">
+					<p>Band content</p>
+				</div>
+				<footer><a href="" class="button">A button</a></footer>
+			</div>
+		</section>
+		<section class="m3-band primary">
+			<div class="m3-band-content-container">
+				<header><h2>Primary band title</h2></header>
+				<div class="m3-band-content">
+					<p>Band content</p>
+				</div>
+				<footer><a href="" class="button">A button</a></footer>
+			</div>
+		</section>
+
+		<section class="m3-band secondary">
+			<div class="m3-band-content-container">
+				<header><h2>Secondary band title</h2></header>
+				<div class="m3-band-content">
+					<p>Band content</p>
+				</div>
+				<footer><a href="" class="button">A button</a></footer>
+			</div>
+		</section>
+
+		<section class="m3-band grey">
+			<div class="m3-band-content-container">
+				<header><h2>Grey band title</h2></header>
+				<div class="m3-band-content">
+					<p>Band content</p>
+				</div>
+				<footer><a href="" class="button">A button</a></footer>
+			</div>
+		</section>
 
 	<?php endwhile; ?>
 <?php get_footer();

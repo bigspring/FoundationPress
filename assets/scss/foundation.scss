@@ -80,19 +80,29 @@
 @import "modules/footer";
 @import "modules/sidebar";
 @import "modules/editor-style";
+@import "modules/utilities";
+
 
 // Components
+@import "components/builder";
 @import "components/buttons";
 @import "components/hero";
 @import "components/page-header";
-@import "components/featured-image";
+@import "components/header-banner";
 @import "components/dividers";
 @import "components/links";
+@import "components/card";
+@import "components/snippet";
+@import "components/breadcrumbs";
+@import "components/social-media-icons";
+@import "components/stretch-band";
+//@import "components/gforms";
 
 // Templates
 @import "templates/front";
 @import "templates/kitchen-sink";
 @import "templates/page-default";
 @import "templates/page-sidebar-left";
+@import "templates/page-sidebar-right";
 @import "templates/page-full-width";
 @import "templates/single-post";
