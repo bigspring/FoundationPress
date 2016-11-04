@@ -4192,7 +4192,7 @@ input[type="range"] {
 
 .breadcrumbs {
   list-style: none;
-  margin: 0 0 1rem 0; }
+  margin: 1rem 0 0; }
   .breadcrumbs::before, .breadcrumbs::after {
     content: ' ';
     display: table; }
@@ -4201,9 +4201,8 @@ input[type="range"] {
   .breadcrumbs li {
     float: left;
     color: #0a0a0a;
-    font-size: 0.6875rem;
-    cursor: default;
-    text-transform: uppercase; }
+    font-size: 0.75rem;
+    cursor: default; }
     .breadcrumbs li:not(:last-child)::after {
       color: #cacaca;
       content: "/";
