@@ -155,19 +155,20 @@
   // two column lists
   // ------------------------------
 
-	ul.list-column {
-
+	ul.list-two-column {
+    @include reset-list;
 		li {
 			@include breakpoint(medium up) {
 				width: 45%;
 				margin-right: 5%;
+				float: left;
 			}
 		}
 
 	}//ul.list-column
 
 	.styled-list {
-		&.list-column {
+		&.list-two-column {
 			ul {
 				margin-bottom: 1rem;
 				li {
