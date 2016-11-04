@@ -1,0 +1,49 @@
+// ------------------------
+// Custom rules for block
+// styling.
+// ------------------------
+
+	.block {
+
+		// padding rules
+		// -----------------
+
+			padding: 5% 0;
+
+			@include breakpoint(medium up) {
+				padding: 5% 0;
+			}//medium up
+
+			@include breakpoint(medium up) {
+				padding: 4rem 0;
+			}//large up
+
+			&.block-no-bottom-pad {
+				padding-bottom: 0;
+			}//block-no-bottom-pad
+
+			&.block-no-top-pad {
+				padding-top: 0;
+			}//block-no-top-pad
+
+		// top header rules
+		// the top heading always needs its
+		// top margin removing guys
+		// ---------------------------------
+
+			.block-heading {
+				margin-top: 0;
+			}
+
+		// BOTTOM BUTTON RULES
+		// Button at bottom of block
+		// always needs bottom margin removing
+		// -----------------------------------
+
+			.button {
+				&.block-bottom-button {
+					margin-bottom: 0;
+				}
+			}//button
+
+	}//block
