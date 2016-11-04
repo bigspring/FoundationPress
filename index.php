@@ -15,7 +15,7 @@
 
 get_header(); ?>
 
-
+<?php get_template_part('template-parts/breadcrumbs'); ?>
 <?php get_template_part( 'template-parts/header-standard' ); ?>
 
 <div id="page" role="main">

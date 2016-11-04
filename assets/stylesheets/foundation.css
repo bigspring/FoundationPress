@@ -45,6 +45,11 @@ p.wp-caption-text {
   margin-left: auto;
   margin-right: auto; }
 
+.attachment-post-thumbnail {
+  padding: 1.5rem 0;
+  width: 100%;
+  height: auto; }
+
 /*!
  *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
