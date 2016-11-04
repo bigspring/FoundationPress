@@ -21,9 +21,6 @@
 
 				      <!-- start the footer menu -->
 				      <ul class="menu">
-				        <!-- static list item for copyright / date -->
-				        <li>&copy; <?= date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></li>
-
 				        <!-- start menu items -->
 				        <?php // args for the custom footer menu
 				        $args = array(
@@ -51,6 +48,38 @@
 
 						<div class="columns medium-6">
 							<?php get_template_part('template-parts/social-media-icons') ?>
+						</div>
+
+						<div class="legal-footer-info">
+							<ul class="inline-list centered-inline-list">
+								<!-- start the footer menu -->
+								<ul class="menu">
+									<!-- static list item for copyright / date -->
+									<li>&copy; <?= date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></li>
+
+									<!-- start menu items -->
+									<?php // args for the custom footer menu
+									$args = array(
+										'container'       => false, // remove nav container
+										'items_wrap'      => '%3$s', // remove ul
+										'container_class' => '', // class of container
+										'menu'            => '', // menu name
+										'menu_class'      => 'legal-footer-info', // adding custom nav class
+										'theme_location'  => 'legal-footer-menu', // where it's located in the theme
+										'before'          => '', // before each link <a>
+										'after'           => '', // after each link </a>
+										'link_before'     => '', // before each link text
+										'link_after'      => '', // after each link text
+										'depth'           => 5, // limit the depth of the nav
+										'fallback_cb'     => false,
+									);
+
+									wp_nav_menu( $args );
+									?>
+									<!-- end menu items -->
+								</ul>
+								<!-- end the footer menu -->
+							</ul>
 						</div>
 
 					</div>

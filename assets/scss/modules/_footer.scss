@@ -9,6 +9,10 @@
 		@include grid-row();
 		padding: rem-calc(30) 0;
 
+		.legal-footer-info {
+			@include grid-column(12);
+		}//legal-info
+
 		ul {
 			list-style-type: none;
 			margin: 0;
