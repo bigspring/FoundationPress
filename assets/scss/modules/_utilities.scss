@@ -148,26 +148,63 @@
 
  }//monolith-list
 
+// ========================
+//	OTHER CUSTOM LISTS
+// ========================
+
+  // two column lists
+  // ------------------------------
+
+	ul.list-two-column {
+    @include reset-list;
+		li {
+			@include breakpoint(medium up) {
+				width: 45%;
+				margin-right: 5%;
+				float: left;
+			}
+		}
+
+	}//ul.list-column
+
+	.styled-list {
+		&.list-two-column {
+			ul {
+				margin-bottom: 1rem;
+				li {
+					@include breakpoint(medium up) {
+						width: 45%;
+						margin-right: 5%;
+						float: left;
+					}
+				}//li
+
+				&:after {
+					content: "";
+				  display: table;
+				  clear: both;
+				}//after
+
+			}//ul
+		}//list-column
+	}//styled-list
+
 
  	// centered list
  	// -------------
 
- 	.inline-list {
+ 	ul.inline-list {
 
 	 	&.centered-inline-list {
 
-		 	@media#{$small-only} { // I reckon this will only be useful on mobile
+		 	list-style-type: none;
+		 	text-align: center;
+		 	margin: 0 auto;
 
-			 	list-style-type: none;
-			 	text-align: center;
-			 	margin: 0 auto;
-
-			 	li {
-				 	float: none;
-				 	display: inline-block;
-			 	}
-
-		 	}//$small-only
+		 	li {
+			 	float: none;
+			 	display: inline-block;
+		 	}
 
 	 	}//centered-inline-list
 
