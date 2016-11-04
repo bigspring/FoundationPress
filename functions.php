@@ -60,7 +60,7 @@ require_once( 'library/monolith/hooks.php' );
 require_once( 'library/monolith/template_tags.php' );
 
 /** Load Monolith shortcodes */
-require_once( 'library/shortcodes.php' );
+require_once( 'library/monolith/shortcodes.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 require_once( 'library/protocol-relative-theme-assets.php' );
