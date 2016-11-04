@@ -2,7 +2,6 @@
 *.sass-cache*
 *.log
 node_modules/
-assets/stylesheets/
 assets/components/
 assets/javascript/vendor/
 assets/javascript/foundation.js
