@@ -62,6 +62,10 @@ require_once( 'library/monolith/template_tags.php' );
 /** Load Monolith shortcodes */
 require_once( 'library/shortcodes.php' );
 
+/** Load Mega Menu */
+require_once( 'library/m3-mega-menu.php' );
+
+
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 require_once( 'library/protocol-relative-theme-assets.php' );
 

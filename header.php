@@ -51,5 +51,27 @@
 		</nav>
 	</header>
 
+
+<ul class="dropdown menu desktop-menu">
+	<?php $locations = get_nav_menu_locations(); ?>
+	<?php if ( isset( $locations[ 'mega_menu' ] ) ) { ?>
+		<?php $menu = get_term( $locations[ 'mega_menu' ], 'nav_menu' ); ?>
+			<?php if ( $items = wp_get_nav_menu_items( $menu->name ) ) { ?>
+				<?php foreach ( $items as $item ) { ?>
+				<li class="wow">
+					<a href="<?= $item->url ?>"><?= $item->title ?></a>
+					<?php if ( is_active_sidebar( 'mega-menu-widget-area-' . $item->ID ) ) { ?>
+						<div id="mega-menu-<?= $item->ID; ?>" class="mega-menu">
+							Sheeet
+							<?php dynamic_sidebar( 'mega-menu-widget-area-' . $item->ID ); ?>
+						</div>
+					<?php } ?>
+				</li>
+			<?php } ?>
+		<?php } ?>
+	<?php } ?>
+</ul>
+
+
 	<section class="container">
 		<?php do_action( 'foundationpress_after_header' );
