@@ -155,3 +155,23 @@ add_action( 'foundationpress_before_closing_body', function () {
 		document.write(\"<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.17.0'><\/script>\".replace(\"HOST\", location.hostname));
 		//]]></script>";
 }, 99 );
+
+
+/**
+ * Woocommerce
+ */
+
+// Remove Woocommerce styles so we can override them
+add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+// Remove Woocommerce breadcrumb
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+
+// Remove Woocommerce tabs from under single product
+add_filter( 'woocommerce_product_tabs', function ( $tabs ) {
+	unset( $tabs['description'] );        // Remove the description tab
+	unset( $tabs['reviews'] );            // Remove the reviews tab
+	unset( $tabs['additional_information'] );    // Remove the additional information tab
+
+	return $tabs;
+}, 98 );
