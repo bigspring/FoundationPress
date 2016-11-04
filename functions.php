@@ -101,3 +101,5 @@ add_filter( 'image_size_names_choose', function ( $sizes ) {
 // create a custom footer menu
 register_nav_menu( 'footer', 'Footer Menu' );
 
+// create a custom footer legal info footer menu
+register_nav_menu( 'legal-footer-menu', 'Legal Footer Menu' );
