@@ -28,13 +28,13 @@ class Builder {
 	private $part = null;
 	
 	public function __construct( $layout = array(), $args = null, $query = null ) {
-		
+
 		$default_layout = 'snippets';
 		$default_part   = 'snippet';
 		
-		$this->layouts_path = get_template_directory() . '/builder-parts/';
-		$this->parts_path   = get_template_directory() . '/template-parts/';
-		
+		$this->layouts_path = 'builder-parts';
+		$this->parts_path   = 'template-parts';
+
 		$this->layout = $layout ? $layout : array(
 			'layout' => $default_layout,
 			'part'   => $default_part
@@ -47,13 +47,17 @@ class Builder {
 		if ( ! array_key_exists( 'part', $this->layout ) ) {
 			$this->layout['part'] = $default_part;
 		}
+
+		if ( !$this->set_paths() ) { // if we don't have the files, error
+			return $this->raise_alert('The template file could not be found');
+		}
 		
 		$this->query = $query ? $query : null; // set the query object if we have one
 		$this->args  = $args ? $args : array(); // set our args if we have any
 		
 		$this->set_loop(); // set the loop object
 		$this->set_args(); // set any custom arguments we have
-		
+
 		echo $this->render(); // render the view
 		wp_reset_query();
 	}
@@ -89,26 +93,17 @@ class Builder {
 	 * @return bool
 	 */
 	private function render() {
-		$loop         = &$this->loop;
-		$args         = &$this->args;
-		$layout       = $this->layout;
-		$layouts_path = $this->layouts_path;
-		$part         = ( array_key_exists( 'part', $layout ) ) ? $layout['part'] : $this->part;
-		$part         = $this->parts_path . $part . '.php';
+		$loop           = &$this->loop;
+		$args           = &$this->args;
+		$layout         = $this->layout_file_path;
+		$layouts_path   = $this->layouts_path;
+		$part           = $this->part_file_path;
+		$parts_path     = $this->parts_path;
+
 		global $post;
 		
 		ob_start();
-		
-		if ( ! file_exists( $this->get_layout_file() ) ) { // if the file doesn't exist, handle the error
-			if ( ENVIRONMENT === 'development' ) { // if we're in development mode then show the error
-				return $this->raise_alert( 'The layout file "' . $this->layout . '"could not be found' );
-			} else { // otherwise default to the list layout
-				$this->layout = 'list';
-			}
-		}
-		
-		include( $this->get_layout_file() );
-		
+		include( $this->layout_file_path );
 		return ob_get_clean();
 	}
 	
@@ -122,11 +117,45 @@ class Builder {
 	private function raise_alert( $message ) {
 		// only display error when in development environment
 		if ( ENVIRONMENT === 'development' ) {
-			return '<p class="alert-box alert">' . $message . '</p>';
+			echo '<p class="alert-box alert">' . $message . '</p>';
 		}
 	}
-	
-	private function get_layout_file() {
-		return $this->layouts_path . $this->layout['layout'] . '.php';
+
+	/**
+	 * Sets the diretory and file paths for the layout and part files, dependent on child themes
+	 * @return bool
+	 */
+	private function set_paths() {
+
+		// layout file
+		$dir_path = DIRECTORY_SEPARATOR . $this->layouts_path . DIRECTORY_SEPARATOR;
+		$file_path = $dir_path . $this->layout['layout'] . '.php';
+
+		if( file_exists( STYLESHEETPATH . $file_path)) { // check if the layout exists in the child theme
+			$this->layouts_path = STYLESHEETPATH . $dir_path;
+			$this->layout_file_path = STYLESHEETPATH . $file_path;
+		} elseif ( file_exists( TEMPLATEPATH . $file_path)) { // otherwise use the parent theme
+			$this->layouts_path = TEMPLATEPATH . $dir_path;
+			$this->layout_file_path = TEMPLATEPATH . $file_path;
+		} else {
+			return false;
+		}
+
+		// part file
+		$dir_path = DIRECTORY_SEPARATOR . $this->parts_path . DIRECTORY_SEPARATOR;;
+		$file_path = $dir_path . $this->layout['part'] . '.php';
+
+		if( file_exists( STYLESHEETPATH . $file_path)) { // check if the part exists in the child theme
+			$this->parts_path = STYLESHEETPATH . $dir_path;
+			$this->part_file_path = STYLESHEETPATH . $file_path;
+		} elseif ( file_exists( TEMPLATEPATH  . $file_path)) { // otherwise use the parent theme
+			$this->parts_path = TEMPLATEPATH . $dir_path;
+			$this->part_file_path = TEMPLATEPATH . $file_path;
+		} else {
+			return false;
+		}
+
+		return true;
+
 	}
 }
