@@ -358,9 +358,6 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 	
 	function fresco_gallery_shortcode( $attr ) {
 		
-		wp_enqueue_style( 'fesco', get_template_directory_uri() . '/assets/lib/fresco-2.2.2/css/fresco.css' );
-		wp_enqueue_script( 'fesco', get_template_directory_uri() . '/assets/lib/fresco-2.2.2/js/fresco/fresco.js', array( 'jquery' ), false, true );
-		
 		$post = get_post();
 		
 		static $instance = 0;
@@ -475,43 +472,45 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		//Set bloch grid class based on columns
 		switch ( $columns ) {
 			case 1:
-				$block_class = 'large-block-grid-1 medium-block-grid-1 small-block-grid-1';
+				$block_class = 'large-up-1 medium-up-1 small-up-1';
 				break;
 			case 2:
-				$block_class = 'large-block-grid-2 medium-block-grid-1 small-block-grid-1';
+				$block_class = 'large-up-2 medium-up-1 small-up-1';
 				break;
 			case 3:
-				$block_class = 'large-block-grid-3 medium-block-grid-1 small-block-grid-1';
+				$block_class = 'large-up-3 medium-up-1 small-up-1';
 				break;
 			case 4:
-				$block_class = 'large-block-grid-4 medium-block-grid-2 small-block-grid-1';
+				$block_class = 'large-up-4 medium-up-2 small-up-1';
 				break;
 			case 5:
-				$block_class = 'large-block-grid-5 medium-block-grid-2 small-block-grid-1';
+				$block_class = 'large-up-5 medium-up-2 small-up-1';
 				break;
 			case 6:
-				$block_class = 'large-block-grid-6 medium-block-grid-3 small-block-grid-1';
+				$block_class = 'large-up-6 medium-up-3 small-up-1';
 				break;
 			default:
-				$block_class = 'large-block-grid-3 medium-block-grid-2 small-block-grid-1';
+				$block_class = 'large-up-3 medium-up-2 small-up-1';
 				break;
 		}
 		
-		$gallery_container = "<section class=\"gallery\"><ul class='clearing-thumbs gallery galleryid-{$id} {$block_class}' data-clearing>";
+		$gallery_container = "<div class=\"gallery {$block_class}\">";
 		
 		$output = apply_filters( 'gallery_style', $gallery_container );
+		
+		$gallery_id = md5( implode( '', array_keys( $attachments ) ) );
 		
 		$i = 0;
 		foreach ( $attachments as $id => $attachment ) {
 			if ( ! empty( $attr['link'] ) && 'file' === $attr['link'] ) {
-				$image_output = wp_get_attachment_link( $id, $size, false, false );
+				$image_output = wp_get_attachment_link( $id, $size );
 			} elseif ( ! empty( $attr['link'] ) && 'none' === $attr['link'] ) {
-				$image_output = wp_get_attachment_image( $id, $size, false );
+				$image_output = wp_get_attachment_image( $id, $size );
 			} else {
-				$image_output = wp_get_attachment_link( $id, $size, true, false );
+				$image_output = wp_get_attachment_link( $id, $size, true );
 			}
 			
-			$image_output = wp_get_attachment_link( $id, $size, false, false );
+			$image_output = wp_get_attachment_link( $id, $size );
 			
 			$image_meta = wp_get_attachment_metadata( $id );
 			
@@ -519,19 +518,33 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 			$caption_text = null;
 			if ( trim( $attachment->post_excerpt ) ) {
 				$caption_text = wptexturize( $attachment->post_excerpt );
-				//$caption_text = apply_filters( 'prso_found_gallery_image_caption', $caption_text, $attachment );
 			}
 			
-			//Add caption to img tag
-			$image_output = str_replace( '<img', "<img data-caption='{$caption_text}'", $image_output );
+			// Prepare anchor attributes
+			$image_anchor_attributes = array(
+				'class="fresco"',
+				'id="gallery-' . $id . '"',
+				'data-fresco-group="gallery-' . $gallery_id . '"',
+				'data-caption="' . $caption_text . '"'
+			);
+			
+			$image_output = str_replace(
+				'<a',
+				'<a ' . implode( ' ', $image_anchor_attributes ),
+				$image_output
+			);
 			
 			ob_start();
+			echo '<div class="column">' . $image_output . '</div>';
 			$output .= ob_get_contents();
 			ob_end_clean();
-			
 		}
 		
-		$output .= "</ul></section>";
+		$output .= "</div>";
+		
+		// Gallery good to go - include
+		wp_enqueue_style( 'fresco', get_template_directory_uri() . '/assets/lib/fresco-2.2.2/css/fresco/fresco.css' );
+		wp_enqueue_script( 'fresco', get_template_directory_uri() . '/assets/lib/fresco-2.2.2/js/fresco/fresco.js', array( 'jquery' ), false, true );
 		
 		return $output;
 	}
