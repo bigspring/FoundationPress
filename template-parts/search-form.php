@@ -1,7 +1,8 @@
 <form action="<?= site_url(); ?>" id="search-form" method="get">
 	<div class="row collapse">
 		<div class="small-10 columns">
-			<input value="<?php the_search_query(); ?>" type="search" id="s" name="s" placeholder="<?php _e( 'Search the site...', 'monolith' ); ?>">
+			<input value="<?php the_search_query(); ?>" type="search" class="search" name="s"
+			       placeholder="<?php _e( 'Search the site...', 'monolith' ); ?>">
 		</div>
 		<div class="small-2 columns">
 			<button class="button postfix"><?php _e( 'Go', 'monolith' ); ?></button>
