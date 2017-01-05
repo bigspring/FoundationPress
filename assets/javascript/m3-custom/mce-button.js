@@ -138,12 +138,12 @@
 											type: 'listbox',
 											name: 'listboxSizeSmall',
 											label: 'Mobile',
-											value: 'small-block-grid-1',
+											value: 'small-up-1',
 											'values': [
-												{text: '1 column', value: 'small-block-grid-1'},
-												{text: '2 columns', value: 'small-block-grid-2'},
-												{text: '3 columns', value: 'small-block-grid-3'},
-												{text: '4 columns', value: 'small-block-grid-4'}
+												{text: '1 column', value: 'small-up-1'},
+												{text: '2 columns', value: 'small-up-2'},
+												{text: '3 columns', value: 'small-up-3'},
+												{text: '4 columns', value: 'small-up-4'}
 											]
 										},
 
@@ -151,12 +151,12 @@
 											type: 'listbox',
 											name: 'listboxSizeMedium',
 											label: 'Tablet',
-											value: 'medium-block-grid-2',
+											value: 'medium-up-2',
 											'values': [
-												{text: '1 column', value: 'medium-block-grid-1'},
-												{text: '2 columns', value: 'medium-block-grid-2'}	,
-												{text: '3 columns', value: 'medium-block-grid-3'},
-												{text: '4 columns', value: 'medium-block-grid-4'}
+												{text: '1 column', value: 'medium-up-1'},
+												{text: '2 columns', value: 'medium-up-2'}	,
+												{text: '3 columns', value: 'medium-up-3'},
+												{text: '4 columns', value: 'medium-up-4'}
 											]
 										},
 
@@ -164,12 +164,12 @@
 											type: 'listbox',
 											name: 'listboxSizeLarge',
 											label: 'Desktop',
-											value: 'large-block-grid-2', // pre-select the value
+											value: 'large-up-2', // pre-select the value
 											'values': [
-												{text: '1 column', value: 'large-block-grid-1'},
-												{text: '2 columns', value: 'large-block-grid-2'},
-												{text: '3 columns', value: 'large-block-grid-3'},
-												{text: '4 columns', value: 'large-block-grid-4'}
+												{text: '1 column', value: 'large-up-1'},
+												{text: '2 columns', value: 'large-up-2'},
+												{text: '3 columns', value: 'large-up-3'},
+												{text: '4 columns', value: 'large-up-4'}
 											]
 										},
 
@@ -399,12 +399,12 @@
 											type: 'listbox',
 											name: 'listboxSizeSmall',
 											label: 'Mobile',
-											value: 'small-block-grid-1',
+											value: 'small-up-1',
 											'values': [
-												{text: '1 column', value: 'small-block-grid-1'},
-												{text: '2 columns', value: 'small-block-grid-2'},
-												{text: '3 columns', value: 'small-block-grid-3'},
-												{text: '4 columns', value: 'small-block-grid-4'}
+												{text: '1 column', value: 'small-up-1'},
+												{text: '2 columns', value: 'small-up-2'},
+												{text: '3 columns', value: 'small-up-3'},
+												{text: '4 columns', value: 'small-up-4'}
 											]
 										},
 
@@ -412,12 +412,12 @@
 											type: 'listbox',
 											name: 'listboxSizeMedium',
 											label: 'Tablet',
-											value: 'medium-block-grid-2',
+											value: 'medium-up-2',
 											'values': [
-												{text: '1 column', value: 'medium-block-grid-1'},
-												{text: '2 columns', value: 'medium-block-grid-2'}	,
-												{text: '3 columns', value: 'medium-block-grid-3'},
-												{text: '4 columns', value: 'medium-block-grid-4'}
+												{text: '1 column', value: 'medium-up-1'},
+												{text: '2 columns', value: 'medium-up-2'}	,
+												{text: '3 columns', value: 'medium-up-3'},
+												{text: '4 columns', value: 'medium-up-4'}
 											]
 										},
 
@@ -425,12 +425,12 @@
 											type: 'listbox',
 											name: 'listboxSizeLarge',
 											label: 'Desktop',
-											value: 'large-block-grid-2', // pre-select the value
+											value: 'large-up-2', // pre-select the value
 											'values': [
-												{text: '1 column', value: 'large-block-grid-1'},
-												{text: '2 columns', value: 'large-block-grid-2'},
-												{text: '3 columns', value: 'large-block-grid-3'},
-												{text: '4 columns', value: 'large-block-grid-4'}
+												{text: '1 column', value: 'large-up-1'},
+												{text: '2 columns', value: 'large-up-2'},
+												{text: '3 columns', value: 'large-up-3'},
+												{text: '4 columns', value: 'large-up-4'}
 											]
 										},
 
