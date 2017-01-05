@@ -22,7 +22,7 @@ get_header(); ?>
 
 	<article class="main-content">
 
-		<?php monolith_grid('snippet', 'small-up-1'); ?>
+		<?php monolith_grid('card', 'small-up-1'); ?>
 
 	</article>
 	<?php get_sidebar(); ?>
