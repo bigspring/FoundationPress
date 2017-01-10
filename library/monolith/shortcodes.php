@@ -499,8 +499,7 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		$output = apply_filters( 'gallery_style', $gallery_container );
 
 		$gallery_id = md5( implode( '', array_keys( $attachments ) ) );
-
-		$i = 0;
+		
 		foreach ( $attachments as $id => $attachment ) {
 			if ( ! empty( $attr['link'] ) && 'file' === $attr['link'] ) {
 				$image_output = wp_get_attachment_link( $id, $size );
@@ -525,7 +524,7 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 				'class="fresco"',
 				'id="gallery-' . $id . '"',
 				'data-fresco-group="gallery-' . $gallery_id . '"',
-				'data-caption="' . $caption_text . '"'
+				'data-fresco-caption="' . $caption_text . '"'
 			);
 
 			$image_output = str_replace(
