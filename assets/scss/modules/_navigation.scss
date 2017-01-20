@@ -44,15 +44,17 @@
 
 				// set the hover states for when we have a parent with a dropdown
 				// --------------------------------------------------------------
+/*
 				&.is-dropdown-submenu-parent.is-active {
 					background-color: $primary-color;
-					color: $white;
+					color: $white !important;
 					a {
 						&:hover, &:focus {
-							color: $white;
+							color: $white !important;
 						}
 					}
 				}
+*/
 
 				// set active states for top level and dropdown anchors
 				// ----------------------------------------------------

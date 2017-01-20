@@ -7718,23 +7718,27 @@ a.thumbnail {
 .title-bar .menu-icon {
   float: right; }
 
-.top-bar .menu li a:hover {
-  background-color: #1779ba;
-  color: #fefefe; }
-
-.top-bar .menu li.is-dropdown-submenu-parent.is-active {
-  background-color: #1779ba;
-  color: #fefefe; }
-  .top-bar .menu li.is-dropdown-submenu-parent.is-active a:hover, .top-bar .menu li.is-dropdown-submenu-parent.is-active a:focus {
+.top-bar .menu li {
+  /*
+				&.is-dropdown-submenu-parent.is-active {
+					background-color: $primary-color;
+					color: $white !important;
+					a {
+						&:hover, &:focus {
+							color: $white !important;
+						}
+					}
+				}
+*/ }
+  .top-bar .menu li a:hover {
+    background-color: #1779ba;
     color: #fefefe; }
-
-.top-bar .menu li.active a >, .top-bar .menu li.current_page_item a > {
-  background-color: #1779ba;
-  color: #fefefe; }
-
-.top-bar .menu li.active ul.dropdown li.current_page_item a, .top-bar .menu li.current_page_item ul.dropdown li.current_page_item a {
-  background-color: #1779ba;
-  color: #fefefe; }
+  .top-bar .menu li.active a >, .top-bar .menu li.current_page_item a > {
+    background-color: #1779ba;
+    color: #fefefe; }
+  .top-bar .menu li.active ul.dropdown li.current_page_item a, .top-bar .menu li.current_page_item ul.dropdown li.current_page_item a {
+    background-color: #1779ba;
+    color: #fefefe; }
 
 .off-canvas > ul.menu {
   height: 100vh;
