@@ -106,3 +106,11 @@ register_nav_menu( 'footer', 'Footer Menu' );
 
 // create a custom footer legal info footer menu
 register_nav_menu( 'legal-footer-menu', 'Legal Footer Menu' );
+
+
+/**
+ * Add woocommerce support.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	include (get_template_directory() . '/library/woocommerce/functions.php');
+}

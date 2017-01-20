@@ -462,7 +462,7 @@
 							text: 'Tabs',
 							minWidth: 300,
 							onclick: function() {
-								editor.insertContent( '[childpages layout="tabs" part=""]');
+								editor.insertContent( '[childpages layout="tabs" part="tab"]');
 							}
 						}
 
