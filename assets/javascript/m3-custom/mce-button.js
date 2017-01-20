@@ -195,13 +195,6 @@
 
 										{
 											type: 'checkbox',
-											name: 'checkboxThumbnail',
-											label: 'Image border',
-											checked: false
-										},
-
-										{
-											type: 'checkbox',
 											name: 'checkboxTitle',
 											label: 'Page Title',
 											checked: false
@@ -209,33 +202,20 @@
 
 										{
 											type: 'checkbox',
-											name: 'checkboxLinkTitle',
-											label: 'Link Title',
-											checked: false
-										},
-
-
-										{
-											type: 'checkbox',
 											name: 'checkboxExcerpt',
 											label: 'Page Summary',
 											checked: false
-										},
-
-										{
-											type: 'checkbox',
-											name: 'checkboxReadMore',
-											label: '"Read More" link',
-											checked: false
 										}
+
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[pages ids="' + e.data.pageIds + '" size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="card" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" titlelink="'+ e.data.checkboxLinkTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" image_border="'+ e.data.checkboxThumbnail+'" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[pages ids="' + e.data.pageIds + '" size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="card" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
 						}, // end pages block grid
 
+/*
 						// List
 						// ====================================
 						{
@@ -293,6 +273,7 @@
 								});
 							}
 						},
+*/
 
 					]
 				},
@@ -309,7 +290,7 @@
 							text: 'Accordion',
 							minWidth: 300,
 							onclick: function() {
-								editor.insertContent( '[childpages layout="accordion"]');
+								editor.insertContent( '[childpages layout="accordion" part="accordion-item"]');
 							}
 						},
 
@@ -391,28 +372,14 @@
 
 										{
 											type: 'checkbox',
-											name: 'checkboxLinked',
-											label: 'Link to Page',
-											checked: true
-										},
-
-
-										{
-											type: 'checkbox',
 											name: 'checkboxExcerpt',
 											label: 'Display Excerpt',
 											checked: false
-										},
-
-										{
-											type: 'checkbox',
-											name: 'checkboxReadMore',
-											label: 'Display a \"Read More\" link',
-											checked: false
 										}
+
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="card" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" linked="'+ e.data.checkboxLinked+'" excerpt="'+ e.data.checkboxExcerpt+'" readmore="'+ e.data.checkboxReadMore+'" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="card" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -462,21 +429,23 @@
 
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages layout="list" class="' + e.data.listboxListTypes + '" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[childpages layout="list" part="list-item" class="' + e.data.listboxListTypes + '" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
 						},
 
+/*
 						// Tabs
 						// ====================================
 						{
 							text: 'Tabs',
 							minWidth: 300,
 							onclick: function() {
-								editor.insertContent( '[childpages layout="tabs"]');
+								editor.insertContent( '[childpages layout="tabs" part=""]');
 							}
 						}
+*/
 
 					]
 				},
@@ -628,6 +597,7 @@
 					}
 				}, // end list shortcode
 
+/*
 				// Stretch Block Shortcode
 				// ====================================
 
@@ -657,6 +627,7 @@
 						});
 					}
 				}, // end stretch block shortcode
+*/
 
 
 				// Foundation Columns
