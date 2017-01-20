@@ -435,7 +435,6 @@
 							}
 						},
 
-/*
 						// Tabs
 						// ====================================
 						{
@@ -445,7 +444,6 @@
 								editor.insertContent( '[childpages layout="tabs" part=""]');
 							}
 						}
-*/
 
 					]
 				},
