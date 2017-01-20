@@ -44,20 +44,25 @@ ul.gform_fields {
       .validation_message {display: none !important;}
     }
 
+    //Hide honeypot
+    &.gform_validation_container {
+      display: none;
+    }
+
     // radio buttons
     .ginput_container_radio {
-	    ul.gfield_radio {
-		    list-style: none;
-		    margin-left: 0;
-	    }//ul.gfield_radio
+      ul.gfield_radio {
+        list-style: none;
+        margin-left: 0;
+      }//ul.gfield_radio
     }//ginput_container_radio
 
     // checkbox
     .ginput_container_checkbox {
-	    ul.gfield_checkbox {
-		    list-style: none;
-		    margin-left: 0;
-	    }//ul.gfield_radio
+      ul.gfield_checkbox {
+        list-style: none;
+        margin-left: 0;
+      }//ul.gfield_radio
     }//ginput_container_radio
 
   }//li
