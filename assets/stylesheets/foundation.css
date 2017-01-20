@@ -8214,6 +8214,8 @@ ul.address-list.menu.horizontal li {
 
 .social-icons li {
   margin-left: 0rem; }
+  .social-icons li a {
+    padding: 0.7rem 0rem; }
 
 .social-icons .facebook > .fa-stack > .fa-circle {
   color: #3b5998; }
