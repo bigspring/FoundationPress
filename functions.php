@@ -45,7 +45,7 @@ require_once( 'library/custom-nav.php' );
 require_once( 'library/sticky-posts.php' );
 
 /** Configure responsive image sizes */
-require_once( 'library/responsive-images.php' ); // @TODO consider whether we need this or not
+require_once( 'library/responsive-images.php' );
 
 /** Add Monolith Builder functions */
 require_once( 'library/monolith/builder/builder.php' );
