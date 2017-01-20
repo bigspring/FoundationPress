@@ -10,7 +10,11 @@
   li {
     margin-left: 0rem;
 
-  }
+    a {
+      padding: 0.7rem 0rem; // Reduce the horizontal padding as it causes horizontal scroll if lots of icons get used
+    }//a
+
+  }// li
 
   // colour code the icons
   .facebook > .fa-stack > .fa-circle {
