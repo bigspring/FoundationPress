@@ -7906,12 +7906,6 @@ section.container {
       background-color: #2199e8; }
     .stretch-band.primary:before {
       background-color: #2199e8; }
-    @media screen and (min-width: 85.375em) {
-      .stretch-band.primary {
-        background-color: pink; } }
-    @media screen and (min-width: 120em) {
-      .stretch-band.primary {
-        background-color: red; } }
   .stretch-band.secondary {
     background-color: #777; }
     .stretch-band.secondary:after {
