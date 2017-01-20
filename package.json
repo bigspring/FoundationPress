@@ -1,9 +1,10 @@
 {
-  "name": "foundationpress",
-  "title": "FoundationPress",
-  "version": "2.7.1",
-  "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb",
+  "name": "monolith",
+  "title": "Monolith",
+  "version": "3.2.0",
+  "description": "Monolith is a WordPress starter theme forked from FoundationPress and based on Foundation 6 by Zurb",
   "keywords": [
+    "Monolith",
     "FoundationPress",
     "WordPress",
     "starter theme",
@@ -13,13 +14,13 @@
     "customizable",
     "responsive"
   ],
-  "homepage": "http://foundationpress.olefredrik.com/",
-  "bugs": "https://github.com/olefredrik/FoundationPress/issues",
+  "homepage": "http://bigspring.co.uk/",
+  "bugs": "https://github.com/bigspring/M3/issues",
   "license": "MIT",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/olefredrik/FoundationPress.git"
+    "url": "https://github.com/bigspring/M3.git"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.0",
