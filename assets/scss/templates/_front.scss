@@ -1,10 +1,9 @@
 // Intro
 .intro {
 	@include grid-row();
-	// background: red;
 
 	.fp-intro {
-
+		
 		@include breakpoint(small) {
 			@include grid-column(12);
 			text-align: center;
@@ -44,7 +43,7 @@
 		@include grid-column(12);
 	}
 
-	// @TODO do something with these crackers
+	// @TODO do something with these
 	.semantic,
 	.responsive,
 	.customizable,
@@ -74,6 +73,4 @@
 	&.light-gray {
 		background-color: $light-gray;
 	}
-
-
 }
