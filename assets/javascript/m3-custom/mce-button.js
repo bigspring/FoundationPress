@@ -133,6 +133,16 @@
 											minHeight: 100
 										},
 
+										{
+											type: 'listbox',
+											name: 'listboxcardsnippet',
+											label: 'Card or Snippet',
+											value: 'cardsnippet',
+											'values': [
+												{text: 'Card', value: 'card'},
+												{text: 'Snippet', value: 'snippet'},
+											]
+										},
 
 										{
 											type: 'listbox',
@@ -209,7 +219,7 @@
 
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[pages ids="' + e.data.pageIds + '" size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="card" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[pages ids="' + e.data.pageIds + '" size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="'+ e.data.listboxcardsnippet+'" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
@@ -306,6 +316,17 @@
 
 										{
 											type: 'listbox',
+											name: 'listboxcardsnippet',
+											label: 'Card or Snippet',
+											value: 'cardsnippet',
+											'values': [
+												{text: 'Card', value: 'card'},
+												{text: 'Snippet', value: 'snippet'},
+											]
+										},
+
+										{
+											type: 'listbox',
 											name: 'listboxSizeSmall',
 											label: 'Mobile',
 											value: 'small-up-1',
@@ -379,7 +400,7 @@
 
 									],
 									onsubmit: function( e ) {
-										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="card" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'"]');
+										editor.insertContent( '[childpages size="' + e.data.listboxSizeSmall + ' ' + e.data.listboxSizeMedium + ' ' + e.data.listboxSizeLarge + '" layout="grid" part="'+ e.data.listboxcardsnippet+'" image="'+ e.data.checkboxImage+'" title="'+ e.data.checkboxTitle+'" excerpt="'+ e.data.checkboxExcerpt+'" orderby="'+ e.data.listboxOrder+'"]');
 									}
 								});
 							}
