@@ -45,7 +45,7 @@ require_once( 'library/custom-nav.php' );
 require_once( 'library/sticky-posts.php' );
 
 /** Configure responsive image sizes */
-//require_once( 'library/responsive-images.php' ); // @TODO consider whether we need this or not
+require_once( 'library/responsive-images.php' ); // @TODO consider whether we need this or not
 
 /** Add Monolith Builder functions */
 require_once( 'library/monolith/builder/builder.php' );
@@ -68,6 +68,7 @@ require_once( 'library/protocol-relative-theme-assets.php' );
 /**
  * Featured image sizes
  */
+/*
 set_post_thumbnail_size( 640, 360, true );
 add_image_size( 'square', 640, 640, true );
 add_image_size( 'small-square', 320, 320, true );
@@ -93,6 +94,8 @@ add_filter( 'image_size_names_choose', function ( $sizes ) {
 
 	return $sizes;
 }, 10, 1 );
+*/
+
 
 /**
  * New menus
