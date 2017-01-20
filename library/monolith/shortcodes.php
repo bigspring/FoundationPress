@@ -114,8 +114,7 @@ function childpages( $atts ) {
 
 	// set defaults
 	global $post;
-
-
+	
 	$params = shortcode_atts( array(
 		'layout'        => 'snippets', // default layout
 		'part'          => 'snippet',
@@ -131,8 +130,7 @@ function childpages( $atts ) {
 		'orderby'       => 'menu_order',
 		'order'         => 'ASC'
 	), $atts ); // TODO can we handle these defaults through the builder class instead?
-
-
+	
 	$args = array(
 		'post_parent'    => $params['id'],
 		'post_type'      => 'page',
