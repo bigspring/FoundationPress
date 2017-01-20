@@ -7740,9 +7740,12 @@ a.thumbnail {
 .off-canvas .menu .active > a {
   background-color: #41525e; }
 
-.title-bar-title a {
+.title-bar .title-bar-title a {
   font-size: 1rem;
   color: #B9B9B9; }
+
+.title-bar .menu-icon {
+  float: right; }
 
 .top-bar .menu .home a {
   font-size: 1rem;
@@ -7751,23 +7754,17 @@ a.thumbnail {
 .top-bar .menu a {
   height: 45px;
   line-height: 45px;
-  color: #e6e6e6;
   padding-top: 0;
   padding-bottom: 0;
   font-weight: bold;
   font-size: 0.8rem;
   line-height: 1; }
-  .top-bar .menu a:hover:not(.button) {
-    background-color: #42525D; }
 
 .top-bar .menu .active > a {
   background-color: #41525e; }
 
 .top-bar .menu > li:not(.menu-text) > a {
   padding: 1rem; }
-
-.top-bar .menu li:not(:last-child) {
-  border-right: 1px solid #4e4e4e; }
 
 .top-bar .dropdown.menu .submenu {
   border: 0; }

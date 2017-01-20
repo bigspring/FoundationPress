@@ -19,7 +19,7 @@
 
     <div class="caption">
       <?php if ( $args['has_title'] ) : // display only if the summary is enabled (default is true) ?>
-      <h3 class="title <?= $args['has_summary'] ? 'has-summary' : '' ?>"><?php the_title(); ?></h3>
+	      <h3 class="title <?= $args['has_summary'] ? 'has-summary' : '' ?>"><?php the_title(); ?></h3>
       <?php endif; // end has_title ?>
 
       <?php if ( $args['has_summary'] ) : // display only if the summary is enabled (default is true) ?>

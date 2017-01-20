@@ -8,6 +8,7 @@
 }
 
 // Mobile menu
+
 .off-canvas {
   > ul.menu {
     height: 100vh;
@@ -41,12 +42,21 @@
 
 }
 
-.title-bar-title {
-  a {
-    font-size: 1rem;
-    color: #B9B9B9;
-  }
-}
+.title-bar {
+
+	.title-bar-title {
+	  a {
+	    font-size: 1rem;
+	    color: #B9B9B9;
+	  }
+	}
+
+	.menu-icon {
+		float: right;
+	}//menu-icon
+
+}//title-bar
+
 
 // Tablet and desktop menu
 .top-bar {
@@ -58,7 +68,7 @@
   .menu a {
     height: 45px;
     line-height: 45px;
-    color: #e6e6e6;
+    //color: #e6e6e6;
     padding-top: 0;
     padding-bottom: 0;
     font-weight: bold;
@@ -66,14 +76,14 @@
     line-height: 1;
 
     &:hover:not(.button) {
-      background-color: #42525D;
+      //background-color: #42525D;
     }
   }
 
   .menu .active > a { background-color: lighten($outer-space, 10%); }
 
   .menu>li:not(.menu-text)>a { padding: 1rem; }
-  .menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
+  //.menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
 
   .dropdown.menu .submenu { border: 0; }
   .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }

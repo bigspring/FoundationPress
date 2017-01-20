@@ -152,6 +152,8 @@ function childpages( $atts, $content = null ) {
 		$args['post__not_in'] = explode( ',', $exclude_pages );
 	}
 
+//dump($part); die;
+
 	ob_start();
 	monolith_build( array( 'layout' => $layout, 'part' => $part ), $builder_args, $args );
 
@@ -499,7 +501,7 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		$output = apply_filters( 'gallery_style', $gallery_container );
 
 		$gallery_id = md5( implode( '', array_keys( $attachments ) ) );
-		
+
 		foreach ( $attachments as $id => $attachment ) {
 			if ( ! empty( $attr['link'] ) && 'file' === $attr['link'] ) {
 				$image_output = wp_get_attachment_link( $id, $size );

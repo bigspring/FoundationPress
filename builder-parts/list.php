@@ -9,9 +9,7 @@
   <!-- start ul wrapper -->
   <ul class="<?= $args['classes'] ?>">
     <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-      <li>
-        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-      </li>
+			<?php include( $part ); ?>
     <?php endwhile; ?>
   </ul>
   <!-- end ul wrapper -->
