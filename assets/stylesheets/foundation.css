@@ -7375,9 +7375,12 @@ table.hover tr:nth-of-type(even):hover {
   height: 100vh;
   padding: 1rem; }
 
-.title-bar-title a {
+.title-bar .title-bar-title a {
   font-size: 1rem;
   color: #B9B9B9; }
+
+.title-bar .menu-icon {
+  float: right; }
 
 /* Tablet and desktop menu */
 .top-bar .menu .home a {

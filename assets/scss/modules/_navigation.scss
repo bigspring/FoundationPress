@@ -10,6 +10,8 @@
 
 /* Mobile menu */
 
+
+
 .off-canvas {
  > ul.menu {
     height: 100vh;
@@ -17,12 +19,21 @@
   }
 }
 
-.title-bar-title {
-  a {
-    font-size: 1rem;
-    color: #B9B9B9;
-  }
-}
+.title-bar {
+
+	.title-bar-title {
+	  a {
+	    font-size: 1rem;
+	    color: #B9B9B9;
+	  }
+	}
+
+	.menu-icon {
+		float: right;
+	}//menu-icon
+
+}//title-bar
+
 
 /* Tablet and desktop menu */
 .top-bar {
