@@ -8,7 +8,7 @@ $payload["@context"] = "http://schema.org/"; // this has all the data of the pos
 $post_data           = get_post_data(); // stuff for any page, if it exists
 $category            = get_the_category(); // stuff for specific pages
 if ( is_single() ) { // this gets the data for the user who wrote that particular item
-	$logo = get_template_directory_uri() . "/assets/images/logo.png";
+	$logo                     = get_template_directory_uri() . "/assets/images/logo.png";
 	$author_data              = get_userdata( $post_data->post_author );
 	$post_url                 = get_permalink();
 	$post_thumb               = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
@@ -17,8 +17,7 @@ if ( is_single() ) { // this gets the data for the user who wrote that particula
 	$payload["author"]        = array( "@type" => "Person", "name" => $author_data->display_name, );
 	$payload["headline"]      = $post_data->post_title;
 	$payload["datePublished"] = $post_data->post_date;
-	$payload["dateModified"] = $post_data->post_modified;
-
+	$payload["dateModified"]  = $post_data->post_modified;
 	$payload["image"]         = $post_thumb;
 	$payload["genre"]         = $category[0]->cat_name;
 	$payload["publisher"]     = array(

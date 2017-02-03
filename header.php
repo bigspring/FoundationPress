@@ -23,6 +23,9 @@
 		<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/assets/images/icons/touch-icon-iphone.png">
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/icons/favicon.ico">
 
+		<?php include('template-parts/json-ld.php'); ?>
+		<script type="application/ld+json"><?php echo json_encode($payload); ?></script>
+
 	</head>
 	<body <?php body_class(); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>
