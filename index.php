@@ -20,7 +20,7 @@ get_header(); ?>
 
 <div id="page" role="main">
 
-	<article class="main-content">
+	<article class="main-content" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
 
 		<?php monolith_grid('card', 'small-up-1'); ?>
 
