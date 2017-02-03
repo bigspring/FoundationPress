@@ -8,7 +8,7 @@ $payload["@context"] = "http://schema.org/";
 $post_data           = get_post_data();
 $category            = get_the_category();
 $bloginfo            = get_bloginfo();
-if ( is_single() ) { // this gets the data for the user who wrote that particular item
+if ( is_single() || is_home() ) { // this gets the data for the user who wrote that particular item
 	$logo                        = get_template_directory_uri() . "/assets/images/logo.png";
 	$author_data                 = get_userdata( $post_data->post_author );
 	$post_url                    = get_permalink();
@@ -26,20 +26,16 @@ if ( is_single() ) { // this gets the data for the user who wrote that particula
 	$payload["genre"]            = $category[0]->cat_name;
 	$payload["publisher"]        = array(
 		"@type" => "Organization",
-		"name"  => "Hallam Internet Ltd",
+		"name"  => get_bloginfo(),
 		"logo"  => $logo
 	);
-	$payload["mainEntityOfPage"] = array(
-		"@type" => "WebPage",
-		"@id"   => "http://cathscafe.example.com/"
-	);
-} // we do all this separately so we keep the right things for organization together
+}
 if ( is_front_page() ) {
 	$post_url                = get_permalink();
 	$payload["@type"]        = "Organization";
 	$payload["name"]         = "Builtvisible";
 	$payload["logo"]         = "http://builtvisible.com/wp-content/uploads/2014/05/BUILTVISIBLE-Badge-Logo-512x602-medium.png";
-	$payload["url"]          = $post_url;
+	$payload["url"]          = get_site_url();
 	$payload["sameAs"]       = array(
 		get_option( 'monolith_twitter' ),
 		get_option( 'monolith_facebook' ),
@@ -52,9 +48,8 @@ if ( is_front_page() ) {
 	$payload["contactPoint"] = array(
 		array(
 			"@type"       => "ContactPoint",
-			"telephone"   => "+44 20 7148 0453",
-			"email"       => "hello@builtvisible.com",
-			"contactType" => "sales"
+			"telephone"   => get_option( 'monolith_phone' ),
+			"email"       => get_option( 'monolith_email' )
 		)
 	);
 }
@@ -73,3 +68,4 @@ if ( is_author() ) { // this gets the data for the user who wrote that particula
 		get_option( 'monolith_instagram' )
 	);
 }
+
