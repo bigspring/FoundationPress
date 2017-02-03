@@ -8,7 +8,7 @@ $payload["@context"] = "http://schema.org/";
 $post_data           = get_post_data();
 $category            = get_the_category();
 $bloginfo            = get_bloginfo();
-if ( is_single() || is_home() ) { // this gets the data for the user who wrote that particular item
+if ( is_single() ) {
 	$logo                        = get_template_directory_uri() . "/assets/images/logo.png";
 	$author_data                 = get_userdata( $post_data->post_author );
 	$post_url                    = get_permalink();
@@ -68,4 +68,12 @@ if ( is_author() ) { // this gets the data for the user who wrote that particula
 		get_option( 'monolith_instagram' )
 	);
 }
+if (is_home()) {
+	$payload["publisher"]        = array(
+		"@type" => "Organization",
+		"name"  => get_bloginfo(),
+		"logo"  => $logo
+	);
+}
+
 
