@@ -18,9 +18,15 @@ if ( is_single() ) { // this gets the data for the user who wrote that particula
 	$payload["headline"]      = $post_data->post_title;
 	$payload["datePublished"] = $post_data->post_date;
 	$payload["dateModified"]  = $post_data->post_modified;
-	$payload["image"]         = $post_thumb;
-	$payload["genre"]         = $category[0]->cat_name;
-	$payload["publisher"]     = array(
+//	$payload["image"]         = $post_thumb;
+	$payload["image"]     = array(
+		"@type"  => "ImageObject",
+		"url"    => $post_thumb,
+		"width"  => "100",
+		"height" => "100"
+	);
+	$payload["genre"]     = $category[0]->cat_name;
+	$payload["publisher"] = array(
 		"@type" => "Organization",
 		"name"  => "Hallam Internet Ltd",
 		"logo"  => $logo
