@@ -41,7 +41,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_facebook"><?php _e( 'Facebook', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_facebook" id="monolith_facebook"
-							       value="<?= get_option( 'monolith_facebook' ) ? get_option( 'monolith_facebook' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_facebook' ) ? get_option( 'monolith_facebook' ) : '' ?>" size="50"
 							       placeholder="https://facebook.com/youraccountnamehere">
 						</td>
 					</tr>
@@ -49,7 +49,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_twitter"><?php _e( 'Twitter', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_twitter" id="monolith_twitter"
-							       value="<?= get_option( 'monolith_twitter' ) ? get_option( 'monolith_twitter' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_twitter' ) ? get_option( 'monolith_twitter' ) : '' ?>" size="50"
 							       placeholder="https://www.twitter.com/youraccountnamehere">
 						</td>
 					</tr>
@@ -57,7 +57,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_googleplus"><?php _e( 'Google+', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_googleplus" id="monolith_googleplus"
-							       value="<?= get_option( 'monolith_googleplus' ) ? get_option( 'monolith_googleplus' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_googleplus' ) ? get_option( 'monolith_googleplus' ) : '' ?>"
 							       size="50" placeholder="https://plus.google.com/+youraccountnamehere">
 						</td>
 					</tr>
@@ -65,7 +65,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_youtube"><?php _e( 'Youtube', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_youtube" id="monolith_youtube"
-							       value="<?= get_option( 'monolith_youtube' ) ? get_option( 'monolith_youtube' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_youtube' ) ? get_option( 'monolith_youtube' ) : '' ?>" size="50"
 							       placeholder="http://www.youtube.com/user/youraccountnamehere">
 						</td>
 					</tr>
@@ -73,7 +73,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_linkedin"><?php _e( 'LinkedIn', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_linkedin" id="monolith_linkedin"
-							       value="<?= get_option( 'monolith_linkedin' ) ? get_option( 'monolith_linkedin' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_linkedin' ) ? get_option( 'monolith_linkedin' ) : '' ?>" size="50"
 							       placeholder="http://www.linkedin.com/company/youraccountnamehere">
 						</td>
 					</tr>
@@ -81,7 +81,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_pinterest"><?php _e( 'Pinterest', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_pinterest" id="monolith_pinterest"
-							       value="<?= get_option( 'monolith_pinterest' ) ? get_option( 'monolith_pinterest' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_pinterest' ) ? get_option( 'monolith_pinterest' ) : '' ?>"
 							       size="50" placeholder="http://www.pinterest.com/youraccountnamehere">
 						</td>
 					</tr>
@@ -89,7 +89,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_instagram"><?php _e( 'Instagram', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_instagram" id="monolith_instagram"
-							       value="<?= get_option( 'monolith_instagram' ) ? get_option( 'monolith_instagram' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_instagram' ) ? get_option( 'monolith_instagram' ) : '' ?>"
 							       size="50" placeholder="http://instagram.com/youraccountnamehere">
 						</td>
 					</tr>
@@ -97,7 +97,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_rss"><?php _e( 'RSS', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_rss" id="monolith_rss"
-							       value="<?= get_option( 'monolith_rss' ) ? get_option( 'monolith_rss' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_rss' ) ? get_option( 'monolith_rss' ) : '' ?>"
 							       size="50" placeholder="http://site.com/feed">
 						</td>
 					</tr>

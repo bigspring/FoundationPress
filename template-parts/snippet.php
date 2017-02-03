@@ -16,7 +16,7 @@
 		<?php // foundationpress_entry_meta(); ?>
 	</header>
 	<div class="entry-content">
-		<p><?= wp_trim_words( get_the_excerpt(), 30, '...' ); ?></p>
+		<p><?php echo wp_trim_words( get_the_excerpt(), 30, '...' ); ?></p>
 	</div>
 	<footer>
 		<a href="<?php the_permalink(); ?>" class="read-more button"><?php _e( 'Read more', 'foundationpress' ); ?></a>

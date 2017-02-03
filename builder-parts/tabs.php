@@ -15,8 +15,8 @@
 	<!-- the tabs navigation   -->
 	<ul class="tabs" data-tabs id="builder-tabs">
 	  <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<li class="tabs-title <?= $count === 0 ? 'is-active' : '' ?>"><a
-						href="#panel-<?= get_the_id() ?>"><?php the_title(); ?></a></li>
+				<li class="tabs-title <?php echo $count === 0 ? 'is-active' : '' ?>"><a
+						href="#panel-<?php echo get_the_id() ?>"><?php the_title(); ?></a></li>
 		  <?php $count ++ ?>
 	  <?php endwhile; ?>
 	</ul>

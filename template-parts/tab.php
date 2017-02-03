@@ -1,3 +1,3 @@
-<div class="tabs-panel <?= $count === 0 ? 'is-active' : '' ?>" id="panel-<?= get_the_id() ?>">
+<div class="tabs-panel <?php echo $count === 0 ? 'is-active' : '' ?>" id="panel-<?php echo get_the_id() ?>">
 	<?php the_content(); ?>
 </div>
