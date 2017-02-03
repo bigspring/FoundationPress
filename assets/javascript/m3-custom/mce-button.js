@@ -255,8 +255,7 @@
 												{text: 'Unstyled', value: 'no-bullet'},
 												{text: 'Inline', value: 'inline-list'},
 												{text: 'Chevrons', value: 'chevron'}	,
-												{text: 'Circles', value: 'circle'},
-												{text: 'Squares', value: 'square'},
+												{text: 'Two Column', value: 'list-two-column'},
 												{text: 'Carets', value: 'caret'},
 												{text: 'Ticks', value: 'tick'}
 											]
@@ -425,12 +424,10 @@
 											'values': [
 												{text: 'Default', value: 'disc'},
 												{text: 'Unstyled', value: 'no-bullet'},
-												{text: 'Inline', value: 'inline-list'},
 												{text: 'Chevrons', value: 'chevron'}	,
-												{text: 'Circles', value: 'circle'},
-												{text: 'Squares', value: 'square'},
 												{text: 'Carets', value: 'caret'},
-												{text: 'Ticks', value: 'tick'}
+												{text: 'Ticks', value: 'tick'},
+												{text: 'Two Column', value: 'list-two-column'},
 											]
 										},
 

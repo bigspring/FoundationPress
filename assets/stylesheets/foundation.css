@@ -8152,6 +8152,19 @@ ul.address-list.menu.horizontal li {
     .flex-card-example .card .card-content {
       padding: 1rem; }
 
+#featured-hero {
+  -webkit-background-size: cover;
+          background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 6.25rem; }
+  @media print, screen and (min-width: 40em) {
+    #featured-hero {
+      height: 12.5rem; } }
+  @media screen and (min-width: 85.375em) {
+    #featured-hero {
+      height: 25rem; } }
+
 .dotted {
   border-style: dashed;
   margin: 2rem 0; }
