@@ -32,7 +32,7 @@ function foundationpress_pagination() {
 	$paginate_links = str_replace( '</span>', '</a>', $paginate_links );
 	$paginate_links = str_replace( "<li><a href='#'>&hellip;</a></li>", "<li><span class='dots'>&hellip;</span></li>", $paginate_links );
 	$paginate_links = preg_replace( '/\s*page-numbers/', '', $paginate_links );
-
+	
 	// Display the pagination if more than one page is found.
 	if ( $paginate_links ) {
 		echo '<div class="pagination-centered">';

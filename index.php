@@ -23,7 +23,9 @@ get_header(); ?>
 	<article class="main-content">
 
 		<?php monolith_grid('card', 'small-up-1'); ?>
-
+	  
+	  <?php get_template_part( 'template-parts/pagination' ); ?>
+		
 	</article>
 	<?php get_sidebar(); ?>
 
