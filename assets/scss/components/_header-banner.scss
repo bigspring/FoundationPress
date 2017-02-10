@@ -1,15 +1,12 @@
 .header-banner {
 
-	padding: 5% 0;
+	@include responsive-vertical-padding(8vw, 2rem, 10rem, 3rem);
 	margin-bottom: 2rem;
 	position: relative;
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
 
-	@include breakpoint(large) {
-		padding: 4rem 0;
-	}
 
 	.caption {
 		@include grid-column(12);

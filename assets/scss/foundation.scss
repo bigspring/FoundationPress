@@ -74,6 +74,9 @@
   Add your scss files below to structure your project styles
 */
 
+// global
+@import "global/m3-mixins";
+
 // Modules
 @import "modules/navigation";
 @import "modules/footer";
@@ -96,7 +99,8 @@
 @import "components/snippet";
 @import "components/breadcrumbs";
 @import "components/social-media-icons";
-@import "components/stretch-band";
+@import "components/typography";
+@import "components/block";
 //@import "components/gforms";
 //@import "components/mailchimp-form";
 

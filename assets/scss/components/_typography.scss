@@ -9,3 +9,8 @@ h2 {
 h3 {
 	@include responsive-font(3vw, 20px, 30px, 20px);
 }
+
+p.lead, .lead, .lead p {
+	@include responsive-font(4vw, 1.2rem, 1.5rem, 1.25rem);
+	line-height: 1.3;
+}
