@@ -55,7 +55,7 @@
 								<!-- start the footer menu -->
 								<ul class="menu">
 									<!-- static list item for copyright / date -->
-									<li>&copy; <?= date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></li>
+									<li>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></li>
 
 									<!-- start menu items -->
 									<?php // args for the custom footer menu

@@ -305,7 +305,7 @@ add_action( 'admin_menu', function () {
 								for="monolith_company_number"><?php _e( 'Company Registration Number', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_company_number" id="monolith_company_number"
-							       value="<?= get_option( 'monolith_company_number' ) ? get_option( 'monolith_company_number' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_company_number' ) ? get_option( 'monolith_company_number' ) : '' ?>"
 							       size="35"
 							       placeholder="123456789">
 						</td>
@@ -319,7 +319,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_address_1"><?php _e( 'Address 1', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_address_1" id="monolith_address_1"
-							       value="<?= get_option( 'monolith_address_1' ) ? get_option( 'monolith_address_1' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_address_1' ) ? get_option( 'monolith_address_1' ) : '' ?>"
 							       size="50" placeholder="Strelley Hall">
 						</td>
 					</tr>
@@ -327,7 +327,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_address_2"><?php _e( 'Address 2', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_address_2" id="monolith_address_2"
-							       value="<?= get_option( 'monolith_address_2' ) ? get_option( 'monolith_address_2' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_address_2' ) ? get_option( 'monolith_address_2' ) : '' ?>"
 							       size="50" placeholder="Main Street">
 						</td>
 					</tr>
@@ -335,7 +335,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_address_3"><?php _e( 'Address 3', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_address_3" id="monolith_address_3"
-							       value="<?= get_option( 'monolith_address_3' ) ? get_option( 'monolith_address_3' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_address_3' ) ? get_option( 'monolith_address_3' ) : '' ?>"
 							       size="50" placeholder="Strelley">
 						</td>
 					</tr>
@@ -343,7 +343,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_city"><?php _e( 'City', 'monolith' ); ?></th>
 						<td>
 							<input type="text" name="monolith_city" id="monolith_city"
-							       value="<?= get_option( 'monolith_city' ) ? get_option( 'monolith_city' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_city' ) ? get_option( 'monolith_city' ) : '' ?>" size="50"
 							       placeholder="Nottingham">
 						</td>
 					</tr>
@@ -351,7 +351,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_county"><?php _e( 'County', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_county" id="monolith_county"
-							       value="<?= get_option( 'monolith_county' ) ? get_option( 'monolith_county' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_county' ) ? get_option( 'monolith_county' ) : '' ?>" size="50"
 							       placeholder="Nottinghamshire">
 						</td>
 					</tr>
@@ -359,7 +359,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_postcode"><?php _e( 'Postcode', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_postcode" id="monolith_postcode"
-							       value="<?= get_option( 'monolith_postcode' ) ? get_option( 'monolith_postcode' ) : '' ?>" size="15"
+							       value="<?php echo get_option( 'monolith_postcode' ) ? get_option( 'monolith_postcode' ) : '' ?>" size="15"
 							       placeholder="NG8 6PE">
 						</td>
 					</tr>
@@ -369,7 +369,7 @@ add_action( 'admin_menu', function () {
 							<select name="monolith_country" id="monolith_country">
 								<?php foreach ( $countries as $country ) : ?>
 									<option
-										value="<?= $country ?>"<?= get_option( 'monolith_country' ) ? ( get_option( 'monolith_country' ) === $country ? ' selected' : '' ) : ( $country === 'United Kingdom' ? ' selected' : '' ) ?>><?= $country ?></option>
+										value="<?php echo $country ?>"<?php echo get_option( 'monolith_country' ) ? ( get_option( 'monolith_country' ) === $country ? ' selected' : '' ) : ( $country === 'United Kingdom' ? ' selected' : '' ) ?>><?php echo $country ?></option>
 								<?php endforeach; ?>
 							</select>
 						</td>
@@ -378,7 +378,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_phone"><?php _e( 'Phone Number', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_phone" id="monolith_phone"
-							       value="<?= get_option( 'monolith_phone' ) ? get_option( 'monolith_phone' ) : '' ?>" size="15"
+							       value="<?php echo get_option( 'monolith_phone' ) ? get_option( 'monolith_phone' ) : '' ?>" size="15"
 							       placeholder="(0115) 906 1321">
 						</td>
 					</tr>
@@ -387,7 +387,7 @@ add_action( 'admin_menu', function () {
 								for="monolith_secondary_phone"><?php _e( 'Secondary phone Number', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_secondary_phone" id="monolith_secondary_phone"
-							       value="<?= get_option( 'monolith_secondary_phone' ) ? get_option( 'monolith_secondary_phone' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_phone' ) ? get_option( 'monolith_secondary_phone' ) : '' ?>"
 							       size="15" placeholder="(0) 123 906 1321">
 						</td>
 					</tr>
@@ -395,7 +395,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_fax"><?php _e( 'Fax Number', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_fax" id="monolith_fax"
-							       value="<?= get_option( 'monolith_fax' ) ? get_option( 'monolith_fax' ) : '' ?>" size="15"
+							       value="<?php echo get_option( 'monolith_fax' ) ? get_option( 'monolith_fax' ) : '' ?>" size="15"
 							       placeholder="(0115) 906 1321">
 						</td>
 					</tr>
@@ -404,7 +404,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_email"><?php _e( 'Email', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_email" id="monolith_email"
-							       value="<?= get_option( 'monolith_email' ) ? get_option( 'monolith_email' ) : '' ?>" size="35"
+							       value="<?php echo get_option( 'monolith_email' ) ? get_option( 'monolith_email' ) : '' ?>" size="35"
 							       placeholder="hello@website.com">
 						</td>
 					</tr>
@@ -418,7 +418,7 @@ add_action( 'admin_menu', function () {
 						</th>
 						<td>
 							<input type="text" name="monolith_secondary_address_1" id="monolith_secondary_address_1"
-							       value="<?= get_option( 'monolith_secondary_address_1' ) ? get_option( 'monolith_secondary_address_1' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_address_1' ) ? get_option( 'monolith_secondary_address_1' ) : '' ?>"
 							       size="50" placeholder="Strelley Hall">
 						</td>
 					</tr>
@@ -427,7 +427,7 @@ add_action( 'admin_menu', function () {
 						</th>
 						<td>
 							<input type="text" name="monolith_secondary_address_2" id="monolith_secondary_address_2"
-							       value="<?= get_option( 'monolith_secondary_address_2' ) ? get_option( 'monolith_secondary_address_2' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_address_2' ) ? get_option( 'monolith_secondary_address_2' ) : '' ?>"
 							       size="50" placeholder="Main Street">
 						</td>
 					</tr>
@@ -436,7 +436,7 @@ add_action( 'admin_menu', function () {
 						</th>
 						<td>
 							<input type="text" name="monolith_secondary_address_3" id="monolith_secondary_address_3"
-							       value="<?= get_option( 'monolith_secondary_address_3' ) ? get_option( 'monolith_secondary_address_3' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_address_3' ) ? get_option( 'monolith_secondary_address_3' ) : '' ?>"
 							       size="50" placeholder="Strelley">
 						</td>
 					</tr>
@@ -444,7 +444,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_secondary_city"><?php _e( 'City', 'monolith' ); ?></th>
 						<td>
 							<input type="text" name="monolith_secondary_city" id="monolith_secondary_city"
-							       value="<?= get_option( 'monolith_secondary_city' ) ? get_option( 'monolith_secondary_city' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_city' ) ? get_option( 'monolith_secondary_city' ) : '' ?>"
 							       size="50"
 							       placeholder="Nottingham">
 						</td>
@@ -453,7 +453,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_secondary_county"><?php _e( 'County', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_secondary_county" id="monolith_secondary_county"
-							       value="<?= get_option( 'monolith_secondary_county' ) ? get_option( 'monolith_secondary_county' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_county' ) ? get_option( 'monolith_secondary_county' ) : '' ?>"
 							       size="50"
 							       placeholder="Nottinghamshire">
 						</td>
@@ -462,7 +462,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_secondary_postcode"><?php _e( 'Postcode', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_secondary_postcode" id="monolith_secondary_postcode"
-							       value="<?= get_option( 'monolith_secondary_postcode' ) ? get_option( 'monolith_secondary_postcode' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_postcode' ) ? get_option( 'monolith_secondary_postcode' ) : '' ?>"
 							       size="15"
 							       placeholder="NG8 6PE">
 						</td>
@@ -473,7 +473,7 @@ add_action( 'admin_menu', function () {
 							<select name="monolith_secondary_country" id="monolith_secondary_country">
 								<?php foreach ( $countries as $country ) : ?>
 									<option
-										value="<?= $country ?>"<?= get_option( 'monolith_secondary_country' ) ? ( get_option( 'monolith_secondary_country' ) === $country ? ' selected' : '' ) : ( $country === 'United Kingdom' ? ' selected' : '' ) ?>><?= $country ?></option>
+										value="<?php echo $country ?>"<?php echo get_option( 'monolith_secondary_country' ) ? ( get_option( 'monolith_secondary_country' ) === $country ? ' selected' : '' ) : ( $country === 'United Kingdom' ? ' selected' : '' ) ?>><?php echo $country ?></option>
 								<?php endforeach; ?>
 							</select>
 						</td>
@@ -483,7 +483,7 @@ add_action( 'admin_menu', function () {
 						</th>
 						<td>
 							<input type="text" name="monolith_secondary_phone" id="monolith_secondary_phone"
-							       value="<?= get_option( 'monolith_secondary_phone' ) ? get_option( 'monolith_secondary_phone' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_phone' ) ? get_option( 'monolith_secondary_phone' ) : '' ?>"
 							       size="15"
 							       placeholder="(0115) 906 1321">
 						</td>
@@ -494,7 +494,7 @@ add_action( 'admin_menu', function () {
 						</th>
 						<td>
 							<input type="text" name="monolith_secondary_secondary_phone" id="monolith_secondary_secondary_phone"
-							       value="<?= get_option( 'monolith_secondary_secondary_phone' ) ? get_option( 'monolith_secondary_secondary_phone' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_secondary_phone' ) ? get_option( 'monolith_secondary_secondary_phone' ) : '' ?>"
 							       size="15" placeholder="(0) 123 906 1321">
 						</td>
 					</tr>
@@ -502,7 +502,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_secondary_fax"><?php _e( 'Fax Number', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_secondary_fax" id="monolith_secondary_fax"
-							       value="<?= get_option( 'monolith_secondary_fax' ) ? get_option( 'monolith_secondary_fax' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_fax' ) ? get_option( 'monolith_secondary_fax' ) : '' ?>"
 							       size="15"
 							       placeholder="(0115) 906 1321">
 						</td>
@@ -511,7 +511,7 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_secondary_email"><?php _e( 'Email', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_secondary_email" id="monolith_secondary_email"
-							       value="<?= get_option( 'monolith_secondary_email' ) ? get_option( 'monolith_secondary_email' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_secondary_email' ) ? get_option( 'monolith_secondary_email' ) : '' ?>"
 							       size="35"
 							       placeholder="hello@website.com">
 						</td>

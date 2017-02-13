@@ -11,12 +11,13 @@ function monolith_build( $layout = null, $args = null, $query = null ) {
 	new Bigspring\Monolith\Builder( $layout, $args, $query );
 }
 
-function monolith_grid( $part = null, $classes = null, $args = null, $query = null ) {
+function monolith_grid( $part = null, $classes = null, $args = null, $query = null, $cache = null ) {
+	
 	if ( $classes ) { // ensure we set the right builder arg for the size parameter
 		$args['classes'] = $classes;
 	}
 	
-	new Bigspring\Monolith\Builder( array( 'layout' => 'grid', 'part' => $part ), $args, $query );
+	new Bigspring\Monolith\Builder( array( 'layout' => 'grid', 'part' => $part ), $args, $query, $cache );
 }
 
 function monolith_accordion( $args = null, $query = null ) {
