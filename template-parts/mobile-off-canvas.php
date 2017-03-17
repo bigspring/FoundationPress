@@ -8,7 +8,7 @@
 
 ?>
 
-<nav class="off-canvas position-right" id="mobile-menu" data-off-canvas data-auto-focus="false" data-position="right" role="navigation">
+<nav class="off-canvas position-right" id="mobile-menu" data-off-canvas data-auto-focus="false" data-position="right">
   <?php foundationpress_mobile_nav(); ?>
 </nav>
 

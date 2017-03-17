@@ -18,7 +18,7 @@ get_header(); ?>
 				</div>
 			</header>
 
-			<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
+			<section <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
 				<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 				<div class="entry-content">
 					<div class="error">
@@ -35,7 +35,7 @@ get_header(); ?>
 					<h4><?php _e( 'Or try searching the site:', 'foundationpress' ); ?></h4>
 					<?php get_search_form(); ?>
 				</div>
-			</article>
+			</section>
 		<?php do_action( 'foundationpress_after_content' ); ?>
 
 	</div>

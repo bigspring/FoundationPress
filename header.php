@@ -43,7 +43,7 @@
 			<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
 		</div>
 
-		<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
+		<nav id="site-navigation" class="main-navigation top-bar">
 			<div class="top-bar-left">
 				<ul class="menu">
 					<li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
