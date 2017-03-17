@@ -21,7 +21,6 @@
     @include breakpoint(medium) {
       @include grid-column(4);
       @include grid-col-pos(-8);
-      margin-top: 1rem;
     }
   }
 }

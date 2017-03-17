@@ -5,14 +5,13 @@
   header {
     @include grid-column(12);
 
-      .lead {
-        font-size: 125%;
-        line-height: 1.6;
-      }
+    .lead {
+      font-size: 125%;
+      line-height: 1.6;
     }
+  }
 
-  #components{
-
+  #components {
     hr {
       margin: 3rem 0;
     }
@@ -28,7 +27,6 @@
   }
 
   #kitchen-sink-nav {
-
     @include breakpoint(small) {
       display: none;
     }
@@ -72,9 +70,7 @@
           border-top: 0;
           padding-top: 0;
       }
-
     }
-
   }
 
   .row.display {
@@ -90,7 +86,6 @@
       background: #e1e1e1;
     }
   }
-
 }
 
 //Full width Bands sections

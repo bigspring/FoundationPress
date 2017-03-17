@@ -115,7 +115,7 @@ get_header(); ?>
 					<!-- Accordion -->
 					<h2 id="accordion" class="docs-heading" data-magellan-target="accordion"><a href="#accordion"></a>Accordion</h2>
 					<ul class="accordion" data-accordion role="tablist">
-					  <li class="accordion-item">
+					  <li class="accordion-item" data-accordion-item>
 					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
 					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
 					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
@@ -123,17 +123,17 @@ get_header(); ?>
 					      Panel 1. Lorem ipsum dolor
 					    </div>
 					  </li>
-					  <li class="accordion-item">
+					  <li class="accordion-item" data-accordion-item>
 					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
-					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
+					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 2</a>
 					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
 					    <div id="panel1d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel1d-heading">
 					      Panel 2. Lorem ipsum dolor
 					    </div>
 					  </li>
-					  <li class="accordion-item">
+					  <li class="accordion-item" data-accordion-item>
 					    <!-- The tab title needs role="tab", an href, a unique ID, and aria-controls. -->
-					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 1</a>
+					    <a href="#panel1d" role="tab" class="accordion-title" id="panel1d-heading" aria-controls="panel1d">Accordion 3</a>
 					    <!-- The content pane needs an ID that matches the above href, role="tabpanel", data-tab-content, and aria-labelledby. -->
 					    <div id="panel1d" class="accordion-content" role="tabpanel" data-tab-content aria-labelledby="panel1d-heading">
 					      Panel 3. Lorem ipsum dolor
@@ -244,6 +244,79 @@ get_header(); ?>
 						  <a href="#">It's dangerous to go alone, take this.</a>
 						</div>
 					<hr>
+
+					<!-- Cards -->
+					<h2 id="cards" class="docs-heading" data-magellan-target="cards"><a href="#cards"></a>Cards</h2>
+
+					<div class="flex-card-example">
+
+						<div class="card">
+				      <img src="https://placeimg.com/300/200/arch">
+				      <div class="card-content">
+				        <h4>Dreams feel real</h4>
+				        <p>I'm going to improvise. Listen, there's something you should know about me... about inception.</p>
+				        <small>Last updated 1 minute ago</small>
+				      </div>
+				    </div>
+
+						<div class="card">
+				      <img src="https://placeimg.com/300/200/nature">
+				      <div class="card-content">
+				        <h4>Menus</h4>
+				        <p>Cards play nicely with menus too! Give them a try.</p>
+				        <ul class="menu simple">
+				          <li><a href="#">One</a></li>
+				          <li><a href="#">Two</a></li>
+				          <li><a href="#">Three</a></li>
+				        </ul>
+				      </div>
+				  	</div>
+
+						<div class="card">
+				      <div class="card-divider">
+				        <p>Featured</p>
+				      </div>
+				      <div class="card-content">
+				        <h4>Your title here!</h4>
+				        <p>An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+				      </div>
+				    </div>
+
+				    <div class="card">
+				      <img src="https://placeimg.com/300/200/people">
+				      <div class="card-content">
+				        <h4>Buttons!</h4>
+				        <p>Who doesn't love a good button? Buttons work in all of their forms too.</p>
+				        <a class="button" href="#">I'm a button</a>
+				      </div>
+				    </div>
+
+				    <div class="card">
+				      <img src="https://placeimg.com/300/200/tech">
+				      <div class="card-content">
+				        <h4>And button groups...</h4>
+				        <p>Button groups also work great!</p>
+				        <div class="button-group">
+				          <a class="button">One</a>
+				          <a class="button">Two</a>
+				          <a class="button">Three</a>
+				        </div>
+				      </div>
+				    </div>
+
+				    <div class="card text-center">
+				      <div class="card-divider">
+				        <p>Centered</p>
+				      </div>
+				      <img src="https://placeimg.com/300/200/animals">
+				      <div class="card-content">
+				        <p>The utility classes like .text-center work great too.</p>
+				        <a class="button" href="#">Click me</a>
+				      </div>
+				    </div>
+					</div>
+					<hr>
+
 
 					<!-- Close Button -->
 					<h2 id="close-button" class="docs-heading" data-magellan-target="close-button"><a href="#close-button"></a>Close Button</h2>
@@ -606,7 +679,7 @@ get_header(); ?>
 						<!-- Full screen modal -->
 			      <div class="full reveal" id="exampleModal8" data-reveal>
 			        <h2>Full screen modal</h2>
-			        <img src="http://placekitten.com/1920/1280" alt="Intropsective Cage">
+			        <img src="https://placeimg.com/800/600/arch" alt="Intropsective Cage">
 			        <button class="close-button" data-close aria-label="Close reveal" type="button">
 			          <span aria-hidden="true">&times;</span>
 			        </button>
@@ -691,42 +764,46 @@ get_header(); ?>
 
 					<!-- Tabs -->
 					<h2 id="tabs" class="docs-heading" data-magellan-target="tabs"><a href="#tabs"></a>Tabs</h2>
-						<ul class="tabs" data-tabs id="example-tabs">
-						  <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
-						  <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
-						  <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
-						  <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
-						  <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
-						  <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
-						</ul>
 
-						<div class="tabs-content" data-tabs-content="example-tabs">
-						  <div class="tabs-panel is-active" id="panel1">
-						    <p>one</p>
-						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
-						  </div>
-						  <div class="tabs-panel" id="panel2">
-						    <p>two</p>
-						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
-						  </div>
-						  <div class="tabs-panel" id="panel3">
-						    <p>three</p>
-						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
-						  </div>
-						  <div class="tabs-panel" id="panel4">
-						    <p>four</p>
-						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
-						  </div>
-						  <div class="tabs-panel" id="panel5">
-						    <p>five</p>
-						    <p>Check me out! I'm a super cool Tab panel with text content!</p>
-						  </div>
-						  <div class="tabs-panel" id="panel6">
-						    <p>six</p>
-						    <img class="thumbnail" src="http://placeimg.com/200/200/arch">
-						  </div>
-						</div>
-					<hr>
+          <ul class="tabs" data-responsive-accordion-tabs="accordion medium-tabs" id="example-tabs">
+            <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Tab 1</a></li>
+            <li class="tabs-title"><a href="#panel2">Tab 2</a></li>
+            <li class="tabs-title"><a href="#panel3">Tab 3</a></li>
+            <li class="tabs-title"><a href="#panel4">Tab 4</a></li>
+            <li class="tabs-title"><a href="#panel5">Tab 5</a></li>
+            <li class="tabs-title"><a href="#panel6">Tab 6</a></li>
+          </ul>
+
+					<div class="tabs-content" data-tabs-content="example-tabs">
+
+            <div class="tabs-panel is-active" id="panel1">
+              <p>One</p>
+              <p>Check me out! I'm a super cool Tab panel with text content! On medium-down screen sizes, this component will transform into an accordion.</p>
+            </div>
+            <div class="tabs-panel" id="panel2">
+              <p>Two</p>
+              <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+            </div>
+            <div class="tabs-panel" id="panel3">
+              <p>Three</p>
+              <p>Check me out! I'm a super cool Tab panel with text content!</p>
+            </div>
+            <div class="tabs-panel" id="panel4">
+              <p>Four</p>
+              <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+            </div>
+            <div class="tabs-panel" id="panel5">
+              <p>Five</p>
+              <p>Check me out! I'm a super cool Tab panel with text content!</p>
+            </div>
+            <div class="tabs-panel" id="panel6">
+              <p>Six</p>
+              <img class="thumbnail" src="http://placeimg.com/200/200/arch">
+            </div>
+
+          </div>
+          <hr>
+
 
 					<!-- Thumbnail -->
 					<h2 id="thumbnail" class="docs-heading" data-magellan-target="thumbnail"><a href="#thumbnail"></a>Thumbnail</h2>
@@ -848,6 +925,7 @@ get_header(); ?>
 							<li><a href="#breadcrumbs">Breadcrumbs</a></li>
 							<li><a href="#button">Button</a></li>
 							<li><a href="#callout">Callout</a></li>
+							<li><a href="#cards">Cards</a></li>
 							<li><a href="#close-button">Close button</a></li>
 							<li><a href="#drilldown-menu">Drilldown Menu</a></li>
 							<li><a href="#dropdown-menu">Dropdown Menu</a></li>

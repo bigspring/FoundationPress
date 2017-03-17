@@ -1,11 +1,13 @@
 .sidebar {
+  margin-top: 1rem;
+
   @include breakpoint(small) {
     @include grid-column(12);
   }
 
   @include breakpoint(medium) {
     @include grid-column(4);
-    margin-top: 1rem;
+    margin-top: 0;
   }
 
   // increase spacing between widgets

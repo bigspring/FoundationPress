@@ -35,7 +35,7 @@ add_action( 'admin_menu', function () {
 								for="monolith_blog_page_title"><?php _e( 'Blog Page Title (*)', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title"
-							       value="<?= get_option( 'monolith_blog_page_title' ) ? get_option( 'monolith_blog_page_title' ) : '' ?>"
+							       value="<?php echo get_option( 'monolith_blog_page_title' ) ? get_option( 'monolith_blog_page_title' ) : '' ?>"
 							       size="50" placeholder="<?php _e( 'News', 'monolith' ); ?>" required>
 						</td>
 					</tr>
@@ -45,7 +45,7 @@ add_action( 'admin_menu', function () {
 						</th>
 						<td>
 							<textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3"
-							          placeholder="<?php _e( 'This is my news blog.', 'monolith' ); ?>"><?= get_option( 'monolith_blog_page_introtext' ) ? get_option( 'monolith_blog_page_introtext' ) : '' ?></textarea>
+							          placeholder="<?php _e( 'This is my news blog.', 'monolith' ); ?>"><?php echo get_option( 'monolith_blog_page_introtext' ) ? get_option( 'monolith_blog_page_introtext' ) : '' ?></textarea>
 						</td>
 					</tr>
 				</table>

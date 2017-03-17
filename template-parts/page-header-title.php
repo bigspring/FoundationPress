@@ -59,7 +59,7 @@
     $term = $wp_query->get_queried_object();
     ?>
 
-    <h1><?= $term->name; ?></h1>
+    <h1><?php echo $term->name; ?></h1>
 
   <?php elseif ( is_page() ) : // on pages, show the title ?>
 

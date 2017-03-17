@@ -3,7 +3,7 @@ This is a starter-theme for WordPress based on Foundation 6, the most advanced r
 
 ## Requirements
 
-This project requires [Node.js](http://nodejs.org) v4.x.x  to be installed on your machine. Please be aware that you may encounter problems with the installation if you are using v5.1.0 with all the latest features.
+**This project requires [Node.js](http://nodejs.org) v4.x.x to v6.9.x to be installed on your machine.** Please be aware that you will most likely encounter problems with the installation if you are using v7.1.0 with all the latest features.
 
 FoundationPress uses [Sass](http://Sass-lang.com/) (CSS with superpowers). In short, Sass is a CSS pre-processor that allows you to write styles more effectively and tidy.
 
@@ -42,6 +42,14 @@ Build all assets minified and without sourcemaps:
 ```bash
 $ npm run production
 ```
+
+### 4. To create a .zip file of your theme, run:
+
+```bash
+$ npm run package
+```
+
+Running this command will build and minify the theme's assets and place a `.zip` archive of the theme in the `packaged` directory. This excludes the developer files/directories from your theme like `node_modules`, `assets/components`, etc. to keep the theme lightweight for transferring the theme to a staging or production server.
 
 ### Styles
 
@@ -93,6 +101,12 @@ $ npm run phpcbf
 FoundationPress is completely ready to be deployed to and tested by Travis-CI for WordPress Coding Standards and best practices. All you need to do to activate the test is sign up and follow the instructions to point Travis-CI towards your repo. Just don't forget to update the status badge to point to your repositories unit test.
 [Travis-CI](https://travis-ci.org/)
 
+## UI toolkits for rapid prototyping
+
+* [Foundation UI Kit for Axure RP](https://gumroad.com/l/foundation-ui-kit-axure-rp)
+* [FoundationXD - Foundation UI Kit for Adobe XD](https://gumroad.com/l/foundation-ui-kit-xd)
+* [FoundationPSD - Foundation UI Kit for Photoshop](https://gumroad.com/l/foundation-ui-kit-psd)
+
 ## Tutorials
 
 * [FoundationPress for beginners](https://foundationpress.olefredrik.com/posts/tutorials/foundationpress-for-beginners/)
@@ -136,5 +150,17 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 * [Axe](http://www.axe.be/)
 * [ProfitGym](http://profitgym.nl/)
 * [Dr Now](http://www.drnow.com/)
+* [Agritur Piasina](http://www.agriturpiasina.it/)
+* [Atomic Interactive](http://atomicinteractive.com/)
+* [Byington Vineyard & Winery](http://byington.com/)
+* [Philanthropy House](http://philanthropyhouse.eu/)
+* [TVA Group](http://www.groupe-tva.com/en/)
+* [Forte Science](https://www.forte-science.co.jp/)
+* [Well Made Studio](http://wellmadestudio.com/)
+* [Show And Tell](http://www.showandtelluk.com/)
+* [Wahl + Case](https://www.wahlandcase.com/)
+* [Forefront Dermatology](https://forefrontdermatology.com/)
+* [Wirthschaftsjunioren](http://www.wirtschaftsjunioren.org/)
+
 
 >Credit goes to all the brilliant designers and developers out there. Have **you** made a site that should be on this list? [Please let me know](https://twitter.com/olefredrik)

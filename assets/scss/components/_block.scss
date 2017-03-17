@@ -7,17 +7,10 @@
 
 		// padding rules
 		// -----------------
-
-			padding: 5% 0;
-
-			@include breakpoint(medium up) {
-				padding: 5% 0;
-			}//medium up
-
-			@include breakpoint(medium up) {
-				padding: 4rem 0;
-			}//large up
-
+			
+			@include responsive-vertical-padding(6vw, 1rem, 6rem, 2rem);
+			background: red;
+			
 			&.block-no-bottom-pad {
 				padding-bottom: 0;
 			}//block-no-bottom-pad

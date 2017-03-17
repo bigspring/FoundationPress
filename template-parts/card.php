@@ -5,10 +5,10 @@
  * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
-
 ?>
 
-<a id="<?= sanitize_title( get_the_title() ) ?>" href="<?php the_permalink(); ?>">
+<a id="<?php echo sanitize_title( get_the_title() ) ?>" href="<?php the_permalink(); ?>">
+
   <div class="m3-card" data-equalizer-watch>
 
     <?php if ( $args['has_image'] ) : // display the featured image if argument is true ?>
@@ -19,12 +19,12 @@
 
     <div class="caption">
       <?php if ( $args['has_title'] ) : // display only if the summary is enabled (default is true) ?>
-      <h3 class="title <?= $args['has_summary'] ? 'has-summary' : '' ?>"><?php the_title(); ?></h3>
+	      <h3 class="title <?php echo $args['has_summary'] ? 'has-summary' : '' ?>"><?php the_title(); ?></h3>
       <?php endif; // end has_title ?>
 
       <?php if ( $args['has_summary'] ) : // display only if the summary is enabled (default is true) ?>
         <div class="summary">
-          <?= wp_trim_words( get_the_excerpt(), 20, '...' ); ?>
+          <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
         </div>
       <?php endif; // end has_summary ?>
     </div>
