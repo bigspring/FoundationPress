@@ -57,7 +57,7 @@
 				<?php do_action( 'foundationpress_after_footer' ); ?>
 						
 						<div class="legal-footer-container">
-								<div class="legal-footer-info">
+								<div class="legal-footer-info seperators">
 										<ul class="inline-list centered-inline-list">
 												<!-- start the footer menu -->
 												<ul class="menu">
