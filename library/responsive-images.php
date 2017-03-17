@@ -45,7 +45,7 @@ function foundationpress_custom_sizes( $sizes ) {
 		'portrait-tiny'   => __( 'Portrait Tiny' ),
 		'portrait-small'  => __( 'Portrait Small' ),
 		'portrait-medium' => __( 'Portrait Medium' ),
-		'portrait-large'   => __( 'Portrait Large' ),
+		'portrait-large'  => __( 'Portrait Large' ),
 		'square-tiny'     => __( 'SQ Tiny' ),
 		'square-small'    => __( 'SQ Small' ),
 		'square-medium'   => __( 'SQ Medium' ),
