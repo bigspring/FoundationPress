@@ -75,6 +75,22 @@
 					}//dropdown
 
 				}//&.active, &.current_page_item
+				
+				// Special buttons in the menu using custom styles, usually the contact button
+				// ----------------------------------------------------
+				&.nav-menu-button {
+					a {
+						padding: 0.65rem 1.65rem;
+						color: $white;
+						font-weight: 600;
+						background-color: $primary-color;
+						transition: background-color 0.5s ease;
+						&:hover {
+							background-color: scale-color($primary-color, $lightness: -14%);
+							color: $white;
+						}//hover
+					}//a
+				}//nav-menu-button
 
 			}//li
 

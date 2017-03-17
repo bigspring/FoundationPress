@@ -7739,6 +7739,16 @@ a.thumbnail {
   .top-bar .menu li.active ul.dropdown li.current_page_item a, .top-bar .menu li.current_page_item ul.dropdown li.current_page_item a {
     background-color: #1779ba;
     color: #fefefe; }
+  .top-bar .menu li.nav-menu-button a {
+    padding: 0.65rem 1.65rem;
+    color: #fefefe;
+    font-weight: 600;
+    background-color: #1779ba;
+    -webkit-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease; }
+    .top-bar .menu li.nav-menu-button a:hover {
+      background-color: #1468a0;
+      color: #fefefe; }
 
 .off-canvas > ul.menu {
   height: 100vh;
@@ -8247,8 +8257,7 @@ p.lead, .lead, .lead p {
 
 .block {
   padding: 2rem 0;
-  padding: 6vw 0;
-  background: red; }
+  padding: 6vw 0; }
   @media (max-width: 16.66667rem) {
     .block {
       padding: 1rem 0; } }
@@ -8263,6 +8272,15 @@ p.lead, .lead, .lead p {
     margin-top: 0; }
   .block .button.block-bottom-button {
     margin-bottom: 0; }
+
+@media print, screen and (min-width: 40em) {
+  .callout {
+    padding: 2rem 3rem; } }
+
+.callout.primary {
+  background-color: #1779ba; }
+  .callout.primary h1, .callout.primary h2, .callout.primary h3, .callout.primary h4, .callout.primary h5, .callout.primary h6, .callout.primary p, .callout.primary span {
+    color: #fefefe; }
 
 .intro {
   max-width: 58.75rem;
