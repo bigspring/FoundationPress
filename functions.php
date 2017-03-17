@@ -20,11 +20,15 @@ require_once( 'library/cleanup.php' );
 /** Required for Foundation to work properly */
 require_once( 'library/foundation.php' );
 
+/** Format comments */
+require_once( 'library/class-foundationpress-comments.php' );
+
 /** Register all navigation menus */
 require_once( 'library/navigation.php' );
 
 /** Add menu walkers for top-bar and off-canvas */
-require_once( 'library/menu-walkers.php' );
+require_once( 'library/class-foundationpress-top-bar-walker.php' );
+require_once( 'library/class-foundationpress-mobile-walker.php' );
 
 /** Create widget areas in sidebar and footer */
 require_once( 'library/widget-areas.php' );
@@ -45,7 +49,7 @@ require_once( 'library/custom-nav.php' );
 require_once( 'library/sticky-posts.php' );
 
 /** Configure responsive image sizes */
-require_once( 'library/responsive-images.php' );
+//require_once( 'library/responsive-images.php' );
 
 /** Add Monolith Builder functions */
 require_once( 'library/monolith/builder/builder.php' );
@@ -63,12 +67,11 @@ require_once( 'library/monolith/template_tags.php' );
 require_once( 'library/monolith/shortcodes.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
-require_once( 'library/protocol-relative-theme-assets.php' );
+// require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
 
 /**
  * Featured image sizes
  */
-/*
 set_post_thumbnail_size( 640, 360, true );
 add_image_size( 'square', 640, 640, true );
 add_image_size( 'small-square', 320, 320, true );
@@ -94,7 +97,7 @@ add_filter( 'image_size_names_choose', function ( $sizes ) {
 
 	return $sizes;
 }, 10, 1 );
-*/
+
 
 
 /**
