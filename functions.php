@@ -117,3 +117,17 @@ register_nav_menu( 'legal-footer-menu', 'Legal Footer Menu' );
 if ( class_exists( 'WooCommerce' ) ) {
 	include (get_template_directory() . '/library/woocommerce/functions.php');
 }
+
+
+/**
+ * Deactivate Yoast's schema code on front page.
+ *
+ * @param $data
+ *
+ * @return array
+ */
+function bybe_remove_yoast_json($data){
+	$data = array();
+	return $data;
+}
+add_filter('wpseo_json_ld_output', 'bybe_remove_yoast_json', 10, 1);
