@@ -1,7 +1,7 @@
 <?php /* Display navigation to next/previous pages when applicable */ ?>
 <?php
-if ( function_exists( 'foundationpress_pagination' ) ) :
-	foundationpress_pagination();
+if ( function_exists( 'monolith_pagination' ) ) :
+	monolith_pagination();
 elseif ( is_paged() ) :
 	?>
 	<nav id="post-nav">
