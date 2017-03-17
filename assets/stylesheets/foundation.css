@@ -7791,6 +7791,7 @@ a.thumbnail {
         float: right; }
 
 .sidebar {
+  margin-top: 1rem;
   width: 100%;
   float: left;
   padding-right: 0.625rem;
@@ -7807,7 +7808,7 @@ a.thumbnail {
       float: left;
       padding-right: 0.625rem;
       padding-left: 0.625rem;
-      margin-top: 1rem; } }
+      margin-top: 0; } }
   @media print, screen and (min-width: 40em) and (min-width: 40em) {
     .sidebar {
       padding-right: 0.9375rem;
@@ -8663,8 +8664,7 @@ p.lead, .lead, .lead p {
         padding-right: 0.625rem;
         padding-left: 0.625rem;
         position: relative;
-        left: -66.66667%;
-        margin-top: 1rem; } }
+        left: -66.66667%; } }
   @media print, screen and (min-width: 40em) and (min-width: 40em) {
     #page-sidebar-left .sidebar {
       padding-right: 0.9375rem;
@@ -8723,8 +8723,7 @@ p.lead, .lead, .lead p {
         width: 33.33333%;
         float: left;
         padding-right: 0.625rem;
-        padding-left: 0.625rem;
-        margin-top: 1rem; } }
+        padding-left: 0.625rem; } }
   @media print, screen and (min-width: 40em) and (min-width: 40em) {
     #page-sidebar-right .sidebar {
       padding-right: 0.9375rem;
