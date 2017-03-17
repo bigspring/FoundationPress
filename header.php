@@ -23,6 +23,9 @@
 		<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/assets/images/icons/touch-icon-iphone.png">
 		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/icons/favicon.ico">
 
+		<?php include('template-parts/json-ld.php'); ?>
+		<script type="application/ld+json"><?php echo json_encode($payload); ?></script>
+
 	</head>
 	<body <?php body_class(); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>
@@ -35,15 +38,17 @@
 
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="masthead" class="site-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader" role="banner">
 		<div class="title-bar" data-responsive-toggle="mobile-menu">
+
 			<div class="title-bar-title">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 			</div>
 			<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
 		</div>
+			
+		<nav id="site-navigation" class="main-navigation top-bar" itemscope itemtype="http://schema.org/SiteNavigationElement">
 
-		<nav id="site-navigation" class="main-navigation top-bar">
 			<div class="top-bar-left">
 				<ul class="menu">
 					<li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
