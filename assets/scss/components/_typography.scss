@@ -10,7 +10,50 @@ h3 {
 	@include responsive-font(3vw, 20px, 30px, 20px);
 }
 
+//---------------------
+// Border for underlined titles
+//---------------------
+
+.underlined-title {
+	text-align: center;
+	position: relative;
+	padding-bottom: 1rem;
+	margin-bottom: 2em;
+	
+	&:after {
+		width: 8%;
+		height: 0.15rem;
+		background: $light-gray;
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 0 auto;
+	}
+	
+}//underlined-title
+
 p.lead, .lead, .lead p {
 	@include responsive-font(4vw, 1.2rem, 1.5rem, false);
 	line-height: 1.3;
 }
+
+//---------------------
+// Blockquote
+//---------------------
+
+blockquote {
+	@include responsive-vertical-margin(6vw, 1rem, 4rem, 2rem);
+	
+	p {
+		@include responsive-font(3vw, 18px, 22px, 20px);
+		
+		cite {
+			&:before {
+				content: none;
+			}
+			font-style: normal;
+		}//cite
+	}//p
+}//blockquote
