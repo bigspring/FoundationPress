@@ -154,3 +154,13 @@
 	  
 	  font-size: $responsive;
 	}
+
+// ---------------------------
+// SELF CLEARING DIV MAGIC
+// ---------------------------
+
+@mixin clear-rows() {
+	clear: both;
+	content: "";
+	display: table;
+} //mixin

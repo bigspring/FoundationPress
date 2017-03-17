@@ -8321,6 +8321,94 @@ blockquote {
   .callout.primary h1, .callout.primary h2, .callout.primary h3, .callout.primary h4, .callout.primary h5, .callout.primary h6, .callout.primary p, .callout.primary span {
     color: #fefefe; }
 
+.post-meta-block {
+  margin-right: -0.625rem;
+  margin-left: -0.625rem;
+  padding-bottom: 1rem; }
+  @media print, screen and (min-width: 40em) {
+    .post-meta-block {
+      margin-right: -0.9375rem;
+      margin-left: -0.9375rem; } }
+  @media print, screen and (min-width: 64em) {
+    .post-meta-block {
+      margin-right: -0.9375rem;
+      margin-left: -0.9375rem; } }
+  @media screen and (min-width: 85.375em) {
+    .post-meta-block {
+      margin-right: -0.9375rem;
+      margin-left: -0.9375rem; } }
+  @media screen and (min-width: 120em) {
+    .post-meta-block {
+      margin-right: -0.9375rem;
+      margin-left: -0.9375rem; } }
+  .post-meta-block:after {
+    clear: both;
+    content: "";
+    display: table; }
+  .post-meta-block .post-meta-date {
+    width: 100%;
+    float: left;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem; }
+    @media print, screen and (min-width: 40em) {
+      .post-meta-block .post-meta-date {
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem; } }
+    .post-meta-block .post-meta-date:last-child:not(:first-child) {
+      float: right; }
+    @media print, screen and (min-width: 40em) {
+      .post-meta-block .post-meta-date {
+        width: 50%;
+        float: left;
+        padding-right: 0.625rem;
+        padding-left: 0.625rem; } }
+  @media print, screen and (min-width: 40em) and (min-width: 40em) {
+    .post-meta-block .post-meta-date {
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem; } }
+    @media print, screen and (min-width: 40em) {
+        .post-meta-block .post-meta-date:last-child:not(:first-child) {
+          float: right; } }
+    .post-meta-block .post-meta-date time {
+      display: inline-block;
+      line-height: 2;
+      font-size: 0.9rem;
+      color: #cacaca; }
+  .post-meta-block .post-meta-sharing {
+    width: 100%;
+    float: left;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem; }
+    @media print, screen and (min-width: 40em) {
+      .post-meta-block .post-meta-sharing {
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem; } }
+    .post-meta-block .post-meta-sharing:last-child:not(:first-child) {
+      float: right; }
+    @media print, screen and (min-width: 40em) {
+      .post-meta-block .post-meta-sharing {
+        width: 50%;
+        float: left;
+        padding-right: 0.625rem;
+        padding-left: 0.625rem;
+        text-align: right; } }
+  @media print, screen and (min-width: 40em) and (min-width: 40em) {
+    .post-meta-block .post-meta-sharing {
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem; } }
+    @media print, screen and (min-width: 40em) {
+        .post-meta-block .post-meta-sharing:last-child:not(:first-child) {
+          float: right; } }
+    .post-meta-block .post-meta-sharing span.sharing-text {
+      display: inline-block;
+      line-height: 2;
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+      color: #cacaca; }
+    @media print, screen and (min-width: 40em) {
+      .post-meta-block .post-meta-sharing .addthis_inline_share_toolbox {
+        float: right; } }
+
 .intro {
   max-width: 58.75rem;
   margin-right: auto;
