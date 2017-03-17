@@ -35,7 +35,7 @@ if ( is_front_page() ) {
 	$payload["@type"]        = "Organization";
 	$payload["name"]         = "Builtvisible";
 	$payload["logo"]         = "http://builtvisible.com/wp-content/uploads/2014/05/BUILTVISIBLE-Badge-Logo-512x602-medium.png";
-	$payload["url"]          = get_site_url();
+	$payload["url"]          = get_site_url() . "/";
 	$payload["sameAs"]       = array(
 		get_option( 'monolith_twitter' ),
 		get_option( 'monolith_facebook' ),
@@ -49,7 +49,8 @@ if ( is_front_page() ) {
 		array(
 			"@type"       => "ContactPoint",
 			"telephone"   => get_option( 'monolith_phone' ),
-			"email"       => get_option( 'monolith_email' )
+			"email"       => get_option( 'monolith_email' ),
+			"contactType" => "customer services"
 		)
 	);
 }
