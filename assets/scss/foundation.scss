@@ -16,6 +16,7 @@
 // WP overrides
 @import "global/wp-admin"; // Fix issues with wp-admin bar positioning
 @import "global/wp-overrides"; // Override the default WordPress styling for some elements
+@import "global/accessibility";
 
 // Third-party libraries
 @import 'font-awesome';
@@ -28,29 +29,28 @@
 @include foundation-grid;
 // @include foundation-flex-grid;
 @include foundation-typography;
-@include foundation-button;
 @include foundation-forms;
-@include foundation-range-input;
+@include foundation-button;
 @include foundation-accordion;
 @include foundation-accordion-menu;
 @include foundation-badge;
 @include foundation-breadcrumbs;
 @include foundation-button-group;
 @include foundation-callout;
+@include foundation-card;
 @include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
 @include foundation-drilldown-menu;
 @include foundation-dropdown;
 @include foundation-dropdown-menu;
-@include foundation-flex-video;
+@include foundation-responsive-embed;
 @include foundation-label;
 @include foundation-media-object;
-@include foundation-menu;
 @include foundation-off-canvas;
 @include foundation-orbit;
 @include foundation-pagination;
 @include foundation-progress-bar;
-@include foundation-progress-element;
-@include foundation-meter-element;
 @include foundation-slider;
 @include foundation-sticky;
 @include foundation-reveal;
@@ -63,7 +63,6 @@
 @include foundation-top-bar;
 @include foundation-visibility-classes;
 @include foundation-float-classes;
-@include foundation-menu-icon;
 // @include foundation-flex-classes;
 
 // Motion UI
@@ -74,6 +73,9 @@
   My custom styles:
   Add your scss files below to structure your project styles
 */
+
+// global
+@import "global/m3-mixins";
 
 // Modules
 @import "modules/navigation";
@@ -87,16 +89,20 @@
 @import "components/builder";
 @import "components/buttons";
 @import "components/hero";
-@import "components/page-header";
+@import "components/header-standard";
 @import "components/header-banner";
+@import "components/cards";
+@import "components/featured-image";
 @import "components/dividers";
 @import "components/links";
 @import "components/card";
 @import "components/snippet";
 @import "components/breadcrumbs";
 @import "components/social-media-icons";
-@import "components/stretch-band";
+@import "components/typography";
+@import "components/block";
 //@import "components/gforms";
+//@import "components/mailchimp-form";
 
 // Templates
 @import "templates/front";
@@ -106,3 +112,6 @@
 @import "templates/page-sidebar-right";
 @import "templates/page-full-width";
 @import "templates/single-post";
+
+// Woocommerce
+//@import "plugins/woocommerce/woocommerce";

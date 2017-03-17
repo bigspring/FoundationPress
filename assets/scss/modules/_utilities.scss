@@ -235,14 +235,14 @@
 // 03 – SPACERS
 // =========================
 
-
+	hr {
+		@include responsive-vertical-margin(6vw, 1rem, 6rem, 2rem);
+	}
+	
   // a class to create a 1rem vertical space using a transparent <hr/>
   hr.spacer {
 
     border-color: transparent;
-    display: block;
-    height: 1rem;
-    margin: 0;
 
   }
 

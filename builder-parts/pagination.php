@@ -18,7 +18,7 @@ $pagination_links = paginate_links( array(
 <div class="pagination-links">
   <ul class="pagination">
       <?php foreach ( $pagination_links AS $link ) { ?>
-        <li><?= $link ?></li>
+        <li><?php echo $link ?></li>
       <?php } ?>
   </ul>
 </div>

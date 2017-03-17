@@ -20,11 +20,15 @@ require_once( 'library/cleanup.php' );
 /** Required for Foundation to work properly */
 require_once( 'library/foundation.php' );
 
+/** Format comments */
+require_once( 'library/class-foundationpress-comments.php' );
+
 /** Register all navigation menus */
 require_once( 'library/navigation.php' );
 
 /** Add menu walkers for top-bar and off-canvas */
-require_once( 'library/menu-walkers.php' );
+require_once( 'library/class-foundationpress-top-bar-walker.php' );
+require_once( 'library/class-foundationpress-mobile-walker.php' );
 
 /** Create widget areas in sidebar and footer */
 require_once( 'library/widget-areas.php' );
@@ -45,7 +49,7 @@ require_once( 'library/custom-nav.php' );
 require_once( 'library/sticky-posts.php' );
 
 /** Configure responsive image sizes */
-//require_once( 'library/responsive-images.php' ); // @TODO consider whether we need this or not
+//require_once( 'library/responsive-images.php' );
 
 /** Add Monolith Builder functions */
 require_once( 'library/monolith/builder/builder.php' );
@@ -63,7 +67,7 @@ require_once( 'library/monolith/template_tags.php' );
 require_once( 'library/monolith/shortcodes.php' );
 
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
-require_once( 'library/protocol-relative-theme-assets.php' );
+// require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
 
 /**
  * Featured image sizes
@@ -94,6 +98,8 @@ add_filter( 'image_size_names_choose', function ( $sizes ) {
 	return $sizes;
 }, 10, 1 );
 
+
+
 /**
  * New menus
  */
@@ -103,3 +109,25 @@ register_nav_menu( 'footer', 'Footer Menu' );
 
 // create a custom footer legal info footer menu
 register_nav_menu( 'legal-footer-menu', 'Legal Footer Menu' );
+
+
+/**
+ * Add woocommerce support.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	include (get_template_directory() . '/library/woocommerce/functions.php');
+}
+
+
+/**
+ * Deactivate Yoast's schema code on front page.
+ *
+ * @param $data
+ *
+ * @return array
+ */
+function bybe_remove_yoast_json($data){
+	$data = array();
+	return $data;
+}
+add_filter('wpseo_json_ld_output', 'bybe_remove_yoast_json', 10, 1);

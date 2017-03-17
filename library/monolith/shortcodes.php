@@ -25,14 +25,26 @@ add_shortcode( 'divider', 'hr_shortcode' ); // hr divider shortcode
 
 /**
  * Callout shortcode [callout]
+ *
+ * @param $atts
+ * @param $content
+ *
+ * @return string
  */
 function callout_shortcode( $atts, $content = null ) {
-	extract( shortcode_atts( array(
+
+	$params = shortcode_atts( array(
 		'type' => ''
-	), $atts ) );
+	), $atts ); // TODO can we handle these defaults through the builder class instead?
 
 
-	return '<div class="shortcode-callout callout ' . $type . '">' . apply_filters( 'the_content', $content ) . '</div>';
+	/* KRUPA #23
+		extract( shortcode_atts( array(
+			'type' => ''
+		), $atts ) );
+	*/
+
+	return '<div class="shortcode-callout callout ' . $params['type'] . '">' . apply_filters( 'the_content', $content ) . '</div>';
 }
 
 add_shortcode( 'callout', 'callout_shortcode' );
@@ -46,31 +58,56 @@ add_shortcode( 'callout', 'callout_shortcode' );
  * @return string
  */
 function buttons( $atts, $content = null ) {
-	extract( shortcode_atts( array(
+
+
+	$params = shortcode_atts( array(
 		'type'   => '', /* primary, default, info, success, danger, warning, inverse */
 		'size'   => '', /* tiny, small, large */
 		'pageid' => '',
 		'url'    => '',
 		'text'   => '',
-	), $atts ) );
+	), $atts ); // TODO can we handle these defaults through the builder class instead?
 
-	$type = $type;
-
-	if ( $size == "" ) {
-		$size = "";
-	} else {
-		$size = $size;
-	}
-
-	if ( $pageid != '' ) {
-		$url = get_permalink( $pageid );
-	}
-
-	$output = '<a href="' . $url . '" class="button ' . $type . ' ' . $size . '">';
+	$url     = $params['url'];
+	$size    = $params['size'];
+	$page_id = $params['pageid'];
+	$type    = $params['type'];
+	$text    = $params['text'];
+	$output  = '<a href="' . $url . '" class="button ' . $type . ' ' . $size . '">';
 	$output .= $text;
 	$output .= '</a>';
 
+
+	/* KRUPA #23
+	 * extract( shortcode_atts( array(
+	 * 'type'   => '',
+	 * 'size'   => '',
+	 * 'pageid' => '',
+	 * 'url'    => '',
+	 * 'text'   => '',
+	 * ), $atts ) );
+	 *
+	 * $type = $type;
+	 *
+	 * if ( $size == "" ) {
+	 * $size = "";
+	 * } else {
+	 * $size = $size;
+	 * }
+	 *
+	 * if ( $pageid != '' ) {
+	 * $url = get_permalink( $pageid );
+	 * }
+	 *
+	 * $output = '<a href="' . $url . '" class="button ' . $type . ' ' . $size . '">';
+	 * $output .= $text;
+	 * $output .= '</a>';
+	 *
+	 * return $output;
+	 * /KRUPA #23 */
+
 	return $output;
+
 }
 
 add_shortcode( 'button', 'buttons' );
@@ -84,21 +121,42 @@ add_shortcode( 'button', 'buttons' );
  * @return string
  */
 function blockquotes( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-		'cite' => '', /* text for cite */
-	), $atts ) );
+
+	$params = shortcode_atts( array(
+		'cite' => ''
+	), $atts );
 
 	$output = '<blockquote>';
 	$output .= '<p>' . $content . '</p>';
 
-	if ( $cite ) {
-		$output .= '<cite>' . $cite . '</cite>';
+	if ( $params['cite'] ) {
+		$output .= '<cite>' . $params['cite'] . '</cite>';
 	}
 
 	$output .= '</blockquote>';
 
+	/* KRUPA #23
+
+		extract( shortcode_atts( array(
+			'cite' => '',
+		), $atts ) );
+
+
+
+		$output = '<blockquote>';
+		$output .= '<p>' . $content . '</p>';
+
+		if ( $cite ) {
+			$output .= '<cite>' . $cite . '</cite>';
+		}
+
+		$output .= '</blockquote>';
+
+	KRUPA #23 */
+
 	return apply_filters( 'the_content', $output );
-}
+
+} //end function
 
 add_shortcode( 'blockquote', 'blockquotes' );
 
@@ -106,14 +164,15 @@ add_shortcode( 'blockquote', 'blockquotes' );
  * Childpages shortcode renders a list of childpages 'list' 'grid' 'tabs' 'tabs-accordion' 'accordion' 'heading-accordion'=================================
  *
  * @param array $atts
- * @param string $content
  *
  * @return string
  */
-function childpages( $atts, $content = null ) {
+function childpages( $atts ) {
+
 	// set defaults
 	global $post;
-	extract( shortcode_atts( array( // set our defaults for the shortcode
+
+	$params = shortcode_atts( array(
 		'layout'        => 'snippets', // default layout
 		'part'          => 'snippet',
 		'id'            => $post->ID,
@@ -127,33 +186,31 @@ function childpages( $atts, $content = null ) {
 		'readmore'      => true,
 		'orderby'       => 'menu_order',
 		'order'         => 'ASC'
-	), $atts ) ); // @TODO can we handle these defaults through the builder class instead?
+	), $atts );
 
 	$args = array(
-		'post_parent'    => $id,
+		'post_parent'    => $params['id'],
 		'post_type'      => 'page',
 		'order'          => 'ASC',
-		'orderby'        => $orderby,
+		'orderby'        => $params['orderby'],
 		'posts_per_page' => - 1
 	);
 
 	// define our arguments for the builder based on whether we want to show images, titles, etc
 	$builder_args                 = array();
-	$builder_args['has_image']    = ( $image == 'false' ) ? false : true;
-	$builder_args['has_title']    = ( $title == 'false' ) ? false : true;
-	$builder_args['has_link']     = ( $linked == 'false' ) ? false : true;
-	$builder_args['has_summary']  = ( $excerpt == 'false' ) ? false : true;
-	$builder_args['has_readmore'] = ( $readmore == 'false' ) ? false : true;
-	$builder_args['classes']      = $size;
-	//$builder_args['size']         = $size;
+	$builder_args['has_image']    = ( $params['image'] == 'false' ) ? false : true;
+	$builder_args['has_title']    = ( $params['title'] == 'false' ) ? false : true;
+	$builder_args['has_link']     = ( $params['linked'] == 'false' ) ? false : true;
+	$builder_args['has_summary']  = ( $params['excerpt'] == 'false' ) ? false : true;
+	$builder_args['has_readmore'] = ( $params['readmore'] == 'false' ) ? false : true;
+	$builder_args['classes']      = implode( ' ', array( $params['class'], $params['size'] ) );
 
-
-	if ( $exclude_pages ) {
-		$args['post__not_in'] = explode( ',', $exclude_pages );
+	if ( $params['exclude_pages'] ) {
+		$args['post__not_in'] = explode( ',', $params['exclude_pages'] );
 	}
 
 	ob_start();
-	monolith_build( array( 'layout' => $layout, 'part' => $part ), $builder_args, $args );
+	monolith_build( array( 'layout' => $params['layout'], 'part' => $params['part'] ), $builder_args, $args );
 
 	return ob_get_clean();
 }
@@ -164,7 +221,8 @@ add_shortcode( 'childpages', 'childpages' );
 
 function pages_shortcode( $atts, $content = null ) {
 
-	extract( shortcode_atts( array( // set our defaults for the shortcode
+
+	$params = shortcode_atts( array(
 		'layout'        => 'snippets', // default layout
 		'part'          => 'snippet',
 		'ids'           => '',
@@ -178,10 +236,9 @@ function pages_shortcode( $atts, $content = null ) {
 		'readmore'      => true,
 		'orderby'       => 'menu_order',
 		'order'         => 'ASC'
+	), $atts ); // TODO can we handle these defaults through the builder class instead?
 
-	), $atts ) );
 
-	$page_ids = array();
 	$page_ids = explode( ',', $atts['ids'] );
 
 	// get the posts
@@ -191,26 +248,74 @@ function pages_shortcode( $atts, $content = null ) {
 		'order'          => 'ASC',
 		'orderby'        => 'menu_order',
 		'posts_per_page' => - 1
-
 	);
 
 	// define our arguments for the builder based on whether we want to show images, titles, etc
 	$builder_args                 = array();
-	$builder_args['is_thumbnail'] = ( $image_border == 'false' ) ? false : true;
-	$builder_args['has_image']    = ( $image == 'false' ) ? false : true;
-	$builder_args['has_title']    = ( $title == 'false' ) ? false : true;
-	$builder_args['has_summary']  = ( $excerpt == 'false' ) ? false : true;
-	$builder_args['has_readmore'] = ( $readmore == 'false' ) ? false : true;
-	$builder_args['orderby']      = $orderby;
-	$builder_args['classes']      = $size;
-	//$builder_args['size']         = $size;
+	$builder_args['is_thumbnail'] = ( $params['image_border'] == 'false' ) ? false : true;
+	$builder_args['has_image']    = ( $params['image'] == 'false' ) ? false : true;
+	$builder_args['has_title']    = ( $params['title'] == 'false' ) ? false : true;
+	$builder_args['has_summary']  = ( $params['excerpt'] == 'false' ) ? false : true;
+	$builder_args['has_readmore'] = ( $params['readmore'] == 'false' ) ? false : true;
+	$builder_args['orderby']      = $params['orderby'];
+	$builder_args['classes']      = $params['size'];
 
 	ob_start();
-	monolith_build( array( 'layout' => $layout, 'part' => $part ), $builder_args, $args );
+	monolith_build( array( 'layout' => $params['layout'], 'part' => $params['part'] ), $builder_args, $args );
+
+
+	/* KRUPA #23
+
+		extract( shortcode_atts( array( // set our defaults for the shortcode
+			'layout'        => 'snippets', // default layout
+			'part'          => 'snippet',
+			'ids'           => '',
+			'class'         => '',
+			'size'          => '',
+			'exclude_pages' => null,
+			'image_border'  => 'false',
+			'image'         => true,
+			'title'         => true,
+			'excerpt'       => true,
+			'readmore'      => true,
+			'orderby'       => 'menu_order',
+			'order'         => 'ASC'
+
+		), $atts ) );
+
+		$page_ids = array();
+		$page_ids = explode( ',', $atts['ids'] );
+
+		// get the posts
+		$args = array(
+			'post__in'       => $page_ids,
+			'post_type'      => 'page',
+			'order'          => 'ASC',
+			'orderby'        => 'menu_order',
+			'posts_per_page' => - 1
+
+		);
+
+		// define our arguments for the builder based on whether we want to show images, titles, etc
+		$builder_args                 = array();
+		$builder_args['is_thumbnail'] = ( $image_border == 'false' ) ? false : true;
+		$builder_args['has_image']    = ( $image == 'false' ) ? false : true;
+		$builder_args['has_title']    = ( $title == 'false' ) ? false : true;
+		$builder_args['has_summary']  = ( $excerpt == 'false' ) ? false : true;
+		$builder_args['has_readmore'] = ( $readmore == 'false' ) ? false : true;
+		$builder_args['orderby']      = $orderby;
+		$builder_args['classes']      = $size;
+		//$builder_args['size']         = $size;
+
+		ob_start();
+		monolith_build( array( 'layout' => $layout, 'part' => $part ), $builder_args, $args );
+
+	/KRUPA	*/
 
 	return ob_get_clean();
 
-}//end function
+} //end function
+
 add_shortcode( 'pages', 'pages_shortcode' );
 
 
@@ -224,14 +329,27 @@ add_shortcode( 'pages', 'pages_shortcode' );
  */
 
 function list_shortcode( $atts, $content = null ) {
-	extract( shortcode_atts( array(
+
+
+	$params = shortcode_atts( array(
 		'type' => '', /* no-bullet, ticks, chevron etc */
-	), $atts ) );
+	), $atts ); // TODO can we handle these defaults through the builder class instead?
 
-
-	$output = '<div class="styled-list ' . $type . '">';
+	$output = '<div class="styled-list ' . $params['type'] . '">';
 	$output .= apply_filters( 'the_content', $content );
 	$output .= '</div>';
+
+	/* KRUPA #23
+
+		extract( shortcode_atts( array(
+			'type' => '', // no-bullet, ticks, chevron etc
+		), $atts ) );
+
+		$output = '<div class="styled-list ' . $type . '">';
+		$output .= apply_filters( 'the_content', $content );
+		$output .= '</div>';
+
+		/KRUPA */
 
 	return $output;
 }
@@ -248,21 +366,51 @@ add_shortcode( 'list', 'list_shortcode' );
  */
 function monolith_foundation_accordion_shortcode( $atts, $content ) {
 
-	extract( shortcode_atts( array( // set our defaults for the shortcode
+	$params = shortcode_atts( array(
 		'class' => ''
-	), $atts ) );
+	), $atts ); // TODO can we handle these defaults through the builder class instead?
 
-	$output = '<ul class="accordion ' . $class . '" data-accordion>';
+	$output = '<ul class="accordion ' . $params['class'] . '" data-accordion>';
 	$output .= do_shortcode( $content );
 	$output .= '</ul>';
+
+
+	/* KRUPA #23
+
+		extract( shortcode_atts( array( // set our defaults for the shortcode
+			'class' => ''
+		), $atts ) );
+
+		$output = '<ul class="accordion ' . $class . '" data-accordion>';
+		$output .= do_shortcode( $content );
+		$output .= '</ul>';
+
+	/KRUPA */
 
 	return apply_filters( 'the_content', $output );
 }
 
 add_shortcode( 'accordion', 'monolith_foundation_accordion_shortcode' );
 
+
 function monolith_accordion_panel_shortcode( $atts, $content ) {
 
+	$params = shortcode_atts( array(
+		'title' => 'Please enter an accordion title',
+		'class' => ''
+	), $atts );
+
+	$id = rand( 1, 1000 );
+
+	$output = '<li class="accordion-item" data-accordion-item>';
+	$output .= '<a href="#" class="accordion-title">' . $params['title'] . '</a>';
+	$output .= '<div class="accordion-content" data-tab-content>';
+	$output .= $content;
+	$output .= '</div>';
+	$output .= '</li>';
+
+
+	/* KRUPA
 	extract( shortcode_atts( array( // set our defaults for the shortcode
 		'title' => 'Please enter an accordion title',
 		'class' => ''
@@ -276,6 +424,7 @@ function monolith_accordion_panel_shortcode( $atts, $content ) {
 	$output .= $content;
 	$output .= '</div>';
 	$output .= '</li>';
+	/KRUPA */
 
 	return apply_filters( 'accordion_panel', $output );
 }
@@ -305,13 +454,28 @@ add_shortcode( 'row', 'foundation_row_shortcode' );
  * @return string
  */
 function foundation_columns_shortcode( $atts, $content = null ) {
-	extract( shortcode_atts( array(
-		'columns' => '', /* large-12 small-5 etc */
-	), $atts ) );
 
-	$output = '<div class="columns ' . $columns . '">';
+	$params = shortcode_atts( array(
+		'columns' => '', /* large-12 small-5 etc */
+	), $atts ); // TODO can we handle these defaults through the builder class instead?
+
+	$output = '<div class="columns ' . $params['columns'] . '">';
 	$output .= apply_filters( 'the_content', $content );
 	$output .= '</div>';
+
+
+	/* KRUPA #23
+
+		extract( shortcode_atts( array(
+			'columns' => '', // large-12 small-5 etc
+		), $atts ) );
+
+		$output = '<div class="columns ' . $columns . '">';
+		$output .= apply_filters( 'the_content', $content );
+		$output .= '</div>';
+
+
+		/KRUPA */
 
 	return $output;
 }
@@ -328,12 +492,24 @@ add_shortcode( 'foundation_columns', 'foundation_columns_shortcode' );
  */
 
 function address_shortcode( $atts, $content = null ) {
+
+	$params = shortcode_atts( array(
+		'type' => 'horizontal', // no-bullet inline-list
+	), $atts ); // TODO can we handle these defaults through the builder class instead?
+
+	ob_start();
+	include( get_template_directory() . '/builder-parts/address.php' );
+
+
+	/* KRUPA 23
 	extract( shortcode_atts( array(
-		'type' => 'horizontal', /* no-bullet inline-list */
+		'type' => 'horizontal', // no-bullet inline-list
 	), $atts ) );
 
 	ob_start();
 	include( get_template_directory() . '/builder-parts/address.php' );
+	KRUPA */
+
 
 	return ob_get_clean();
 }
@@ -343,13 +519,27 @@ add_shortcode( 'monolith_address', 'address_shortcode' );
 
 /**
  * Stretch Band shortcode [stretch_band]
+ *
+ * @param $atts
+ * @param $content
+ *
+ * @return string
+ *
  */
 function stretch_band_shortcode( $atts, $content = null ) {
+
+	$params = shortcode_atts( array(
+		'type' => ''
+	), $atts ); // TODO can we handle these defaults through the builder class instead?
+
+	/* KRUPA
 	extract( shortcode_atts( array(
 		'type' => ''
 	), $atts ) );
+	KRUPA */
 
-	return '<div class="m3-shortcode stretch-band ' . $type . '"><div class="row"><div class="columns">' . apply_filters( 'the_content', $content ) . '</div></div></div>';
+
+	return '<div class="m3-shortcode stretch-band ' . $params['type'] . '"><div class="row"><div class="columns">' . apply_filters( 'the_content', $content ) . '</div></div></div>';
 }
 
 add_shortcode( 'stretch_band', 'stretch_band_shortcode' );
@@ -398,11 +588,24 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 			'exclude'    => ''
 		);
 
+
+		/* KRUPA
 		extract( shortcode_atts( $gallery_defaults, $attr, 'gallery' ) );
+		*/
+
+		$order      = $gallery_defaults['order'];
+		$id         = $gallery_defaults['id'];
+		$size       = $gallery_defaults['size'];
+		$itemtag    = $gallery_defaults['itemtag'];
+		$captiontag = $gallery_defaults['captiontag'];
+		$icontag    = $gallery_defaults['icontag'];
+		$columns    = $gallery_defaults['columns'];
+		$orderby    = $gallery_defaults['orderby'];
+
 
 		$id = intval( $id );
 		if ( 'RAND' == $order ) {
-			$orderby = 'none';
+			$order_by = 'none';
 		}
 
 		if ( ! empty( $include ) ) {
@@ -499,7 +702,7 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		$output = apply_filters( 'gallery_style', $gallery_container );
 
 		$gallery_id = md5( implode( '', array_keys( $attachments ) ) );
-		
+
 		foreach ( $attachments as $id => $attachment ) {
 			if ( ! empty( $attr['link'] ) && 'file' === $attr['link'] ) {
 				$image_output = wp_get_attachment_link( $id, $size );
