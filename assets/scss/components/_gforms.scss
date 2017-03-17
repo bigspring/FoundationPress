@@ -4,8 +4,8 @@ ul.gform_fields {
   li {
     clear: both;
     position: relative;
-
-    @media#{$large-up} {
+    
+    @include breakpoint(large) {
       &.gf_left_half {
         width: 49%;
         float: left;
@@ -16,8 +16,7 @@ ul.gform_fields {
         float: right;
         clear: none;
       }
-
-    }//@large-up
+    }//Large up
 
     //validationo messagio
     &.gfield_error  {
