@@ -104,3 +104,13 @@ add_action( 'foundationpress_before_closing_body', function () {
 		document.write(\"<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.17.0'><\/script>\".replace(\"HOST\", location.hostname));
 		//]]></script>";
 }, 99 );
+
+/**
+ * Add schema for miain navigation links
+ */
+add_filter( 'nav_menu_link_attributes', 'add_attribute', 10, 3 );
+function add_attribute( $atts, $item, $args )
+{
+	$atts['itemprop'] = 'url';
+	return $atts;
+}
