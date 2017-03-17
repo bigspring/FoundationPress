@@ -1,9 +1,9 @@
 h1 {
-	@include responsive-font(8vw, 30px, 100px, 40px);
+	@include responsive-font(8vw, 30px, 50px, false);
 }
 
 h2 {
-	@include responsive-font(4vw, 20px, 40px, 30px);
+	@include responsive-font(4vw, 20px, 40px, false);
 }
 
 h3 {
@@ -11,6 +11,6 @@ h3 {
 }
 
 p.lead, .lead, .lead p {
-	@include responsive-font(4vw, 1.2rem, 1.5rem, 1.25rem);
+	@include responsive-font(4vw, 1.2rem, 1.5rem, false);
 	line-height: 1.3;
 }
