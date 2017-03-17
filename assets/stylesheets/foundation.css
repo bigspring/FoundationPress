@@ -8409,6 +8409,118 @@ blockquote {
       .post-meta-block .post-meta-sharing .addthis_inline_share_toolbox {
         float: right; } }
 
+/*
+	.link-description {
+		display: none;
+	}
+*/
+@media screen and (min-width: 64em) {
+  .main-navigation.top-bar {
+    position: relative; }
+  li.is-dropdown-submenu-parent.mega-menu {
+    border-top: none;
+    position: static; }
+    li.is-dropdown-submenu-parent.mega-menu.active ul.dropdown.is-dropdown-submenu li a {
+      color: #0a0a0a;
+      font-weight: normal; }
+    li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu {
+      background-color: #fefefe;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      min-width: 100%;
+      padding: 3rem 0.5rem 3rem;
+      border: 1px solid #e6e6e6;
+      z-index: 2; } }
+    @media screen and (min-width: 64em) and (min-width: 85.375em) {
+      li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu {
+        padding: 3rem 20vw 5rem; } }
+
+@media screen and (min-width: 64em) {
+      li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li {
+        width: 30%;
+        margin-left: 3%;
+        float: left;
+        position: relative;
+        padding-right: 1rem; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li:last-child:after {
+          content: none; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li:after {
+          content: "";
+          height: 100%;
+          width: 1px;
+          background: #cacaca;
+          position: absolute;
+          right: 0;
+          left: auto;
+          top: 0;
+          bottom: 0; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a {
+          position: relative;
+          color: #0a0a0a;
+          padding-bottom: 0;
+          font-size: 20px;
+          font-size: 8vw;
+          display: block;
+          padding: 0; } }
+        @media screen and (min-width: 64em) and (max-width: 225px) {
+          li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a {
+            font-size: 18px; } }
+        @media screen and (min-width: 64em) and (min-width: 275px) {
+          li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a {
+            font-size: 22px; } }
+        @media screen and (min-width: 64em) and (min-width: 64em) {
+          li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a {
+            height: 9.375rem; } }
+
+@media screen and (min-width: 64em) {
+          li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a span.link-description {
+            display: block;
+            font-size: 1rem;
+            line-height: 1.875rem;
+            font-weight: 300;
+            color: #0a0a0a;
+            margin-top: 1.5rem;
+            padding-bottom: 1rem;
+            padding-right: 0.5rem; }
+          li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a:after {
+            font-size: 1rem;
+            text-transform: none;
+            content: "More";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: auto;
+            top: 100%;
+            color: #1779ba;
+            display: block; }
+          li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a:before {
+            font-size: 0.875rem;
+            position: absolute;
+            bottom: 0;
+            left: 2.5rem;
+            right: auto;
+            top: 97%;
+            content: "";
+            font-family: 'fontAwesome';
+            display: block;
+            padding-bottom: 0.2rem;
+            color: #1779ba; }
+          li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a:hover {
+            color: #767676;
+            background-color: transparent; }
+            li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a:hover span {
+              color: #0a0a0a; }
+            li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li a:hover:after {
+              color: #767676; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li.active a {
+          background-color: transparent;
+          color: #767676; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu li.active span {
+          color: #8a8a8a; } }
+
 .intro {
   max-width: 58.75rem;
   margin-right: auto;
