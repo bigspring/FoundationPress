@@ -24,7 +24,7 @@
 
       <?php if ( $args['has_summary'] ) : // display only if the summary is enabled (default is true) ?>
         <div class="summary">
-          <?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?>
+          <p><?php echo wp_trim_words( get_the_excerpt(), 20, '...' ); ?></p>
         </div>
       <?php endif; // end has_summary ?>
     </div>
