@@ -9081,4 +9081,38 @@ blockquote {
         #single-post .main-content:last-child:not(:first-child) {
           float: right; } }
 
+#page-author {
+  max-width: 58.75rem;
+  margin-right: auto;
+  margin-left: auto; }
+  #page-author::before, #page-author::after {
+    display: table;
+    content: ' '; }
+  #page-author::after {
+    clear: both; }
+  #page-author .main-content {
+    width: 100%;
+    float: left;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem; }
+    @media print, screen and (min-width: 40em) {
+      #page-author .main-content {
+        padding-right: 0.9375rem;
+        padding-left: 0.9375rem; } }
+    #page-author .main-content:last-child:not(:first-child) {
+      float: right; }
+    @media print, screen and (min-width: 40em) {
+      #page-author .main-content {
+        width: 83.33333%;
+        float: left;
+        padding-right: 0.625rem;
+        padding-left: 0.625rem; } }
+  @media print, screen and (min-width: 40em) and (min-width: 40em) {
+    #page-author .main-content {
+      padding-right: 0.9375rem;
+      padding-left: 0.9375rem; } }
+    @media print, screen and (min-width: 40em) {
+        #page-author .main-content:last-child:not(:first-child) {
+          float: right; } }
+
 /*# sourceMappingURL=foundation.css.map */

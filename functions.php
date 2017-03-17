@@ -49,7 +49,7 @@ require_once( 'library/custom-nav.php' );
 require_once( 'library/sticky-posts.php' );
 
 /** Configure responsive image sizes */
-//require_once( 'library/responsive-images.php' );
+require_once( 'library/responsive-images.php' );
 
 /** Add Monolith Builder functions */
 require_once( 'library/monolith/builder/builder.php' );
@@ -72,31 +72,31 @@ require_once( 'library/monolith/shortcodes.php' );
 /**
  * Featured image sizes
  */
-set_post_thumbnail_size( 640, 360, true );
-add_image_size( 'square', 640, 640, true );
-add_image_size( 'small-square', 320, 320, true );
-add_image_size( 'small-landscape', 640, 360, true );
-add_image_size( 'landscape', 970, 546, true );
-add_image_size( 'portrait', 600, 840, true );
-
+//set_post_thumbnail_size( 640, 360, true );
+//add_image_size( 'square', 640, 640, true );
+//add_image_size( 'small-square', 320, 320, true );
+//add_image_size( 'small-landscape', 640, 360, true );
+//add_image_size( 'landscape', 970, 546, true );
+//add_image_size( 'portrait', 600, 840, true );
+//
 // Add new image sizes to attachment settings size dropdown
-$img_config['imgSize']['newthumbnail'] = array( 'width' => 200, 'height' => 200 );
-
-add_filter( 'image_size_names_choose', function ( $sizes ) {
-	global $img_config;
-
-	$img_config['selectableImgSize'] = array(
-		'square'          => __( 'Square', 'monolith' ),
-		'small-square'    => __( 'Small Square', 'monolith' ),
-		'landscape'       => __( 'Landscape', 'monolith' ),
-		'small-landscape' => __( 'Small Landscape', 'monolith' ),
-		'portrait'        => __( 'Portrait', 'monolith' ),
-	);
-
-	$sizes = array_merge( $sizes, $img_config['selectableImgSize'] );
-
-	return $sizes;
-}, 10, 1 );
+//$img_config['imgSize']['newthumbnail'] = array( 'width' => 200, 'height' => 200 );
+//
+//add_filter( 'image_size_names_choose', function ( $sizes ) {
+//	global $img_config;
+//
+//	$img_config['selectableImgSize'] = array(
+//		'square'          => __( 'Square', 'monolith' ),
+//		'small-square'    => __( 'Small Square', 'monolith' ),
+//		'landscape'       => __( 'Landscape', 'monolith' ),
+//		'small-landscape' => __( 'Small Landscape', 'monolith' ),
+//		'portrait'        => __( 'Portrait', 'monolith' ),
+//	);
+//
+//	$sizes = array_merge( $sizes, $img_config['selectableImgSize'] );
+//
+//	return $sizes;
+//}, 10, 1 );
 
 
 
