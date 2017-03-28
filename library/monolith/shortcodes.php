@@ -546,7 +546,7 @@ add_shortcode( 'stretch_band', 'stretch_band_shortcode' );
 
 if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 
-	function fresco_gallery_shortcode( $attr ) {
+	function fresco_gallery_shortcode( $atts ) {
 
 		$post = get_post();
 
@@ -575,10 +575,11 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 			}
 		}
 
-		$gallery_defaults = array(
+		$gallery_defaults = shortcode_atts( array(
 			'order'      => 'ASC',
 			'orderby'    => 'menu_order ID',
 			'id'         => $post ? $post->ID : 0,
+			'ids'        => '',
 			'itemtag'    => 'dl',
 			'icontag'    => 'dt',
 			'captiontag' => 'dd',
@@ -586,7 +587,7 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 			'size'       => 'thumbnail',
 			'include'    => '',
 			'exclude'    => ''
-		);
+		), $atts );
 
 
 		/* KRUPA
@@ -601,14 +602,15 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		$icontag    = $gallery_defaults['icontag'];
 		$columns    = $gallery_defaults['columns'];
 		$orderby    = $gallery_defaults['orderby'];
-
+		$include    = $gallery_defaults['ids'];
+		$exclude    = $gallery_defaults['exclude'];
 
 		$id = intval( $id );
 		if ( 'RAND' == $order ) {
 			$order_by = 'none';
 		}
 
-		if ( ! empty( $include ) ) {
+		if ( $include ) {
 			$_attachments = get_posts( array(
 				'include'        => $include,
 				'post_status'    => 'inherit',
@@ -622,7 +624,7 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 			foreach ( $_attachments as $key => $val ) {
 				$attachments[ $val->ID ] = $_attachments[ $key ];
 			}
-		} elseif ( ! empty( $exclude ) ) {
+		} elseif ( $exclude ) {
 			$attachments = get_children( array(
 				'post_parent'    => $id,
 				'exclude'        => $exclude,
