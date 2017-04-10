@@ -17,7 +17,7 @@
         </span>
       </a>
     </li>
-  <? } ?>
+  <?php } ?>
 
   <?php if ( get_option( 'monolith_twitter' ) ) { ?>
     <li>
@@ -28,7 +28,7 @@
         </span>
       </a>
     </li>
-  <? } ?>
+  <?php } ?>
 
   <?php if ( get_option( 'monolith_googleplus' ) ) { ?>
     <li>
@@ -39,7 +39,7 @@
         </span>
       </a>
     </li>
-  <? } ?>
+  <?php } ?>
 
   <?php if ( get_option( 'monolith_instagram' ) ) { ?>
     <li>
@@ -50,7 +50,7 @@
         </span>
       </a>
     </li>
-  <? } ?>
+  <?php } ?>
 
   <?php if ( get_option( 'monolith_linkedin' ) ) { ?>
     <li>
@@ -61,7 +61,7 @@
         </span>
       </a>
     </li>
-  <? } ?>
+  <?php } ?>
 
   <?php if ( get_option( 'monolith_youtube' ) ) { ?>
     <li>
@@ -72,7 +72,7 @@
         </span>
       </a>
     </li>
-  <? } ?>
+  <?php } ?>
 
 </ul>
 <!-- end social media icon list -->
