@@ -553,25 +553,25 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		static $instance = 0;
 		$instance ++;
 
-		if ( ! empty( $attr['ids'] ) ) {
+		if ( ! empty( $atts['ids'] ) ) {
 			// 'ids' is explicitly ordered, unless you specify otherwise.
-			if ( empty( $attr['orderby'] ) ) {
-				$attr['orderby'] = 'post__in';
+			if ( empty( $atts['orderby'] ) ) {
+				$atts['orderby'] = 'post__in';
 			}
-			$attr['include'] = $attr['ids'];
+			$atts['include'] = $atts['ids'];
 		}
 
 		// Allow plugins/themes to override the default gallery template.
-		$output = apply_filters( 'post_gallery', '', $attr );
+		$output = apply_filters( 'post_gallery', '', $atts );
 		if ( $output != '' ) {
 			return $output;
 		}
 
 		// We're trusting author input, so let's at least make sure it looks like a valid orderby statement
-		if ( isset( $attr['orderby'] ) ) {
-			$attr['orderby'] = sanitize_sql_orderby( $attr['orderby'] );
-			if ( ! $attr['orderby'] ) {
-				unset( $attr['orderby'] );
+		if ( isset( $atts['orderby'] ) ) {
+			$atts['orderby'] = sanitize_sql_orderby( $atts['orderby'] );
+			if ( ! $atts['orderby'] ) {
+				unset( $atts['orderby'] );
 			}
 		}
 
@@ -706,9 +706,9 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		$gallery_id = md5( implode( '', array_keys( $attachments ) ) );
 
 		foreach ( $attachments as $id => $attachment ) {
-			if ( ! empty( $attr['link'] ) && 'file' === $attr['link'] ) {
+			if ( ! empty( $atts['link'] ) && 'file' === $atts['link'] ) {
 				$image_output = wp_get_attachment_link( $id, $size );
-			} elseif ( ! empty( $attr['link'] ) && 'none' === $attr['link'] ) {
+			} elseif ( ! empty( $atts['link'] ) && 'none' === $atts['link'] ) {
 				$image_output = wp_get_attachment_image( $id, $size );
 			} else {
 				$image_output = wp_get_attachment_link( $id, $size, true );
