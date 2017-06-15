@@ -79,8 +79,8 @@
 
 // Modules
 @import "modules/navigation";
+@import "modules/content";
 @import "modules/footer";
-@import "modules/sidebar";
 @import "modules/editor-style";
 @import "modules/utilities";
 
@@ -107,11 +107,7 @@
 // Templates
 @import "templates/front";
 @import "templates/kitchen-sink";
-@import "templates/page-default";
-@import "templates/page-sidebar-left";
-@import "templates/page-sidebar-right";
-@import "templates/page-full-width";
-@import "templates/single-post";
+//@import "templates/single-post"; // template file needs to be created
 
 // Woocommerce
 //@import "plugins/woocommerce/woocommerce";

@@ -8,9 +8,9 @@
 
 get_header(); ?>
 	
-	<div id="page-full-width" role="main">
-	  
-	  <?php do_action( 'foundationpress_before_content' ); ?>
+	<div class="main-wrap full-width" role="main">
+		
+		<?php do_action( 'foundationpress_before_content' ); ?>
 		
 		<header class="header-standard">
 			<div class="caption">
@@ -19,11 +19,10 @@ get_header(); ?>
 		</header>
 		
 		<section <?php post_class( 'main-content' ) ?> id="post-<?php the_ID(); ?>">
-		<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 			<div class="entry-content">
 				<div class="error">
-					<p
-						class="lead"><?php _e( 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'foundationpress' ); ?></p>
+					<p class="lead"><?php _e( 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'foundationpress' ); ?></p>
 				</div>
 				<hr/>
 				<h4><?php _e( 'Try the following:', 'foundationpress' ); ?></h4>
@@ -34,10 +33,11 @@ get_header(); ?>
 				</ul>
 				<hr/>
 				<h4><?php _e( 'Or try searching the site:', 'foundationpress' ); ?></h4>
-		  <?php get_search_form(); ?>
+				<?php get_search_form(); ?>
 			</div>
 		</section>
-	  <?php do_action( 'foundationpress_after_content' ); ?>
+		<?php do_action( 'foundationpress_after_content' ); ?>
 	
 	</div>
+
 <?php get_footer();
