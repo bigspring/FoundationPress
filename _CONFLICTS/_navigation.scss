@@ -1,0 +1,179 @@
+// Navigation breakpoints
+.mobile-menu,
+.site-title-bar {
+  @include hide-for(medium);
+}
+
+<<<<<<< HEAD
+// -----------
+// Mobile menu
+// -----------
+
+	.title-bar {
+
+		.menu-icon {
+			float: right;
+		}//menu-icon
+
+	}//title-bar
+
+
+// -----------
+// Menu
+// -----------
+
+
+	.top-bar {
+
+		.menu {
+
+			li {
+
+				// normal anchor styles here
+				// -------------------------
+				a {
+
+					&:hover {
+						background-color: $primary-color;
+						color: $white;
+					}//hover
+
+				}//a
+
+				// set the hover states for when we have a parent with a dropdown
+				// --------------------------------------------------------------
+/*
+				&.is-dropdown-submenu-parent.is-active {
+					background-color: $primary-color;
+					color: $white !important;
+					a {
+						&:hover, &:focus {
+							color: $white !important;
+						}
+					}
+				}
+*/
+
+				// set active states for top level and dropdown anchors
+				// ----------------------------------------------------
+				&.active, &.current_page_item {
+
+					a > {
+						background-color: $primary-color;
+						color: $white;
+					}//a
+
+					ul.dropdown {
+						li.current_page_item {
+							a {
+								background-color: $primary-color;
+								color: $white;
+							}//a
+						}//li
+					}//dropdown
+
+				}//&.active, &.current_page_item
+
+			}//li
+
+		}//menu
+
+	}//top-bar
+
+// -----------
+// Off Canvas
+// -----------
+
+	.off-canvas {
+	  > ul.menu {
+	    height: 100vh;
+	    padding: 1rem;
+	  }
+	}
+
+=======
+.desktop-menu,
+.site-navigation .top-bar-left {
+  @include show-for(medium);
+}
+
+
+
+// Site title
+.site-mobile-title a {
+  // placeholder
+}
+
+.site-desktop-title a {
+  font-weight: bold;
+}
+
+
+
+// Mobile menu
+.mobile-menu {
+  display: none; // prevents repaint caused by JS hiding menu onload
+}
+
+
+.mobile-menu,
+.mobile-off-canvas-menu {
+
+  // submenu arrow
+  .is-accordion-submenu-parent {
+    > a::after {
+      border-color: $accordionmenu-arrow-color transparent transparent;
+    }
+    &.active > a::after {
+      border-color: $menu-item-color-active transparent transparent;
+    }
+  }
+
+  // current page
+  .current_page_item > a {
+    font-weight: bold;
+  }
+}
+
+
+
+// Tablet and desktop menu
+.desktop-menu {
+
+  // submenu arrow
+  li.is-dropdown-submenu-parent {
+    > a::after {
+      border-color: $accordionmenu-arrow-color transparent transparent;
+    }
+    &.active > a::after {
+      border-color: $menu-item-color-active transparent transparent;
+    }
+  }
+}
+
+.site-navigation {
+  @include breakpoint(small only) {
+    padding: 0; // prevents container visibility on small screens
+  }
+}
+
+
+>>>>>>> f9bfdb4f6c105f0d6252a59db121b6dd642772b6
+
+// WP post navigation
+.post-navigation {
+  @include clearfix;
+}
+
+.nav-previous {
+  float:left;
+}
+
+<<<<<<< HEAD
+.nav-previous { float:left; }
+.nav-next { float:right; }
+=======
+.nav-next {
+  float:right;
+}
+>>>>>>> f9bfdb4f6c105f0d6252a59db121b6dd642772b6
