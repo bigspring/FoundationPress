@@ -93,9 +93,11 @@
 										{text: 'Default', value: ''},
 										{text: 'Tiny', value: 'tiny'},
 										{text: 'Small', value: 'small'}	,
-										{text: 'Medium', value: 'medium'},
+										{text: 'Medium', value: ''},
 										{text: 'Large', value: 'large'},
-										{text: 'Expand', value: 'expand'}
+										{text: 'Expanded', value: 'expanded'}
+										{text: 'Small Expanded', value: 'small expanded'}
+										{text: 'Large Expanded', value: 'large expanded'}
 									]
 								},
 
