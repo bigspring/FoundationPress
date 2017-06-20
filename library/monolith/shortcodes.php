@@ -374,7 +374,6 @@ function monolith_foundation_accordion_shortcode( $atts, $content ) {
 	$output .= do_shortcode( $content );
 	$output .= '</ul>';
 
-
 	/* KRUPA #23
 
 		extract( shortcode_atts( array( // set our defaults for the shortcode
