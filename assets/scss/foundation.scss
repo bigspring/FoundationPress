@@ -86,6 +86,8 @@
 
 
 // Components
+@import "components/typography";
+@import "components/blockquote";
 @import "components/builder";
 @import "components/buttons";
 @import "components/hero";
@@ -99,7 +101,6 @@
 @import "components/snippet";
 @import "components/breadcrumbs";
 @import "components/social-media-icons";
-@import "components/typography";
 @import "components/block";
 @import "components/callouts";
 @import "components/blog-social-meta";

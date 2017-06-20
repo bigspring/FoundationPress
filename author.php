@@ -45,7 +45,7 @@ get_header(); ?>
 					<?php if ( $curauth->twitter ) : ?>
 						<li>
 							<i class="fa fa-twitter" aria-hidden="true"></i>
-							<a href="<?php echo $curauth->twitter; ?>" class="social-icon twitter">
+							<a href="http://twitter.com/@<?php echo $curauth->twitter; ?>" class="social-icon twitter">
 								<?php _e( 'Follow me on Twitter', 'm3' ); ?>
 							</a>
 						</li>
