@@ -10,9 +10,10 @@
 add_action( 'admin_init', function () {
 	$post_types = apply_filters( 'monolith_settings_post_types', get_post_types() );
 	
-	foreach ( $post_types as $post_types ) {
-		register_setting( 'monolith-archive-group', 'monolith_archive_cpt_title_' . $post_types );
-		register_setting( 'monolith-archive-group', 'monolith_archive_cpt_introtext_' . $post_types );
+	foreach ( $post_types as $post_type ) {
+		//register_setting( 'monolith-archive-group', 'monolith_archive_cpt_title_' . $post_types );
+		register_setting( 'monolith-archive-group', 'monolith_archive_cpt_introtext_' . $post_type );
+		register_setting( 'monolith-archive-group', 'monolith_archive_cpt_image_' . $post_type );
 	}
 	
 } );
@@ -52,6 +53,24 @@ add_action( 'admin_menu', function () {
 								placeholder="<?php _e( 'This is my ' . $post_type . ' archive.', 'monolith' ); ?>"><?php echo get_option( 'monolith_archive_cpt_introtext_' . $post_type ) ? get_option( 'monolith_archive_cpt_introtext_' . $post_type ) : '' ?></textarea>
 							</td>
 						</tr>
+						<tr valign="top">
+							<th scope="row"><label
+									for="monolith_archive_cpt_image"><?php _e( 'Fallback Image', 'monolith' ); ?></label>
+							</th>
+							<td>
+								<input type="hidden" name="monolith_archive_cpt_image_<?php echo $post_type ?>"
+								       id="monolith_archive_cpt_image_<?php echo $post_type ?>" class="m3-media-upload"
+								       value="<?php echo get_option( 'monolith_archive_cpt_image_' . $post_type ) ? get_option( 'monolith_archive_cpt_image_' . $post_type ) : '' ?>"
+								       size="50" placeholder="" required>
+								<div class="image-preview">
+									<?php if ( get_option( 'monolith_archive_cpt_image_' . $post_type ) ) : ?>
+										<img
+											src="<?php echo wp_get_attachment_image_src( get_option( 'monolith_archive_cpt_image_' . $post_type ), 'fp-small' )[0] ?>">
+									<?php endif; ?>
+								</div>
+								<button type="button" class="button media-uploader">Upload image</button>
+							</td>
+						</tr>
 					</table>
 				<?php endforeach; ?>
 				
@@ -71,6 +90,7 @@ add_action( 'init', function () {
 	
 	foreach ( $post_types as $post_type ) {
 		add_option( 'monolith_archive_cpt_introtext_' . $post_type, '' );
+		add_option( 'monolith_archive_cpt_image_' . $post_type, '' );
 	}
 }, 100 );
 
