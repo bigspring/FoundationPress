@@ -86,13 +86,3 @@ add_action( 'after_setup_theme', function () {
 	add_option( 'monolith_blog_page_introtext', '' );
 	add_option( 'monolith_fallback_image', '' );
 } );
-
-add_action( 'admin_enqueue_scripts', function () {
-	wp_enqueue_media();
-	wp_register_script(
-		'm3-media-upload',
-		get_template_directory_uri() . '/assets/javascript/m3-custom/media-upload.js',
-		array( 'jquery' )
-	);
-	wp_enqueue_script( 'm3-media-upload' );
-} );
