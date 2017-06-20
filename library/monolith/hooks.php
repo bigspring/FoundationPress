@@ -109,8 +109,27 @@ add_action( 'foundationpress_before_closing_body', function () {
  * Add schema for miain navigation links
  */
 add_filter( 'nav_menu_link_attributes', 'add_attribute', 10, 3 );
-function add_attribute( $atts, $item, $args )
-{
+function add_attribute( $atts, $item, $args ) {
 	$atts['itemprop'] = 'url';
+	
 	return $atts;
 }
+
+/**
+ * Enqueue the JS utility for handling media uploads in Monolith settings.
+ */
+function m3_enqueue_media_uploader() {
+	$current_screen = get_current_screen();
+	$screen_bases   = array( 'settings_page_monolith_blog_settings', 'settings_page_monolith_archive_settings' );
+	if ( in_array( $current_screen->base, $screen_bases ) ) {
+		wp_enqueue_media();
+		wp_register_script(
+			'm3-media-upload',
+			get_template_directory_uri() . '/assets/javascript/m3-custom/media-upload.js',
+			array( 'jquery' )
+		);
+		wp_enqueue_script( 'm3-media-upload' );
+	}
+}
+
+add_action( 'admin_enqueue_scripts', 'm3_enqueue_media_uploader' );

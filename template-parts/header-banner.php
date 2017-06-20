@@ -10,7 +10,11 @@ $image_src = null;
 
 // Determine what image to use as the banner background.
 if ( is_archive() ) {
-	// Get image using a suitable method for project requirements.
+	// Get non-thumbnail image using a suitable method for project requirements.
+	if ( is_post_type_archive() ) {
+		$cpt       = get_queried_object();
+		$image_src = m3_get_cpt_archive_image_src( $cpt->name );
+	}
 } else {
 	if ( has_post_thumbnail( $post->ID ) ) {
 		$image     = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
@@ -18,7 +22,7 @@ if ( is_archive() ) {
 	}
 }
 
-$background_image_css = $image_src ? "background - image : url( '{$image_src}' )" : '';
+$background_image_css = $image_src ? "background-image : url( '{$image_src}' )" : '';
 ?>
 <header class="header-banner" role="banner" style="<?php echo $background_image_css ?>">
 	<div class="row">

@@ -8,9 +8,9 @@
  * Init settings
  */
 add_action( 'admin_init', function () {
-	// blog
 	register_setting( 'monolith-blog-group', 'monolith_blog_page_title' );
 	register_setting( 'monolith-blog-group', 'monolith_blog_page_introtext' );
+	register_setting( 'monolith-blog-group', 'monolith_fallback_image' );
 } );
 
 /**
@@ -51,6 +51,25 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 				</table>
+				<h3><?php _e( 'Fallback Image', 'monolith' ); ?></h3>
+				<table class="form-table">
+					<tr valign="top">
+						<th scope="row"><label
+								for="monolith_fallback_image"><?php _e( 'Fallback Image', 'monolith' ); ?></label>
+						</th>
+						<td>
+							<input type="hidden" name="monolith_fallback_image" id="monolith_fallback_image" class="m3-media-upload"
+							       value="<?php echo get_option( 'monolith_fallback_image' ) ? get_option( 'monolith_fallback_image' ) : '' ?>"
+							       size="50" placeholder="" required>
+							<div class="image-preview">
+								<?php if ( get_option( 'monolith_fallback_image' ) ) : ?>
+									<img src="<?php echo wp_get_attachment_image_src( get_option( 'monolith_fallback_image' ), 'fp-small' )[0] ?>">
+								<?php endif; ?>
+							</div>
+							<button type="button" class="button media-uploader">Upload image</button>
+						</td>
+					</tr>
+				</table>
 				<?php @submit_button(); ?>
 			</form>
 		</div>
@@ -63,7 +82,7 @@ add_action( 'admin_menu', function () {
  * Add default site options if they don't exist in the database
  */
 add_action( 'after_setup_theme', function () {
-	// blog
 	add_option( 'monolith_blog_page_title', 'Latest News' );
 	add_option( 'monolith_blog_page_introtext', '' );
+	add_option( 'monolith_fallback_image', '' );
 } );
