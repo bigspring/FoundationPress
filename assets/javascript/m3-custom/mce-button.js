@@ -95,9 +95,9 @@
 										{text: 'Small', value: 'small'}	,
 										{text: 'Medium', value: ''},
 										{text: 'Large', value: 'large'},
-										{text: 'Expanded', value: 'expanded'}
-										{text: 'Small Expanded', value: 'small expanded'}
-										{text: 'Large Expanded', value: 'large expanded'}
+										{text: 'Expanded', value: 'expanded'},
+										{text: 'Small Expanded', value: 'small expanded'},
+										{text: 'Large Expanded', value: 'large expanded'},
 									]
 								},
 
@@ -134,7 +134,7 @@
 											minWidth: 300,
 											minHeight: 100
 										},
-
+										
 										{
 											type: 'listbox',
 											name: 'listboxcardsnippet',
@@ -227,7 +227,6 @@
 							}
 						}, // end pages block grid
 
-/*
 						// List
 						// ====================================
 						{
@@ -284,7 +283,6 @@
 								});
 							}
 						},
-*/
 
 					]
 				},
@@ -497,7 +495,9 @@
 
 				// Address Shortcode
 				// ====================================
-
+				/*
+					WE DON'T REALLY USE THIS PLUS THE VERTICAL LAYOUT DOESN'T WORK
+					SIMON P MILES 20/06/17
 				{
 					text: 'Address',
 					onclick: function() {
@@ -520,7 +520,7 @@
 						});
 					}
 				}, // end address shortcode
-
+				*/
 
 				// Intro shortcode
 				// ====================================
@@ -618,7 +618,8 @@
 /*
 				// Stretch Block Shortcode
 				// ====================================
-
+				THIS WAS AN EXPERIMENT WHICH WE NEVER ENDED UP USING SO COMMENTED OUT FOR NOW
+				SIMON P MILES 20/06/17
 				{
 					text: 'Stretch Band',
 					onclick: function() {
