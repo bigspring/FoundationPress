@@ -31,6 +31,13 @@
 		  
 	  }//footer-content
 	  
+	  //Social icons
+	  .social-icons {
+		  @include breakpoint(large) {
+		      float: right;
+		  }//large
+	  }
+	  
 	  .legal-footer-container {
 		  
 		  .legal-footer-info {

@@ -1,1 +1,119 @@
+.button {
 
+	// ===========================================================================
+	// OUTLINE BUTTONS
+	// you will need to create new button classes for each color button you want
+	// ===========================================================================
+	&.outline {
+		
+		// standard outline button (primary)
+		background-color: transparent;
+		color: $primary-color;
+		border-color: $primary-color;
+		border-width: 2px;
+		&:hover {
+			color: $white;
+			background-color: $primary-color;
+		}//hover
+		
+		// secondary outline button
+		&.secondary {
+			background-color: transparent;
+			color: $secondary-color;
+			border-color: $secondary-color;
+			&:hover {
+				color: $white;
+				background-color: $secondary-color;
+			}//hover
+		}//secondary
+		
+	}//outline
+	
+	// ===========================================================================
+	// ICON BUTTONS
+	// you will need to create new button classes for each icon you want to make
+	// ===========================================================================
+	
+	&.icon {
+		
+		position: relative;
+		border: none;
+		
+		// common rules for all icon buttons
+		&:before, &:after {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 3rem;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: 'fontAwesome';
+		}
+		
+		// specific rules for the left button icon
+		&.left {
+			padding-left: 4rem;
+			&:before {
+				right: auto;
+				left: 0;
+				background-color: scale-color($primary-color, $lightness: 15%);
+			}//icon-container
+		}//left
+
+		// specific rules for the right button icon		
+		&.right {
+			padding-right: 4rem;
+			&:after {
+				right: 0;
+				left: auto;
+				background-color: scale-color($primary-color, $lightness: 15%);
+			}//icon-container
+		}//right	
+		
+		
+		// different button icons
+		// ----------------------
+		
+		&.chevron {
+			&.left:before {
+				content: $fa-var-chevron-right;
+			}
+			&.right:after {
+				content: $fa-var-chevron-right;
+			}
+		}//chevron
+
+		&.phone {
+			&.left:before {
+				content: $fa-var-phone;
+			}
+			&.right:after {
+				content: $fa-var-phone;
+			}
+		}//chevron
+
+		&.email {
+			&.left:before {
+				content: $fa-var-envelope;
+			}
+			&.right:after {
+				content: $fa-var-envelope;
+			}
+		}//chevron
+
+		&.arrow {
+			&.left:before {
+				content: $fa-var-arrow-left;
+			}
+			&.right:after {
+				content: $fa-var-arrow-right;
+			}
+		}//chevron		
+				
+	}//icon
+	
+	
+	
+}//button
