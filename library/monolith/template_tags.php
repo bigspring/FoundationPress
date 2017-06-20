@@ -333,3 +333,21 @@ if ( ! function_exists( 'monolith_pagination' ) ) {
 		}
 	}
 }
+
+if ( ! function_exists( 'monolith_get_cpt_archive_intro' ) ) {
+	/**
+	 * Return the CPT archive intro, if one exists.
+	 *
+	 * @param string $post_type_slug
+	 *
+	 * @return string
+	 */
+	function monolith_get_cpt_archive_intro( $post_type_slug = null ) {
+		if ( ! $post_type_slug ) {
+			$cpt            = get_queried_object();
+			$post_type_slug = $cpt->name;
+		}
+		
+		return get_option( 'monolith_archive_cpt_introtext_' . $post_type_slug );
+	}
+}

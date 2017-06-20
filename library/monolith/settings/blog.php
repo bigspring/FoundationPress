@@ -32,7 +32,8 @@ add_action( 'admin_menu', function () {
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row"><label
-								for="monolith_blog_page_title"><?php _e( 'Blog Page Title (*)', 'monolith' ); ?></label></th>
+								for="monolith_blog_page_title"><?php _e( 'Blog Page Title (*)', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title"
 							       value="<?php echo get_option( 'monolith_blog_page_title' ) ? get_option( 'monolith_blog_page_title' ) : '' ?>"
@@ -44,7 +45,8 @@ add_action( 'admin_menu', function () {
 								for="monolith_blog_page_introtext"><?php _e( 'Blog Page Introductory Text', 'monolith' ); ?></label>
 						</th>
 						<td>
-							<textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3"
+							<textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50"
+							          rows="3"
 							          placeholder="<?php _e( 'This is my news blog.', 'monolith' ); ?>"><?php echo get_option( 'monolith_blog_page_introtext' ) ? get_option( 'monolith_blog_page_introtext' ) : '' ?></textarea>
 						</td>
 					</tr>
@@ -57,13 +59,11 @@ add_action( 'admin_menu', function () {
 	} );
 } );
 
-if ( ! function_exists( 'set_default_site_options' ) ) {
-	/**
-	 * Add default site options if they don't exist in the database
-	 */
-	add_action( 'after_setup_theme', function () {
-		// blog
-		add_option( 'monolith_blog_page_title', 'Latest News' );
-		add_option( 'monolith_blog_page_introtext', '' );
-	} );
-}
+/**
+ * Add default site options if they don't exist in the database
+ */
+add_action( 'after_setup_theme', function () {
+	// blog
+	add_option( 'monolith_blog_page_title', 'Latest News' );
+	add_option( 'monolith_blog_page_introtext', '' );
+} );
