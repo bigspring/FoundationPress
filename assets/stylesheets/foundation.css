@@ -7978,6 +7978,9 @@ a.thumbnail {
       list-style-type: none;
       margin: 0;
       padding: 0; }
+  @media print, screen and (min-width: 64em) {
+    .footer-container .footer .social-icons {
+      float: right; } }
   .footer-container .footer .legal-footer-container .legal-footer-info {
     padding: 2rem 0 1rem;
     font-size: 0.85rem;
