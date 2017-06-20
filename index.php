@@ -16,7 +16,7 @@
 get_header(); ?>
 
 <?php get_template_part( 'template-parts/breadcrumbs' ); ?>
-<?php get_template_part( 'template-parts/header-standard' ); ?>
+<?php get_template_part( 'template-parts/header-banner' ); ?>
 	
 	<div class="main-wrap" role="main">
 		

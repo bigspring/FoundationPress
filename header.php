@@ -58,7 +58,7 @@
 			</div>
 			<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
 		</div>
-		<nav class="site-navigation top-bar" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		<nav class="site-navigation top-bar flex" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<div class="top-bar-left">
 				<div class="site-desktop-title top-bar-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.jpg" alt="company logo"></a>
