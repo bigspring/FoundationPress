@@ -1,20 +1,19 @@
 // -----------
 // Megar Menu
+// This menu shows a description if you enable it in the theme
+// To do this you will need to add some code to navigation.php
+// In order to enable this type of menu add the classes mega-menu and descripion to the menu item you'd like to make a mega menu
 // -----------
 
-/*
-	.link-description {
-		display: none;
-	}
-*/
+
 
 	@include breakpoint (large up) {
 	
-		.main-navigation.top-bar {
+		.site-navigation.top-bar {
 			position: relative;
 		}
 		
-			li.is-dropdown-submenu-parent.mega-menu {
+			li.is-dropdown-submenu-parent.mega-menu.description {
 				
 				border-top: none;
 				position: static;

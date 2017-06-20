@@ -72,6 +72,30 @@
 					}//dropdown
 
 				}//&.active, &.current_page_item
+				
+				
+				&.nav-contact-button {
+					a {
+						padding: 0.65rem 1.65rem;
+						background-color: $primary-color;						
+						color: $white;
+						&:hover {
+							background-color: scale-color($primary-color, $lightness: 15%);
+							color: $white;
+						}//hover
+					}//a
+				}//top-nav-contact
+				
+				&.nav-phone-link {
+					a {
+						&:hover {
+							background-color: transparent;
+							color: $primary-color;
+						}//hover
+					}//a
+				}//top-nav-phone
+				
+				
 
 			}//li
 

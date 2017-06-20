@@ -1,0 +1,183 @@
+// --------------------
+// Megar Menu Two Level
+// just add the class of mega-menu to the menu item and it and it's children will become a mega menu
+// you will need to adjust the percentage width on line 54 to match the amount of items you have immediately
+// under the main parent
+// --------------------
+
+/*
+	.link-description {
+		display: none;
+	}
+*/
+
+	@include breakpoint (medium up) {
+	
+		.site-navigation.top-bar {
+			position: relative;
+		}
+		
+			li.is-dropdown-submenu-parent.mega-menu {
+				border-top: none;
+				position: static;
+				
+				&.active {//remove megamenu active state
+					ul.dropdown.is-dropdown-submenu {
+						li {
+							a {
+								color: $body-font-color;
+								font-weight: normal;
+							}
+						}
+					}
+				}//megamenu-active
+		
+				ul.dropdown.is-dropdown-submenu.submenu{
+					background-color: $primary-color;
+					position: absolute;
+					top: 100%;
+					left: 0;
+					right: 0;
+					width: 100%;
+					min-width: 100%;
+					padding: 3rem 0.5rem 3rem;
+					border: none;
+					
+					// adjust the left right padding to center the menu when on a very large screen
+					@include breakpoint (xlarge up) {
+					padding: 3rem 5vw 3rem;
+					}
+		
+					li {
+						
+						// change these percentage widths dependant on the amount of items
+						width: 30%;
+						margin-left: 3%;
+						// --------------
+						
+						float: left;
+						position: relative;
+						padding-right: 1rem;
+						min-height: rem-calc(125);
+						
+						&:last-child {
+							&:after {
+								content: none;
+							}
+						}
+						
+						&:before {
+							content: "";
+							height: 100%;
+							width: 1px;
+							background: scale-color($primary-color, $lightness: 10%);
+							position: absolute;
+							right: auto;
+							left: -1rem;
+							top: 0;
+							bottom: 0;
+						}
+						
+						
+						// actual menu item text
+						// --------------------
+						a {
+							height: auto;
+							line-height: 1;
+							position: relative;
+							color: $white;
+							padding-bottom: 0;
+							font-size: 0.875rem;
+							display: block;
+							padding: 0 0 0.5rem;
+							font-weight: 600;
+							
+		
+							&:hover {
+								color: $white;
+								background-color: transparent;
+							}//hover
+		
+						}//a
+				
+		
+						&.current_page_item {
+							a {
+								background-color: transparent;
+								color: $white;
+							}//a
+							
+							// remove the stylings from the child ul
+							// -------------------------------------
+							ul.dropdown.menu.vertical.submenu.is-dropdown-submenu {
+								li a {
+									background: transparent;
+									color: $white;
+									
+								}
+							}//ul.dropdown.menu.vertical.submenu.is-dropdown-submenu
+						}//active
+						
+						// CHILD SUBMENU
+						// --------------
+						ul.dropdown.menu.vertical.submenu {
+							display: block;
+							position: static;
+							padding: 0;
+							border: none;
+							
+							li {
+								min-height: auto;
+								float: none;
+								padding: 0.5rem 0;
+								width: 100%;
+								margin: 0;
+								
+								&:after {
+									content: none;
+								}
+								
+								a {
+									height: auto;
+									line-height: 1;
+									padding: 0;
+									font-size: rem-calc(14);
+									font-weight: 200;
+									font-family: $body-font-family;
+									color: $white;
+									text-transform: none;
+									
+									&:after {
+										content: "";
+									}//after
+									&:before {
+										content: $fa-var-angle-right;
+										font-family: 'fontAwesome';
+										margin-right: 0.33rem;
+									}//before
+									
+									&:hover {
+										color: $white;
+									}
+									
+								}//a
+								
+								&.current_page_item {
+									a {
+										color: $secondary-color;
+									}//a
+								}//current_page_item
+								
+								
+							}//li
+							
+						}//ul
+							
+					}//li
+		
+		
+				}//.is-dropdown-submenu
+		
+			}//.is-dropdown-submenu-parent
+		
+	}//breakpoint (large up)
