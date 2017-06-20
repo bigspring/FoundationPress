@@ -38,10 +38,12 @@ add_action( 'admin_menu', function () {
 				<h3><?php _e( 'Social Media', 'monolith' ); ?></h3>
 				<table class="form-table">
 					<tr valign="top">
-						<th scope="row"><label for="monolith_facebook"><?php _e( 'Facebook', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_facebook"><?php _e( 'Facebook', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_facebook" id="monolith_facebook"
-							       value="<?php echo get_option( 'monolith_facebook' ) ? get_option( 'monolith_facebook' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_facebook' ) ? get_option( 'monolith_facebook' ) : '' ?>"
+							       size="50"
 							       placeholder="https://facebook.com/youraccountnamehere">
 						</td>
 					</tr>
@@ -49,12 +51,14 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_twitter"><?php _e( 'Twitter', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_twitter" id="monolith_twitter"
-							       value="<?php echo get_option( 'monolith_twitter' ) ? get_option( 'monolith_twitter' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_twitter' ) ? get_option( 'monolith_twitter' ) : '' ?>"
+							       size="50"
 							       placeholder="https://www.twitter.com/youraccountnamehere">
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_googleplus"><?php _e( 'Google+', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_googleplus"><?php _e( 'Google+', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_googleplus" id="monolith_googleplus"
 							       value="<?php echo get_option( 'monolith_googleplus' ) ? get_option( 'monolith_googleplus' ) : '' ?>"
@@ -65,20 +69,24 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_youtube"><?php _e( 'Youtube', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_youtube" id="monolith_youtube"
-							       value="<?php echo get_option( 'monolith_youtube' ) ? get_option( 'monolith_youtube' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_youtube' ) ? get_option( 'monolith_youtube' ) : '' ?>"
+							       size="50"
 							       placeholder="http://www.youtube.com/user/youraccountnamehere">
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_linkedin"><?php _e( 'LinkedIn', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_linkedin"><?php _e( 'LinkedIn', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_linkedin" id="monolith_linkedin"
-							       value="<?php echo get_option( 'monolith_linkedin' ) ? get_option( 'monolith_linkedin' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_linkedin' ) ? get_option( 'monolith_linkedin' ) : '' ?>"
+							       size="50"
 							       placeholder="http://www.linkedin.com/company/youraccountnamehere">
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_pinterest"><?php _e( 'Pinterest', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_pinterest"><?php _e( 'Pinterest', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_pinterest" id="monolith_pinterest"
 							       value="<?php echo get_option( 'monolith_pinterest' ) ? get_option( 'monolith_pinterest' ) : '' ?>"
@@ -86,7 +94,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_instagram"><?php _e( 'Instagram', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_instagram"><?php _e( 'Instagram', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_instagram" id="monolith_instagram"
 							       value="<?php echo get_option( 'monolith_instagram' ) ? get_option( 'monolith_instagram' ) : '' ?>"
@@ -109,20 +118,18 @@ add_action( 'admin_menu', function () {
 	} );
 } );
 
-if ( ! function_exists( 'set_default_site_options' ) ) {
-	/**
-	 * Add default site options if they don't exist in the database
-	 */
-	add_action( 'after_setup_theme', function () {
-		
-		// social media
-		add_option( 'monolith_facebook', '' );
-		add_option( 'monolith_twitter', '' );
-		add_option( 'monolith_googleplus', '' );
-		add_option( 'monolith_youtube', '' );
-		add_option( 'monolith_linkedin', '' );
-		add_option( 'monolith_pinterest', '' );
-		add_option( 'monolith_instagram', '' );
-		add_option( 'monolith_rss', '' );
-	} );
-}
+/**
+ * Add default site options if they don't exist in the database
+ */
+add_action( 'after_setup_theme', function () {
+	
+	// social media
+	add_option( 'monolith_facebook', '' );
+	add_option( 'monolith_twitter', '' );
+	add_option( 'monolith_googleplus', '' );
+	add_option( 'monolith_youtube', '' );
+	add_option( 'monolith_linkedin', '' );
+	add_option( 'monolith_pinterest', '' );
+	add_option( 'monolith_instagram', '' );
+	add_option( 'monolith_rss', '' );
+} );

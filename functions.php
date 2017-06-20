@@ -57,6 +57,7 @@ require_once( 'library/monolith/builder/builder-functions.php' );
 
 /** Enable Monolith settings  */
 require_once( 'library/monolith/settings/blog.php' );
+require_once( 'library/monolith/settings/archive.php' );
 require_once( 'library/monolith/settings/contact-details.php' );
 require_once( 'library/monolith/settings/social-media.php' );
 require_once( 'library/monolith/filters.php' );
