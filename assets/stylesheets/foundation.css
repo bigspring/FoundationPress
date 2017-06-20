@@ -8293,6 +8293,83 @@ ul.address-list.menu.horizontal li {
     ul.address-list.menu.horizontal li:last-child:after {
       content: none; }
 
+h1 {
+  font-size: 8vw; }
+  @media (max-width: 375px) {
+    h1 {
+      font-size: 30px; } }
+  @media (min-width: 625px) {
+    h1 {
+      font-size: 50px; } }
+
+h2 {
+  font-size: 4vw; }
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 20px; } }
+  @media (min-width: 1000px) {
+    h2 {
+      font-size: 40px; } }
+
+h3 {
+  font-size: 20px;
+  font-size: 3vw; }
+  @media (max-width: 666.66667px) {
+    h3 {
+      font-size: 20px; } }
+  @media (min-width: 1000px) {
+    h3 {
+      font-size: 30px; } }
+
+.underlined-title {
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 2em; }
+  .underlined-title:after {
+    width: 8%;
+    height: 0.15rem;
+    background: #e6e6e6;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto; }
+
+p.lead, .lead, .lead p {
+  font-size: 4vw;
+  line-height: 1.3; }
+  @media (max-width: 30rem) {
+    p.lead, .lead, .lead p {
+      font-size: 1.2rem; } }
+  @media (min-width: 37.5rem) {
+    p.lead, .lead, .lead p {
+      font-size: 1.5rem; } }
+
+blockquote {
+  margin: 2rem auto;
+  margin: 6vw auto; }
+  @media (max-width: 16.66667rem) {
+    blockquote {
+      margin: 1rem auto; } }
+  @media (min-width: 66.66667rem) {
+    blockquote {
+      margin: 4rem auto; } }
+  blockquote p {
+    font-size: 20px;
+    font-size: 3vw; }
+    @media (max-width: 600px) {
+      blockquote p {
+        font-size: 18px; } }
+    @media (min-width: 733.33333px) {
+      blockquote p {
+        font-size: 22px; } }
+    blockquote p cite {
+      font-style: normal; }
+      blockquote p cite:before {
+        content: none; }
+
 .builder {
   max-width: 58.75rem;
   margin-right: auto;
@@ -8518,83 +8595,6 @@ ul.address-list.menu.horizontal li {
 
 .social-icons .youtube > .fa-stack > .fa-circle {
   color: #bb0000; }
-
-h1 {
-  font-size: 8vw; }
-  @media (max-width: 375px) {
-    h1 {
-      font-size: 30px; } }
-  @media (min-width: 625px) {
-    h1 {
-      font-size: 50px; } }
-
-h2 {
-  font-size: 4vw; }
-  @media (max-width: 500px) {
-    h2 {
-      font-size: 20px; } }
-  @media (min-width: 1000px) {
-    h2 {
-      font-size: 40px; } }
-
-h3 {
-  font-size: 20px;
-  font-size: 3vw; }
-  @media (max-width: 666.66667px) {
-    h3 {
-      font-size: 20px; } }
-  @media (min-width: 1000px) {
-    h3 {
-      font-size: 30px; } }
-
-.underlined-title {
-  text-align: center;
-  position: relative;
-  padding-bottom: 1rem;
-  margin-bottom: 2em; }
-  .underlined-title:after {
-    width: 8%;
-    height: 0.15rem;
-    background: #e6e6e6;
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0 auto; }
-
-p.lead, .lead, .lead p {
-  font-size: 4vw;
-  line-height: 1.3; }
-  @media (max-width: 30rem) {
-    p.lead, .lead, .lead p {
-      font-size: 1.2rem; } }
-  @media (min-width: 37.5rem) {
-    p.lead, .lead, .lead p {
-      font-size: 1.5rem; } }
-
-blockquote {
-  margin: 2rem auto;
-  margin: 6vw auto; }
-  @media (max-width: 16.66667rem) {
-    blockquote {
-      margin: 1rem auto; } }
-  @media (min-width: 66.66667rem) {
-    blockquote {
-      margin: 4rem auto; } }
-  blockquote p {
-    font-size: 20px;
-    font-size: 3vw; }
-    @media (max-width: 600px) {
-      blockquote p {
-        font-size: 18px; } }
-    @media (min-width: 733.33333px) {
-      blockquote p {
-        font-size: 22px; } }
-    blockquote p cite {
-      font-style: normal; }
-      blockquote p cite:before {
-        content: none; }
 
 .block {
   padding: 2rem 0;
