@@ -13,7 +13,7 @@ if ( is_archive() ) {
 	// Get non-thumbnail image using a suitable method for project requirements.
 	if ( is_post_type_archive() ) {
 		$cpt       = get_queried_object();
-		$image_src = m3_get_cpt_archive_image_src( $cpt->name );
+		$image_src = m3_get_cpt_archive_image_src( $cpt->name, 'full' );
 	}
 } else {
 	if ( has_post_thumbnail( $post->ID ) ) {
