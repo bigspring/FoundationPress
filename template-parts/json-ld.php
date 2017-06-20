@@ -7,26 +7,28 @@ function get_post_data() {
 $payload["@context"] = "http://schema.org/";
 $post_data           = get_post_data();
 $category            = get_the_category();
-$site_name            = get_bloginfo('name');
-$logo                = get_template_directory_uri() . "/assets/images/logo.png";
+$bloginfo            = get_bloginfo();
 $post_url            = get_permalink();
 if ( is_single() ) {
-	$author_data              = get_userdata( $post_data->post_author );
-	$post_thumb               = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
-	$payload["@type"]         = "BlogPosting";
-	$payload["url"]           = $post_url;
-	$payload["author"]        = array(
+	$logo                        = get_template_directory_uri() . "/assets/images/logo.png";
+	$author_data                 = get_userdata( $post_data->post_author );
+	$post_thumb                  = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+	$payload["@type"]            = "BlogPosting";
+	$payload["url"]              = $post_url;
+	$payload["author"]           = array(
 		"@type" => "Person",
 		"name"  => $author_data->display_name
 	);
-	$payload["headline"]      = $post_data->post_title;
-	$payload["datePublished"] = $post_data->post_date;
-	$payload["dateModified"]  = $post_data->post_modified;
-	$payload["image"]         = $post_thumb;
-	if ( count( $category ) > 0 ) {
-		$payload["genre"] = $category[0]->cat_name;
-	}
-	$payload["publisher"] = array(
+	$payload["headline"]         = $post_data->post_title;
+	$payload["datePublished"]    = $post_data->post_date;
+	$payload["dateModified"]     = $post_data->post_modified;
+	$payload["image"]            = $post_thumb;
+	$payload["genre"]            = $category[0]->cat_name;
+	$payload["mainEntityOfPage"]    = array(
+		"@type" => "WebPage",
+         "@id" => $post_url
+	);
+	$payload["publisher"]        = array(
 		"@type" => "Organization",
 		"name"  => $site_name,
 		"logo"  => $logo

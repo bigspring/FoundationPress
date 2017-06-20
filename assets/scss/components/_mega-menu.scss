@@ -1,0 +1,167 @@
+// -----------
+// Megar Menu
+// -----------
+
+/*
+	.link-description {
+		display: none;
+	}
+*/
+
+	@include breakpoint (large up) {
+	
+		.main-navigation.top-bar {
+			position: relative;
+		}
+		
+			li.is-dropdown-submenu-parent.mega-menu {
+				
+				border-top: none;
+				position: static;
+		
+				&.active {//remove megamenu active state
+					ul.dropdown.is-dropdown-submenu {
+						li {
+							a {
+								color: $body-font-color;
+								font-weight: normal;
+							}
+						}
+					}
+				}//megamenu-active
+		
+				ul.dropdown.is-dropdown-submenu {
+					background-color: $white;
+					position: absolute;
+					top: 100%;
+					left: 0;
+					right: 0;
+					width: 100%;
+					min-width: 100%;
+					padding: 3rem 0.5rem 3rem;
+					border: 1px solid $light-gray;
+					z-index: 2;
+					
+					// adjust the left right padding to center the menu when on a very large screen
+					@include breakpoint (xlarge up) {
+						padding: 3rem 20vw 5rem;
+					}
+		
+					li {
+						
+						// change these percentage widths dependant on the amount of items
+						width: 30%;
+						margin-left: 3%;
+						// --------------
+						
+						float: left;
+						position: relative;
+						padding-right: 1rem;
+						
+						&:last-child {
+							&:after {
+								content: none;
+							}
+						}
+						
+						&:after {
+							content: "";
+							height: 100%;
+							width: 1px;
+							background: $medium-gray;
+							position: absolute;
+							right: 0;
+							left: auto;
+							top: 0;
+							bottom: 0;
+						}
+						
+						// actual menu item text
+						// --------------------
+						a {
+							position: relative;
+							color: $body-font-color;
+							padding-bottom: 0;
+							@include responsive-font(8vw, 18px, 22px, 20px);
+							@include breakpoint (large up) {
+								height: rem-calc(150);
+							}
+							display: block;
+							padding: 0;
+							
+							// menu description 
+							// ----------------
+							span.link-description {
+								display: block;
+								font-size: rem-calc(16);
+								line-height: rem-calc(30);
+								font-weight: 300;
+								color: $black;
+								margin-top: 1.5rem;
+								padding-bottom: 1rem;
+								padding-right: 0.5rem;
+							}
+		
+							&:after {
+								font-size: rem-calc(16);
+								text-transform: none;
+								
+								// change text for the "read more" link
+								content: "More";
+								// ---------------------
+								position: absolute;
+								bottom: 0;
+								left: 0;
+								right: auto;
+								top: 100%;
+								color: $primary-color;
+								display: block;
+							}//after
+							
+							// rules for the symbol used after the "read more" text
+							&:before {
+								font-size: rem-calc(14);
+								position: absolute;
+								bottom: 0;
+								left: rem-calc(40);
+								right: auto;
+								top: 97%;
+								content: $fa-var-angle-right;
+								font-family: 'fontAwesome';
+								display: block;
+								padding-bottom: 0.2rem;
+								color: $primary-color;
+							}
+		
+							&:hover {
+								color: $secondary-color;
+								background-color: transparent;
+								span {
+									color: $body-font-color;
+								}
+								&:after {
+									color: $secondary-color;
+								}
+							}//hover
+		
+						}//a
+				
+		
+						&.active {
+							a {
+								background-color: transparent;
+								color: $secondary-color;
+							}//a
+							span {
+								color: $dark-gray;
+							}
+						}//active
+		
+					}//li
+		
+		
+				}//.is-dropdown-submenu
+		
+			}//.is-dropdown-submenu-parent
+		
+	}//breakpoint (large up)

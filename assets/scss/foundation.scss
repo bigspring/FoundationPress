@@ -101,13 +101,18 @@
 @import "components/social-media-icons";
 @import "components/typography";
 @import "components/block";
+@import "components/callouts";
+@import "components/blog-social-meta";
+@import "components/mega-menu";
+
 //@import "components/gforms";
 //@import "components/mailchimp-form";
+
 
 // Templates
 @import "templates/front";
 @import "templates/kitchen-sink";
-//@import "templates/single-post"; // template file needs to be created
+@import "templates/page-author";
 
 // Woocommerce
 //@import "plugins/woocommerce/woocommerce";

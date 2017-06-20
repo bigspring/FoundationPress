@@ -21,6 +21,9 @@ get_header(); ?>
 				</header>
 				<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 				<div class="entry-content">
+					
+					<?php get_template_part( 'template-parts/blog-social-meta' ); ?>
+					
 					<?php //get_template_part( 'template-parts/featured-image' ); ?>
 					<?php
 					if ( has_post_thumbnail() ) :

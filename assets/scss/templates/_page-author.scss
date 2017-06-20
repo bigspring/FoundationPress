@@ -1,0 +1,12 @@
+#page-author {
+  @include grid-row();
+
+  .main-content {
+    @include breakpoint(small) {
+      @include grid-column(12);
+    }
+    @include breakpoint(medium) {
+      @include grid-column(10);
+    }
+  }
+}

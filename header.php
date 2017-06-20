@@ -32,27 +32,26 @@
 
 	<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 	<div class="off-canvas-wrapper">
-		<div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
 		<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 	<?php endif; ?>
 
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
-	<header id="masthead" class="site-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader" role="banner">
-		<div class="title-bar" data-responsive-toggle="mobile-menu">
-
-			<div class="title-bar-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+	<header class="site-header" itemscope="itemscope" itemtype="http://schema.org/WPHeader" role="banner">
+		<div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle() ?>>
+			<div class="title-bar-left">
+				<button class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
+				<span class="site-mobile-title title-bar-title">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+				</span>
 			</div>
 			<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
 		</div>
-			
-		<nav id="site-navigation" class="main-navigation top-bar" itemscope itemtype="http://schema.org/SiteNavigationElement">
-
+		<nav class="site-navigation top-bar" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<div class="top-bar-left">
-				<ul class="menu">
-					<li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
-				</ul>
+				<div class="site-desktop-title top-bar-title">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+				</div>
 			</div>
 			<div class="top-bar-right">
 				<?php foundationpress_top_bar_r(); ?>
