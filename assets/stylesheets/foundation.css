@@ -8711,6 +8711,107 @@ blockquote {
       .post-meta-block .post-meta-sharing .addthis_inline_share_toolbox {
         float: right; } }
 
+/*
+	.link-description {
+		display: none;
+	}
+*/
+@media screen and (min-width: 40em) {
+  .site-navigation.top-bar {
+    position: relative; }
+  li.is-dropdown-submenu-parent.mega-menu {
+    border-top: none;
+    position: static; }
+    li.is-dropdown-submenu-parent.mega-menu.active ul.dropdown.is-dropdown-submenu li a {
+      color: #0a0a0a;
+      font-weight: normal; }
+    li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu {
+      background-color: #1779ba;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 4;
+      min-width: 100%;
+      padding: 3rem 0.5rem 3rem;
+      border: none; } }
+    @media screen and (min-width: 40em) and (min-width: 85.375em) {
+      li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu {
+        padding: 3rem 5vw 3rem; } }
+
+@media screen and (min-width: 40em) {
+      li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li {
+        width: 30%;
+        margin-left: 3%;
+        float: left;
+        position: relative;
+        padding-right: 1rem;
+        min-height: 7.8125rem; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li:last-child:after {
+          content: none; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li:before {
+          content: "";
+          height: 100%;
+          width: 1px;
+          background: #1a8ad5;
+          position: absolute;
+          right: auto;
+          left: -1rem;
+          top: 0;
+          bottom: 0; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li a {
+          height: auto;
+          line-height: 1;
+          position: relative;
+          color: #fefefe;
+          padding-bottom: 0;
+          font-size: 0.875rem;
+          display: block;
+          padding: 0 0 0.5rem;
+          font-weight: 600; }
+          li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li a:hover {
+            color: #fefefe;
+            background-color: transparent; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li.current_page_item a {
+          background-color: transparent;
+          color: #fefefe; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li.current_page_item ul.dropdown.menu.vertical.submenu.is-dropdown-submenu li a {
+          background: transparent;
+          color: #fefefe; }
+        li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li ul.dropdown.menu.vertical.submenu {
+          display: block;
+          position: static;
+          padding: 0;
+          border: none; }
+          li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li ul.dropdown.menu.vertical.submenu li {
+            min-height: auto;
+            float: none;
+            padding: 0.5rem 0;
+            width: 100%;
+            margin: 0; }
+            li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li ul.dropdown.menu.vertical.submenu li:after {
+              content: none; }
+            li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li ul.dropdown.menu.vertical.submenu li a {
+              height: auto;
+              line-height: 1;
+              padding: 0;
+              font-size: 0.875rem;
+              font-weight: 200;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+              color: #fefefe;
+              text-transform: none; }
+              li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li ul.dropdown.menu.vertical.submenu li a:after {
+                content: ""; }
+              li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li ul.dropdown.menu.vertical.submenu li a:before {
+                content: "";
+                font-family: 'fontAwesome';
+                margin-right: 0.33rem; }
+              li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li ul.dropdown.menu.vertical.submenu li a:hover {
+                color: #fefefe; }
+            li.is-dropdown-submenu-parent.mega-menu ul.dropdown.is-dropdown-submenu.submenu li ul.dropdown.menu.vertical.submenu li.current_page_item a {
+              color: #767676; } }
+
 .intro {
   max-width: 58.75rem;
   margin-right: auto;
