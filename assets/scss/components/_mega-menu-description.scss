@@ -39,7 +39,7 @@
 					min-width: 100%;
 					padding: 3rem 0.5rem 3rem;
 					border: 1px solid $light-gray;
-					z-index: 2;
+					z-index: 4;
 					
 					// adjust the left right padding to center the menu when on a very large screen
 					@include breakpoint (xlarge up) {
