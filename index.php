@@ -15,20 +15,20 @@
 
 get_header(); ?>
 
-<?php get_template_part('template-parts/breadcrumbs'); ?>
+<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
 <?php get_template_part( 'template-parts/header-standard' ); ?>
-
-<div id="page" role="main">
-
-	<article class="main-content">
-
-		<?php monolith_grid('card', 'small-up-1'); ?>
-	  
-	  <?php get_template_part( 'template-parts/pagination' ); ?>
+	
+	<div class="main-wrap" role="main">
 		
-	</article>
-	<?php get_sidebar(); ?>
-
-</div>
+		<article class="main-content">
+			
+			<?php monolith_grid( 'card', 'small-up-1' ); ?>
+			
+			<?php get_template_part( 'template-parts/pagination' ); ?>
+		
+		</article>
+		<?php get_sidebar(); ?>
+	
+	</div>
 
 <?php get_footer();

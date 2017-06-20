@@ -1,6 +1,9 @@
 // Navigation breakpoints
-.mobile-menu,
-.site-title-bar {
+.desktop-menu, .top-bar-left {
+  @include show-for(medium);
+}
+
+#mobile-menu, .title-bar {
   @include hide-for(medium);
 }
 
@@ -72,6 +75,22 @@
 					}//dropdown
 
 				}//&.active, &.current_page_item
+				
+				// Special buttons in the menu using custom styles, usually the contact button
+				// ----------------------------------------------------
+				&.nav-menu-button {
+					a {
+						padding: 0.65rem 1.65rem;
+						color: $white;
+						font-weight: 600;
+						background-color: $primary-color;
+						transition: background-color 0.5s ease;
+						&:hover {
+							background-color: scale-color($primary-color, $lightness: -14%);
+							color: $white;
+						}//hover
+					}//a
+				}//nav-menu-button
 
 			}//li
 
@@ -79,79 +98,28 @@
 
 	}//top-bar
 
-.desktop-menu,
-.site-navigation .top-bar-left {
-  @include show-for(medium);
+// -----------
+// Off Canvas
+// -----------
+
+	.off-canvas {
+	  > ul.menu {
+	    height: 100vh;
+	    padding: 1rem;
+	  }
+	}
+
+
+// Basic styles for post navigation. Nicolas Gallagher's "Micro clearfix"
+// https://css-tricks.com/snippets/css/clear-fix/
+.post-navigation:before,
+.post-navigation:after {
+  content: "";
+  display: table;
 }
 
-
-
-// Site title
-.site-mobile-title a {
-  // placeholder
-}
-
-.site-desktop-title a {
-  font-weight: bold;
-}
-
-
-
-// Mobile menu
-.mobile-menu {
-  display: none; // prevents repaint caused by JS hiding menu onload
-}
-
-
-.mobile-menu,
-.mobile-off-canvas-menu {
-
-  // submenu arrow
-  .is-accordion-submenu-parent {
-    > a::after {
-      border-color: $accordionmenu-arrow-color transparent transparent;
-    }
-    &.active > a::after {
-      border-color: $menu-item-color-active transparent transparent;
-    }
-  }
-
-  // current page
-  .current_page_item > a {
-    font-weight: bold;
-  }
-}
-
-
-
-// Tablet and desktop menu
-.desktop-menu {
-
-  // submenu arrow
-  li.is-dropdown-submenu-parent {
-    > a::after {
-      border-color: $accordionmenu-arrow-color transparent transparent;
-    }
-    &.active > a::after {
-      border-color: $menu-item-color-active transparent transparent;
-    }
-  }
-}
-
-.site-navigation {
-  @include breakpoint(small only) {
-    padding: 0; // prevents container visibility on small screens
-  }
-}
-
-
-// WP post navigation
-.post-navigation {
-  @include clearfix;
-}
-
-.nav-previous {
-  float:left;
+.post-navigation:after {
+  clear:both;
 }
 
 .nav-previous { float:left; }

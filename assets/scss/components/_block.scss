@@ -9,7 +9,6 @@
 		// -----------------
 			
 			@include responsive-vertical-padding(6vw, 1rem, 6rem, 2rem);
-			background: red;
 			
 			&.block-no-bottom-pad {
 				padding-bottom: 0;

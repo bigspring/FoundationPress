@@ -79,8 +79,8 @@
 
 // Modules
 @import "modules/navigation";
+@import "modules/content";
 @import "modules/footer";
-@import "modules/sidebar";
 @import "modules/editor-style";
 @import "modules/utilities";
 
@@ -101,17 +101,18 @@
 @import "components/social-media-icons";
 @import "components/typography";
 @import "components/block";
+@import "components/callouts";
+@import "components/blog-social-meta";
+@import "components/mega-menu";
+
 //@import "components/gforms";
 //@import "components/mailchimp-form";
+
 
 // Templates
 @import "templates/front";
 @import "templates/kitchen-sink";
-@import "templates/page-default";
-@import "templates/page-sidebar-left";
-@import "templates/page-sidebar-right";
-@import "templates/page-full-width";
-@import "templates/single-post";
+@import "templates/page-author";
 
 // Woocommerce
 //@import "plugins/woocommerce/woocommerce";
