@@ -6,7 +6,7 @@
  * @since FoundationPress 1.0.0
  */
 
-$image = null;
+$image_src = null;
 
 // Determine what image to use as the banner background.
 if ( is_archive() ) {
@@ -17,14 +17,14 @@ if ( is_archive() ) {
 		$image_src = $image[0];
 	}
 }
+
+$background_image_css = $image_src ? "background - image : url( '{$image_src}' )" : '';
 ?>
-<?php if ( $image ) : ?>
-	<header class="header-banner" role="banner" style="background-image: url('<?php echo $image_src ?>')">
-		<div class="row">
-			<div class="caption">
-				<?php get_template_part( '/template-parts/page-header-title' ); ?>
-				<?php get_template_part( '/template-parts/page-header-excerpt' ); ?>
-			</div>
+<header class="header-banner" role="banner" style="<?php echo $background_image_css ?>">
+	<div class="row">
+		<div class="caption">
+			<?php get_template_part( '/template-parts/page-header-title' ); ?>
+			<?php get_template_part( '/template-parts/page-header-excerpt' ); ?>
 		</div>
-	</header>
-<?php endif;
+	</div>
+</header>

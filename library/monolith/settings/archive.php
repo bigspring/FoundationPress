@@ -75,12 +75,15 @@ add_action( 'init', function () {
 }, 100 );
 
 /**
- * Remove default post types
+ * Remove post types from Archive settings.
+ *
+ * This hook is for removing default WP post types only, to  cut down on clutter. To remove additional CPTs
+ * per-project, copy this filter to a suitable file and change $cpts_to_remove to suit your needs.
  */
 add_filter( 'monolith_settings_post_types', function ( $post_types ) {
-	$default_post_types = array( 'post', 'page', 'attachment', 'revision', 'nav_menu_item' );
-	foreach ( $default_post_types as $default_post_type ) {
-		unset( $post_types[ $default_post_type ] );
+	$cpts_to_remove = array( 'post', 'page', 'attachment', 'revision', 'nav_menu_item' );
+	foreach ( $cpts_to_remove as $cpt_to_remove ) {
+		unset( $post_types[ $cpt_to_remove ] );
 	}
 	
 	return $post_types;
