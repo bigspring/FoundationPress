@@ -367,7 +367,6 @@ add_shortcode( 'list', 'list_shortcode' );
 function monolith_foundation_accordion_shortcode( $atts, $content ) {
 
 	$params = shortcode_atts( array(
-		'class' => ''
 	), $atts ); // TODO can we handle these defaults through the builder class instead?
 
 	$output = '<ul class="accordion ' . $params['class'] . '" data-accordion data-allow-all-closed="true">';
@@ -396,7 +395,6 @@ function monolith_accordion_panel_shortcode( $atts, $content ) {
 
 	$params = shortcode_atts( array(
 		'title' => 'Please enter an accordion title',
-		'class' => ''
 	), $atts );
 
 	$id = rand( 1, 1000 );
@@ -407,23 +405,6 @@ function monolith_accordion_panel_shortcode( $atts, $content ) {
 	$output .= $content;
 	$output .= '</div>';
 	$output .= '</li>';
-
-
-	/* KRUPA
-	extract( shortcode_atts( array( // set our defaults for the shortcode
-		'title' => 'Please enter an accordion title',
-		'class' => ''
-	), $atts ) );
-
-	$id = rand( 1, 1000 );
-
-	$output = '<li class="accordion-item" data-accordion-item>';
-	$output .= '<a href="#" class="accordion-title">' . $title . '</a>';
-	$output .= '<div class="accordion-content" data-tab-content>';
-	$output .= $content;
-	$output .= '</div>';
-	$output .= '</li>';
-	/KRUPA */
 
 	return apply_filters( 'accordion_panel', $output );
 }
