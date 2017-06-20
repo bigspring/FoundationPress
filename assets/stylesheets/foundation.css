@@ -7868,6 +7868,16 @@ a.thumbnail {
   .top-bar .menu li.active ul.dropdown li.current_page_item a, .top-bar .menu li.current_page_item ul.dropdown li.current_page_item a {
     background-color: #1779ba;
     color: #fefefe; }
+  .top-bar .menu li.nav-contact-button a {
+    padding: 0.65rem 1.65rem;
+    background-color: #1779ba;
+    color: #fefefe; }
+    .top-bar .menu li.nav-contact-button a:hover {
+      background-color: #1c93e2;
+      color: #fefefe; }
+  .top-bar .menu li.nav-phone-link a:hover {
+    background-color: transparent;
+    color: #1779ba; }
 
 @media screen and (max-width: 39.9375em) {
   .desktop-menu,
