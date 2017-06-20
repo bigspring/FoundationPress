@@ -53,7 +53,7 @@
 				</div><!-- row -->
 						
 						<div class="legal-footer-container">
-								<div class="legal-footer-info seperators">
+								<div class="legal-footer-info separators">
 										<ul class="inline-list centered-inline-list">
 												<!-- start the footer menu -->
 													<!-- static list item for copyright / date -->
@@ -87,8 +87,8 @@
 													</li>
 												<!-- end the footer menu -->
 										</ul>
-								</div>
-						</div>
+								</div><!-- legal-footer-info seperators -->
+						</div><!-- legal-footer-container -->
 
 			</footer>
 		</div><!-- footer-container -->
