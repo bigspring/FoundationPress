@@ -297,7 +297,7 @@ if ( ! function_exists( 'the_monolith_post_thumbnail' ) ) {
 	}
 }
 
-if ( ! function_exists( 'm3_fallback_image' ) ) {
+if ( ! function_exists( 'm3_fallback_image_src' ) ) {
 	/**
 	 * Return src for a fallback image
 	 *
@@ -305,7 +305,7 @@ if ( ! function_exists( 'm3_fallback_image' ) ) {
 	 *
 	 * @return null|string
 	 */
-	function m3_fallback_image( $size = 'thumbnail' ) {
+	function m3_get_fallback_image_src( $size = 'thumbnail' ) {
 		$image_src = null;
 		$image_id  = get_option( 'monolith_fallback_image' );
 		if ( $image_id ) {
@@ -317,6 +317,28 @@ if ( ! function_exists( 'm3_fallback_image' ) ) {
 		if ( ! $image_src ) {
 			// Yo dawg, I heard you like fallback images
 			$image_src = get_template_directory_uri() . '/assets/img/fallback.png';
+		}
+		
+		return $image_src;
+	}
+}
+
+if ( ! function_exists( 'm3_get_cpt_archive_image_src' ) ) {
+	/**
+	 * Return image src for a CPT archive
+	 *
+	 * @param string $size
+	 *
+	 * @return null|string
+	 */
+	function m3_get_cpt_archive_image_src( $archive, $size = 'thumbnail' ) {
+		$image_src = null;
+		$image_id  = get_option( 'monolith_archive_cpt_image_' . $archive );
+		if ( $image_id ) {
+			$image = wp_get_attachment_image_src( $image_id, $size );
+		}
+		if ( isset( $image[0] ) ) {
+			$image_src = $image[0];
 		}
 		
 		return $image_src;

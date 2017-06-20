@@ -569,11 +569,6 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 			'exclude'    => ''
 		), $atts );
 
-
-		/* KRUPA
-		extract( shortcode_atts( $gallery_defaults, $attr, 'gallery' ) );
-		*/
-
 		$order      = $gallery_defaults['order'];
 		$id         = $gallery_defaults['id'];
 		$size       = $gallery_defaults['size'];
@@ -694,9 +689,11 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 				$image_output = wp_get_attachment_link( $id, $size, true );
 			}
 
-			$image_output = wp_get_attachment_link( $id, $size );
+			// This invalidates the above conditional block
+			//$image_output = wp_get_attachment_link( $id, $size );
 
-			$image_meta = wp_get_attachment_metadata( $id );
+			// Doesn't appear to be used but could re-integrate at a later point
+			//$image_meta = wp_get_attachment_metadata( $id );
 
 			//Cache image caption
 			$caption_text = null;
