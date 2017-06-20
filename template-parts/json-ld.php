@@ -9,8 +9,8 @@ $post_data           = get_post_data();
 $category            = get_the_category();
 $bloginfo            = get_bloginfo();
 $post_url            = get_permalink();
-if ( is_single() ) {
-	$logo                        = get_template_directory_uri() . "/assets/images/logo.png";
+$logo                        = get_template_directory_uri() . "/assets/images/logo.png";
+if ( is_singular( 'post' ) ) {
 	$author_data                 = get_userdata( $post_data->post_author );
 	$post_thumb                  = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
 	$payload["@type"]            = "BlogPosting";
