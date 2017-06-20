@@ -42,6 +42,7 @@
 	<body <?php body_class(); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>
 
+
 	<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 	<div class="off-canvas-wrapper">
 		<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
@@ -56,7 +57,7 @@
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 				</span>
 			</div>
-			<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
+			<button class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
 		</div>
 		<nav class="site-navigation top-bar flex" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<div class="top-bar-left">

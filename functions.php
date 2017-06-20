@@ -52,7 +52,7 @@ require_once( 'library/sticky-posts.php' );
 require_once( 'library/responsive-images.php' );
 
 /** Add Monolith Builder functions */
-require_once( 'library/monolith/builder/builder.php' );
+require_once( 'library/monolith/builder/class-builder.php' );
 require_once( 'library/monolith/builder/builder-functions.php' );
 
 /** Enable Monolith settings  */

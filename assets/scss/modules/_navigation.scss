@@ -23,7 +23,8 @@
 
 
 	.top-bar {
-		
+		padding: 0 2rem;
+
 		.menu {
 
 			li {
@@ -108,8 +109,6 @@
   @include show-for(medium);
 }
 
-
-
 // Site title
 .site-mobile-title a {
   // placeholder
@@ -120,12 +119,10 @@
 }
 
 
-
 // Mobile menu
 .mobile-menu {
   display: none; // prevents repaint caused by JS hiding menu onload
 }
-
 
 .mobile-menu,
 .mobile-off-canvas-menu {
@@ -146,8 +143,6 @@
   }
 }
 
-
-
 // Tablet and desktop menu
 .desktop-menu {
 
@@ -167,7 +162,6 @@
     padding: 0; // prevents container visibility on small screens
   }
 }
-
 
 // WP post navigation
 .post-navigation {
