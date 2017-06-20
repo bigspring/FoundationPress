@@ -1,39 +1,40 @@
 <?php
 
 /**
- * Bootstrap function for this class so it can be called directly from a theme in Wordpress style
+ * Run the Monolith builder.
  *
- * @param string|null $layout The layout file to use
- * @param array|null $args The arguments to be passed to the function
- * @param object|null $query The Wordpress WP_Query object to be used
+ * @param array $layout Which layout template to use
+ * @param array $args Builder arguments
+ * @param null $query WP_Query arguments
+ * @param bool $cache_name Cache name
  */
-function monolith_build( $layout = null, $args = null, $query = null, $cache = null ) {
-	new Bigspring\Monolith\Builder( $layout, $args, $query, $cache );
+function monolith_build( $layout = array(), $args = array(), $query = array(), $cache_name = false ) {
+	new Bigspring\Monolith\Builder( $layout, $args, $query, $cache_name );
 }
 
-function monolith_grid( $part = null, $classes = null, $args = null, $query = null, $cache = null ) {
+function monolith_grid( $part, $classes = '', $args = array(), $query = array(), $cache_name = false ) {
 	
 	if ( $classes ) { // ensure we set the right builder arg for the size parameter
 		$args['classes'] = $classes;
 	}
 	
-	new Bigspring\Monolith\Builder( array( 'layout' => 'grid', 'part' => $part ), $args, $query, $cache );
+	new Bigspring\Monolith\Builder( array( 'layout' => 'grid', 'part' => $part ), $args, $query, $cache_name );
 }
 
-function monolith_accordion( $args = null, $query = null, $cache = null ) {
+function monolith_accordion( $args = array(), $query = array(), $cache_name = false ) {
 	new Bigspring\Monolith\Builder( array(
 		'layout' => 'accordion',
 		'part'   => 'accordion-item'
-	), $args, $query, $cache );
+	), $args, $query, $cache_name );
 }
 
-function monolith_list( $classes = null, $args = null, $query = null, $cache = null ) {
+function monolith_list( $classes = '', $args = array(), $query = array(), $cache_name = false ) {
 	if ( $classes ) { // ensure we set the right builder arg for the size parameter
 		$args['classes'] = $classes;
 	}
-	new Bigspring\Monolith\Builder( array( 'layout' => 'list', 'part' => 'list-item' ), $args, $query, $cache );
+	new Bigspring\Monolith\Builder( array( 'layout' => 'list', 'part' => 'list-item' ), $args, $query, $cache_name );
 }
 
-function monolith_tabs( $args = null, $query = null, $cache = null ) {
-	new Bigspring\Monolith\Builder( array( 'layout' => 'tabs', 'part' => 'tab-item' ), $args, $query, $cache );
+function monolith_tabs( $args = null, $query = array(), $cache_name = false ) {
+	new Bigspring\Monolith\Builder( array( 'layout' => 'tabs', 'part' => 'tab-item' ), $args, $query, $cache_name );
 }

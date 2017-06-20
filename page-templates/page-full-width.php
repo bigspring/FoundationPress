@@ -22,6 +22,15 @@ get_header(); ?>
 		
 		<?php do_action( 'foundationpress_after_content' ); ?>
 	
+		<?php monolith_grid(
+			'card',
+			'small-up-3',
+			array(),
+			array(
+				'post_type' => 'post'
+			)
+		); ?>
+		
 	</div>
 
 <?php get_footer();
