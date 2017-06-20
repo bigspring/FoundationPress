@@ -9,7 +9,7 @@ get_header(); ?>
 
 <?php get_template_part( 'template-parts/header-banner' ); ?>
 	
-	<div id="page-full-width" role="main">
+	<div class="main-wrap full-width" role="main">
 		
 		<?php do_action( 'foundationpress_before_content' ); ?>
 		
@@ -19,8 +19,8 @@ get_header(); ?>
 				<div class="entry-content">
 					<?php the_content(); ?>
 					
-					<h3>Pages</h3>
-					<ul><?php wp_list_pages("title_li=" ); ?></ul>
+					<h1><?php the_title(); ?></h1>
+					<ul class="no-bullet"><?php wp_list_pages("title_li=" ); ?></ul>
 				</div>
 			</article>
 		<?php endwhile;?>
