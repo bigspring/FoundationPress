@@ -13,7 +13,7 @@
 
     <?php if ( $args['has_image'] ) : // display the featured image if argument is true ?>
       <div class="featured-image">
-        <?php the_post_thumbnail( 'fp-medium' ); ?>
+        <?php the_monolith_post_thumbnail('fp-medium') ?>
       </div>
     <?php endif; // end has_image ?>
 
