@@ -369,7 +369,7 @@ function monolith_foundation_accordion_shortcode( $atts, $content ) {
 	$params = shortcode_atts( array(
 	), $atts ); // TODO can we handle these defaults through the builder class instead?
 
-	$output = '<ul class="accordion ' . $params['class'] . '" data-accordion data-allow-all-closed="true">';
+	$output = '<ul class="accordion" data-accordion data-allow-all-closed="true">';
 	$output .= do_shortcode( $content );
 	$output .= '</ul>';
 

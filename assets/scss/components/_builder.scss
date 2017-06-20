@@ -3,4 +3,13 @@
 .builder {
   @include grid-row;
   @include grid-row-nest;
+  
+  //Fix shortcode builder list items
+  &.builder-list {
+    margin: 0;
+    
+    &.disc {
+      margin-left: 1.2rem;
+    }
+  }
 }
