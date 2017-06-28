@@ -681,16 +681,18 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		$gallery_id = md5( implode( '', array_keys( $attachments ) ) );
 
 		foreach ( $attachments as $id => $attachment ) {
-			if ( ! empty( $atts['link'] ) && 'file' === $atts['link'] ) {
+			
+			// Currently appears to serve no useful purpose.
+			// TODO: review
+			/*if ( ! empty( $atts['link'] ) && 'file' === $atts['link'] ) {
 				$image_output = wp_get_attachment_link( $id, $size );
 			} elseif ( ! empty( $atts['link'] ) && 'none' === $atts['link'] ) {
 				$image_output = wp_get_attachment_image( $id, $size );
 			} else {
 				$image_output = wp_get_attachment_link( $id, $size, true );
-			}
-
-			// This invalidates the above conditional block
-			//$image_output = wp_get_attachment_link( $id, $size );
+			}*/
+			
+			$image_output = wp_get_attachment_link( $id, $size );
 
 			// Doesn't appear to be used but could re-integrate at a later point
 			//$image_meta = wp_get_attachment_metadata( $id );
