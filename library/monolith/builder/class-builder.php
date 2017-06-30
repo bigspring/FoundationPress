@@ -8,16 +8,27 @@ namespace Bigspring\Monolith;
  * @package monolith
  */
 class Builder {
-	private $layouts_path;
-	private $layout;
-	private $query;
-	private $args;
-	private $loop = null;
-	private $cache;
+	
+	private $layouts_path = 'builder-parts';
+	private $parts_path = 'template-parts';
+	private $layout_file_path;
+	private $part_file_path;
+	private $loop;
+	private $cache_name;
+	private $cache_timeout = MINUTE_IN_SECONDS * 15;
 	private $cached_query = false;
-	private $cache_timeout = 3600;
+	private $parts; // useless but will never stop being funny
+	
+	private $layout = array(
+		'layout' => 'snippets',
+		'part'   => 'snippet'
+	);
+	
+	private $query = array();
+	private $args = array();
 	
 	private $default_args = array(
+		'part'          => 'snippet',
 		'classes'       => '',
 		'size'          => '',
 		'has_image'     => true,
@@ -26,44 +37,27 @@ class Builder {
 		'has_summary'   => true,
 		'has_readmore'  => true,
 		'has_titlelink' => true,
-		'has_date'      => true,
-		'part'          => 'snippet'
+		'has_date'      => true
 	);
-	private $part = null;
 	
-	public function __construct( $layout = array(), $args = array(), $query = null, $cache = false ) {
+	public function __construct( $layout = array(), $args = array(), $query = false, $cache_name = false ) {
 		
-		$default_layout = 'snippets';
-		$default_part   = 'snippet';
+		$this->layout = array_merge( $this->layout, $layout );
 		
-		$this->layouts_path = 'builder-parts';
-		$this->parts_path   = 'template-parts';
-		
-		$this->layout = $layout ? $layout : array(
-			'layout' => $default_layout,
-			'part'   => $default_part
-		); // get the layout or default to list
-		
-		if ( ! array_key_exists( 'layout', $this->layout ) ) {
-			$this->layout['layout'] = $default_layout;
-		}
-		
-		if ( ! array_key_exists( 'part', $this->layout ) ) {
-			$this->layout['part'] = $default_part;
-		}
-		
-		if ( !$this->set_paths() ) { // if we don't have the files, error
-			return $this->raise_alert('The template file could not be found');
+		if ( ! $this->set_paths() ) { // if we don't have the files, error
+			return $this->raise_alert( 'The template file could not be found' );
 		}
 		
 		$this->query = $query; // set the query object if we have one
 		$this->args  = $args; // set our args if we have any
 		
-		$this->cache = $cache;
-		
-		if ($this->cache && $this->get_cached_query()) {
-			$this->cache_timeout = MINUTE_IN_SECONDS * 5;
-		}
+		// Cache handling
+		// --------------
+		// The cache timeout can be set for a whole project using the filter below.
+		// The cache name is also passed so exceptions can be made for specific builder calls.
+		$this->cache_name    = $cache_name;
+		$this->cache_timeout = apply_filters( 'monolith_builder_cache_timeout', $this->cache_timeout, $cache_name );
+		$this->get_cached_query();
 		
 		$this->set_loop(); // set the loop object
 		$this->set_args(); // set any custom arguments we have
@@ -73,8 +67,9 @@ class Builder {
 	}
 	
 	private function get_cached_query() {
-		if ($this->cache) {
-			$this->cached_query = get_transient($this->cache);
+		if ( $this->cache_name ) {
+			$this->cached_query = get_transient( $this->cache_name );
+			
 			return true;
 		}
 		
@@ -85,7 +80,7 @@ class Builder {
 	 * Sets the loop object to be the supplied one, or the global wp_query object if not
 	 */
 	private function set_loop() {
-		if ($this->cached_query) {
+		if ( $this->cached_query ) {
 			$this->loop = $this->cached_query;
 		} else {
 			if ( $this->query ) {
@@ -95,8 +90,8 @@ class Builder {
 				$this->loop = $wp_query;
 			}
 			
-			if ($this->cache) {
-				set_transient($this->cache, $this->loop, $this->cache_timeout);  // store a new transient for 15 mins
+			if ( $this->cache_name ) {
+				set_transient( $this->cache_name, $this->loop, $this->cache_timeout );
 			}
 		}
 	}
@@ -106,8 +101,12 @@ class Builder {
 	 * @return bool
 	 */
 	private function set_args() {
-		$this->args            = array_merge( $this->default_args, $this->args ); // merge in any custom arguments we have
-		$this->args['classes'] = 'builder builder-' . $this->layout['layout'] . ' ' . $this->args['classes']; // we do this to add all dynamically generated classes
+		$this->args = array_merge( $this->default_args, $this->args );
+		
+		// Layout will potentially be a path so ensure a valid class name is used
+		$classes = sanitize_text_field( $this->layout['layout'] );
+		
+		$this->args['classes'] = 'builder builder-' . $classes . ' ' . $this->args['classes'];
 		
 		return true;
 	}
@@ -117,17 +116,18 @@ class Builder {
 	 * @return bool
 	 */
 	private function render() {
-		$loop           = &$this->loop;
-		$args           = &$this->args;
-		$layout         = $this->layout_file_path;
-		$layouts_path   = $this->layouts_path;
-		$part           = $this->part_file_path;
-		$parts_path     = $this->parts_path;
+		$loop         = $this->loop;
+		$args         = $this->args;
+		$layout       = $this->layout_file_path;
+		$layouts_path = $this->layouts_path;
+		$part         = $this->part_file_path;
+		$parts_path   = $this->parts_path;
 		
 		global $post;
 		
 		ob_start();
 		include( $this->layout_file_path );
+		
 		return ob_get_clean();
 	}
 	
@@ -152,14 +152,14 @@ class Builder {
 	private function set_paths() {
 		
 		// layout file
-		$dir_path = DIRECTORY_SEPARATOR . $this->layouts_path . DIRECTORY_SEPARATOR;
+		$dir_path  = DIRECTORY_SEPARATOR . $this->layouts_path . DIRECTORY_SEPARATOR;
 		$file_path = $dir_path . $this->layout['layout'] . '.php';
 		
-		if( file_exists( STYLESHEETPATH . $file_path)) { // check if the layout exists in the child theme
-			$this->layouts_path = STYLESHEETPATH . $dir_path;
+		if ( file_exists( STYLESHEETPATH . $file_path ) ) { // check if the layout exists in the child theme
+			$this->layouts_path     = STYLESHEETPATH . $dir_path;
 			$this->layout_file_path = STYLESHEETPATH . $file_path;
-		} elseif ( file_exists( TEMPLATEPATH . $file_path)) { // otherwise use the parent theme
-			$this->layouts_path = TEMPLATEPATH . $dir_path;
+		} elseif ( file_exists( TEMPLATEPATH . $file_path ) ) { // otherwise use the parent theme
+			$this->layouts_path     = TEMPLATEPATH . $dir_path;
 			$this->layout_file_path = TEMPLATEPATH . $file_path;
 		} else {
 			return false;
@@ -169,11 +169,11 @@ class Builder {
 		$dir_path = DIRECTORY_SEPARATOR . $this->parts_path . DIRECTORY_SEPARATOR;;
 		$file_path = $dir_path . $this->layout['part'] . '.php';
 		
-		if( file_exists( STYLESHEETPATH . $file_path)) { // check if the part exists in the child theme
-			$this->parts_path = STYLESHEETPATH . $dir_path;
+		if ( file_exists( STYLESHEETPATH . $file_path ) ) { // check if the part exists in the child theme
+			$this->parts_path     = STYLESHEETPATH . $dir_path;
 			$this->part_file_path = STYLESHEETPATH . $file_path;
-		} elseif ( file_exists( TEMPLATEPATH  . $file_path)) { // otherwise use the parent theme
-			$this->parts_path = TEMPLATEPATH . $dir_path;
+		} elseif ( file_exists( TEMPLATEPATH . $file_path ) ) { // otherwise use the parent theme
+			$this->parts_path     = TEMPLATEPATH . $dir_path;
 			$this->part_file_path = TEMPLATEPATH . $file_path;
 		} else {
 			return false;

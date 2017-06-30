@@ -8,9 +8,9 @@
  * Init settings
  */
 add_action( 'admin_init', function () {
-	// blog
 	register_setting( 'monolith-blog-group', 'monolith_blog_page_title' );
 	register_setting( 'monolith-blog-group', 'monolith_blog_page_introtext' );
+	register_setting( 'monolith-blog-group', 'monolith_fallback_image' );
 } );
 
 /**
@@ -32,7 +32,8 @@ add_action( 'admin_menu', function () {
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row"><label
-								for="monolith_blog_page_title"><?php _e( 'Blog Page Title (*)', 'monolith' ); ?></label></th>
+								for="monolith_blog_page_title"><?php _e( 'Blog Page Title (*)', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_blog_page_title" id="monolith_blog_page_title"
 							       value="<?php echo get_option( 'monolith_blog_page_title' ) ? get_option( 'monolith_blog_page_title' ) : '' ?>"
@@ -44,8 +45,28 @@ add_action( 'admin_menu', function () {
 								for="monolith_blog_page_introtext"><?php _e( 'Blog Page Introductory Text', 'monolith' ); ?></label>
 						</th>
 						<td>
-							<textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50" rows="3"
+							<textarea name="monolith_blog_page_introtext" id="monolith_blog_page_introtext" cols="50"
+							          rows="3"
 							          placeholder="<?php _e( 'This is my news blog.', 'monolith' ); ?>"><?php echo get_option( 'monolith_blog_page_introtext' ) ? get_option( 'monolith_blog_page_introtext' ) : '' ?></textarea>
+						</td>
+					</tr>
+				</table>
+				<h3><?php _e( 'Fallback Image', 'monolith' ); ?></h3>
+				<table class="form-table">
+					<tr valign="top">
+						<th scope="row"><label
+								for="monolith_fallback_image"><?php _e( 'Fallback Image', 'monolith' ); ?></label>
+						</th>
+						<td>
+							<input type="hidden" name="monolith_fallback_image" id="monolith_fallback_image" class="m3-media-upload"
+							       value="<?php echo get_option( 'monolith_fallback_image' ) ? get_option( 'monolith_fallback_image' ) : '' ?>"
+							       size="50" placeholder="" required>
+							<div class="image-preview">
+								<?php if ( get_option( 'monolith_fallback_image' ) ) : ?>
+									<img src="<?php echo wp_get_attachment_image_src( get_option( 'monolith_fallback_image' ), 'fp-small' )[0] ?>">
+								<?php endif; ?>
+							</div>
+							<button type="button" class="button media-uploader">Upload image</button>
 						</td>
 					</tr>
 				</table>
@@ -57,13 +78,11 @@ add_action( 'admin_menu', function () {
 	} );
 } );
 
-if ( ! function_exists( 'set_default_site_options' ) ) {
-	/**
-	 * Add default site options if they don't exist in the database
-	 */
-	add_action( 'after_setup_theme', function () {
-		// blog
-		add_option( 'monolith_blog_page_title', 'Latest News' );
-		add_option( 'monolith_blog_page_introtext', '' );
-	} );
-}
+/**
+ * Add default site options if they don't exist in the database
+ */
+add_action( 'after_setup_theme', function () {
+	add_option( 'monolith_blog_page_title', 'Latest News' );
+	add_option( 'monolith_blog_page_introtext', '' );
+	add_option( 'monolith_fallback_image', '' );
+} );

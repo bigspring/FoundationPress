@@ -9,6 +9,11 @@
 	<p class="lead sub-heading">
 		<?php echo get_option( 'monolith_blog_page_introtext' ); // display site option   ?>
 	</p>
+<?php elseif ( is_post_type_archive() ) : ?>
+	<?php $archive      = get_queried_object(); ?>
+	<p class="lead sub-heading">
+		<?php echo monolith_get_cpt_archive_intro(); ?>
+	</p>
 <?php elseif ( has_excerpt() ) : ?>
 	<p class="lead sub-heading">
 		<?php echo get_the_excerpt(); ?>

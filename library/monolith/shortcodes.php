@@ -367,13 +367,11 @@ add_shortcode( 'list', 'list_shortcode' );
 function monolith_foundation_accordion_shortcode( $atts, $content ) {
 
 	$params = shortcode_atts( array(
-		'class' => ''
 	), $atts ); // TODO can we handle these defaults through the builder class instead?
 
-	$output = '<ul class="accordion ' . $params['class'] . '" data-accordion>';
+	$output = '<ul class="accordion" data-accordion data-allow-all-closed="true">';
 	$output .= do_shortcode( $content );
 	$output .= '</ul>';
-
 
 	/* KRUPA #23
 
@@ -397,7 +395,6 @@ function monolith_accordion_panel_shortcode( $atts, $content ) {
 
 	$params = shortcode_atts( array(
 		'title' => 'Please enter an accordion title',
-		'class' => ''
 	), $atts );
 
 	$id = rand( 1, 1000 );
@@ -408,23 +405,6 @@ function monolith_accordion_panel_shortcode( $atts, $content ) {
 	$output .= $content;
 	$output .= '</div>';
 	$output .= '</li>';
-
-
-	/* KRUPA
-	extract( shortcode_atts( array( // set our defaults for the shortcode
-		'title' => 'Please enter an accordion title',
-		'class' => ''
-	), $atts ) );
-
-	$id = rand( 1, 1000 );
-
-	$output = '<li class="accordion-item" data-accordion-item>';
-	$output .= '<a href="#" class="accordion-title">' . $title . '</a>';
-	$output .= '<div class="accordion-content" data-tab-content>';
-	$output .= $content;
-	$output .= '</div>';
-	$output .= '</li>';
-	/KRUPA */
 
 	return apply_filters( 'accordion_panel', $output );
 }
@@ -589,11 +569,6 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 			'exclude'    => ''
 		), $atts );
 
-
-		/* KRUPA
-		extract( shortcode_atts( $gallery_defaults, $attr, 'gallery' ) );
-		*/
-
 		$order      = $gallery_defaults['order'];
 		$id         = $gallery_defaults['id'];
 		$size       = $gallery_defaults['size'];
@@ -706,17 +681,21 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		$gallery_id = md5( implode( '', array_keys( $attachments ) ) );
 
 		foreach ( $attachments as $id => $attachment ) {
-			if ( ! empty( $atts['link'] ) && 'file' === $atts['link'] ) {
+			
+			// Currently appears to serve no useful purpose.
+			// TODO: review
+			/*if ( ! empty( $atts['link'] ) && 'file' === $atts['link'] ) {
 				$image_output = wp_get_attachment_link( $id, $size );
 			} elseif ( ! empty( $atts['link'] ) && 'none' === $atts['link'] ) {
 				$image_output = wp_get_attachment_image( $id, $size );
 			} else {
 				$image_output = wp_get_attachment_link( $id, $size, true );
-			}
-
+			}*/
+			
 			$image_output = wp_get_attachment_link( $id, $size );
 
-			$image_meta = wp_get_attachment_metadata( $id );
+			// Doesn't appear to be used but could re-integrate at a later point
+			//$image_meta = wp_get_attachment_metadata( $id );
 
 			//Cache image caption
 			$caption_text = null;

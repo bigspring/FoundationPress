@@ -23,7 +23,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 		wp_nav_menu( array(
 			'container'      => false,
 			'menu_class'     => 'dropdown menu',
-			'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu data-close-on-click-inside="false">%3$s</ul>',
+			'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-close-on-click-inside="false" data-dropdown-menu data-disable-hover="true" data-click-open="true">%3$s</ul>',
 			'theme_location' => 'top-bar-r',
 			'depth'          => 3,
 			'fallback_cb'    => false,
@@ -113,7 +113,9 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 			} elseif ( is_category() ) {
 
 				// Category page
-				echo '<li class="item-current item-cat-' . $category[0]->term_id . ' item-cat-' . $category[0]->category_nicename . '"><strong class="bread-current bread-cat-' . $category[0]->term_id . ' bread-cat-' . $category[0]->category_nicename . '">' . $category[0]->cat_name . '</strong></li>';
+				// Get the current category
+				$current_category = $wp_query->queried_object;
+				echo '<li class="item-current item-cat-' . $current_category->term_id . ' item-cat-' . $current_category->category_nicename . '"><strong class="bread-current bread-cat-' . $current_category->term_id . ' bread-cat-' . $current_category->category_nicename . '">' . $current_category->cat_name . '</strong></li>';
 
 			} elseif ( is_page() ) {
 
@@ -212,7 +214,7 @@ if ( ! function_exists( 'foundationpress_breadcrumb' ) ) {
 			} elseif ( is_search() ) {
 
 				// Search results page
-				echo '<li class="current item-current-' . get_search_query() . '">Search results for: ' . get_search_query() . '</li>';
+				echo '<li class="current item-current-search">Search results for: ' . get_search_query() . '</li>';
 
 			} elseif ( is_404() ) {
 

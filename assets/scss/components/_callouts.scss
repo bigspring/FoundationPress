@@ -1,0 +1,16 @@
+.callout {
+	
+	@include breakpoint(medium) {
+		padding: 2rem 3rem;
+	}//medium
+	&.primary {
+		background-color: $primary-color;
+		h1,h2,h3,h4,h5,h6, p, span {
+			color: $white;
+		}
+	}//primary
+	
+	&.secondary {
+		
+	}//secondary
+}//callout
