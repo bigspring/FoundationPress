@@ -8795,6 +8795,12 @@ blockquote {
   .block .button.block-bottom-button {
     margin-bottom: 0; }
 
+.gallery.row {
+  margin: 1rem -1rem; }
+  .gallery.row a {
+    display: block;
+    margin-bottom: 2rem; }
+
 @media print, screen and (min-width: 40em) {
   .callout {
     padding: 2rem 3rem; } }
