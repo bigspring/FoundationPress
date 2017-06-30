@@ -284,7 +284,7 @@ if ( ! function_exists( 'get_monolith_post_thumbnail' ) ) {
 	function get_monolith_post_thumbnail( $size ) {
 		return has_post_thumbnail()
 			? get_the_post_thumbnail( get_the_ID(), $size )
-			: '<img src="' . get_template_directory_uri() . '/assets/img/fallback.png" alt="" />';
+			: m3_get_fallback_image( $size );
 	}
 }
 
@@ -297,6 +297,54 @@ if ( ! function_exists( 'the_monolith_post_thumbnail' ) ) {
 	}
 }
 
+if ( ! function_exists( 'm3_fallback_image_src' ) ) {
+	/**
+	 * Return src for a fallback image
+	 *
+	 * @param string $size
+	 *
+	 * @return string
+	 */
+	function m3_get_fallback_image( $size = 'thumbnail' ) {
+		$image = '';
+		$image_id  = get_option( 'monolith_fallback_image' );
+		
+		if ( $image_id ) {
+			$image = wp_get_attachment_image( $image_id, $size );
+		}
+		
+		if ( ! $image ) {
+			// Yo dawg, I heard you like fallback images
+			$image = get_template_directory_uri() . '/assets/img/fallback.png';
+		}
+		
+		return $image;
+	}
+}
+
+if ( ! function_exists( 'm3_get_cpt_archive_image_src' ) ) {
+	/**
+	 * Return image src for a CPT archive
+	 *
+	 * @param string $size
+	 *
+	 * @return null|string
+	 */
+	function m3_get_cpt_archive_image_src( $archive, $size = 'thumbnail' ) {
+		$image_src = null;
+		$image_id  = get_option( 'monolith_archive_cpt_image_' . $archive );
+		
+		if ( $image_id ) {
+			$image = wp_get_attachment_image_src( $image_id, $size );
+		}
+		if ( isset( $image[0] ) ) {
+			$image_src = $image[0];
+		}
+		
+		return $image_src;
+	}
+}
+
 if ( ! function_exists( 'monolith_pagination' ) ) {
 	function monolith_pagination() {
 		global $wp_query;
@@ -306,7 +354,7 @@ if ( ! function_exists( 'monolith_pagination' ) ) {
 		// For more options and info view the docs for paginate_links()
 		// http://codex.wordpress.org/Function_Reference/paginate_links
 		$paginate_links = paginate_links( array(
-			'base'      => str_replace( $big, '%#%', html_entity_decode( get_pagenum_link( $big ) ) ),
+			'base'      => str_replace( $big, ' %#%', html_entity_decode( get_pagenum_link( $big ) ) ),
 			'current'   => max( 1, get_query_var( 'paged' ) ),
 			'total'     => $wp_query->max_num_pages,
 			'mid_size'  => 5,
@@ -331,5 +379,23 @@ if ( ! function_exists( 'monolith_pagination' ) ) {
 			echo $paginate_links;
 			echo '</div><!--// end .pagination -->';
 		}
+	}
+}
+
+if ( ! function_exists( 'monolith_get_cpt_archive_intro' ) ) {
+	/**
+	 * Return the CPT archive intro, if one exists.
+	 *
+	 * @param string $post_type_slug
+	 *
+	 * @return string
+	 */
+	function monolith_get_cpt_archive_intro( $post_type_slug = null ) {
+		if ( ! $post_type_slug ) {
+			$cpt            = get_queried_object();
+			$post_type_slug = $cpt->name;
+		}
+		
+		return get_option( 'monolith_archive_cpt_introtext_' . $post_type_slug );
 	}
 }

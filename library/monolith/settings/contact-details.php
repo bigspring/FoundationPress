@@ -302,7 +302,8 @@ add_action( 'admin_menu', function () {
 				<table class="form-table">
 					<tr valign="top">
 						<th scope="row"><label
-								for="monolith_company_number"><?php _e( 'Company Registration Number', 'monolith' ); ?></label></th>
+								for="monolith_company_number"><?php _e( 'Company Registration Number', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_company_number" id="monolith_company_number"
 							       value="<?php echo get_option( 'monolith_company_number' ) ? get_option( 'monolith_company_number' ) : '' ?>"
@@ -316,7 +317,8 @@ add_action( 'admin_menu', function () {
 				
 				<table class="form-table">
 					<tr valign="top">
-						<th scope="row"><label for="monolith_address_1"><?php _e( 'Address 1', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_address_1"><?php _e( 'Address 1', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_address_1" id="monolith_address_1"
 							       value="<?php echo get_option( 'monolith_address_1' ) ? get_option( 'monolith_address_1' ) : '' ?>"
@@ -324,7 +326,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_address_2"><?php _e( 'Address 2', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_address_2"><?php _e( 'Address 2', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_address_2" id="monolith_address_2"
 							       value="<?php echo get_option( 'monolith_address_2' ) ? get_option( 'monolith_address_2' ) : '' ?>"
@@ -332,7 +335,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_address_3"><?php _e( 'Address 3', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_address_3"><?php _e( 'Address 3', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_address_3" id="monolith_address_3"
 							       value="<?php echo get_option( 'monolith_address_3' ) ? get_option( 'monolith_address_3' ) : '' ?>"
@@ -343,7 +347,8 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_city"><?php _e( 'City', 'monolith' ); ?></th>
 						<td>
 							<input type="text" name="monolith_city" id="monolith_city"
-							       value="<?php echo get_option( 'monolith_city' ) ? get_option( 'monolith_city' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_city' ) ? get_option( 'monolith_city' ) : '' ?>"
+							       size="50"
 							       placeholder="Nottingham">
 						</td>
 					</tr>
@@ -351,15 +356,18 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_county"><?php _e( 'County', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_county" id="monolith_county"
-							       value="<?php echo get_option( 'monolith_county' ) ? get_option( 'monolith_county' ) : '' ?>" size="50"
+							       value="<?php echo get_option( 'monolith_county' ) ? get_option( 'monolith_county' ) : '' ?>"
+							       size="50"
 							       placeholder="Nottinghamshire">
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_postcode"><?php _e( 'Postcode', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_postcode"><?php _e( 'Postcode', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_postcode" id="monolith_postcode"
-							       value="<?php echo get_option( 'monolith_postcode' ) ? get_option( 'monolith_postcode' ) : '' ?>" size="15"
+							       value="<?php echo get_option( 'monolith_postcode' ) ? get_option( 'monolith_postcode' ) : '' ?>"
+							       size="15"
 							       placeholder="NG8 6PE">
 						</td>
 					</tr>
@@ -375,16 +383,19 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_phone"><?php _e( 'Phone Number', 'monolith' ); ?></label></th>
+						<th scope="row"><label for="monolith_phone"><?php _e( 'Phone Number', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_phone" id="monolith_phone"
-							       value="<?php echo get_option( 'monolith_phone' ) ? get_option( 'monolith_phone' ) : '' ?>" size="15"
+							       value="<?php echo get_option( 'monolith_phone' ) ? get_option( 'monolith_phone' ) : '' ?>"
+							       size="15"
 							       placeholder="(0115) 906 1321">
 						</td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label
-								for="monolith_secondary_phone"><?php _e( 'Secondary phone Number', 'monolith' ); ?></label></th>
+								for="monolith_secondary_phone"><?php _e( 'Secondary phone Number', 'monolith' ); ?></label>
+						</th>
 						<td>
 							<input type="text" name="monolith_secondary_phone" id="monolith_secondary_phone"
 							       value="<?php echo get_option( 'monolith_secondary_phone' ) ? get_option( 'monolith_secondary_phone' ) : '' ?>"
@@ -395,7 +406,8 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_fax"><?php _e( 'Fax Number', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_fax" id="monolith_fax"
-							       value="<?php echo get_option( 'monolith_fax' ) ? get_option( 'monolith_fax' ) : '' ?>" size="15"
+							       value="<?php echo get_option( 'monolith_fax' ) ? get_option( 'monolith_fax' ) : '' ?>"
+							       size="15"
 							       placeholder="(0115) 906 1321">
 						</td>
 					</tr>
@@ -404,7 +416,8 @@ add_action( 'admin_menu', function () {
 						<th scope="row"><label for="monolith_email"><?php _e( 'Email', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_email" id="monolith_email"
-							       value="<?php echo get_option( 'monolith_email' ) ? get_option( 'monolith_email' ) : '' ?>" size="35"
+							       value="<?php echo get_option( 'monolith_email' ) ? get_option( 'monolith_email' ) : '' ?>"
+							       size="35"
 							       placeholder="hello@website.com">
 						</td>
 					</tr>
@@ -414,7 +427,8 @@ add_action( 'admin_menu', function () {
 				
 				<table class="form-table">
 					<tr valign="top">
-						<th scope="row"><label for="monolith_secondary_address_1"><?php _e( 'Address 1', 'monolith' ); ?></label>
+						<th scope="row"><label
+								for="monolith_secondary_address_1"><?php _e( 'Address 1', 'monolith' ); ?></label>
 						</th>
 						<td>
 							<input type="text" name="monolith_secondary_address_1" id="monolith_secondary_address_1"
@@ -423,7 +437,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_secondary_address_2"><?php _e( 'Address 2', 'monolith' ); ?></label>
+						<th scope="row"><label
+								for="monolith_secondary_address_2"><?php _e( 'Address 2', 'monolith' ); ?></label>
 						</th>
 						<td>
 							<input type="text" name="monolith_secondary_address_2" id="monolith_secondary_address_2"
@@ -432,7 +447,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_secondary_address_3"><?php _e( 'Address 3', 'monolith' ); ?></label>
+						<th scope="row"><label
+								for="monolith_secondary_address_3"><?php _e( 'Address 3', 'monolith' ); ?></label>
 						</th>
 						<td>
 							<input type="text" name="monolith_secondary_address_3" id="monolith_secondary_address_3"
@@ -450,7 +466,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_secondary_county"><?php _e( 'County', 'monolith' ); ?></label></th>
+						<th scope="row"><label
+								for="monolith_secondary_county"><?php _e( 'County', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_secondary_county" id="monolith_secondary_county"
 							       value="<?php echo get_option( 'monolith_secondary_county' ) ? get_option( 'monolith_secondary_county' ) : '' ?>"
@@ -459,7 +476,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_secondary_postcode"><?php _e( 'Postcode', 'monolith' ); ?></label></th>
+						<th scope="row"><label
+								for="monolith_secondary_postcode"><?php _e( 'Postcode', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_secondary_postcode" id="monolith_secondary_postcode"
 							       value="<?php echo get_option( 'monolith_secondary_postcode' ) ? get_option( 'monolith_secondary_postcode' ) : '' ?>"
@@ -468,7 +486,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_secondary_country"><?php _e( 'Country', 'monolith' ); ?></label></th>
+						<th scope="row"><label
+								for="monolith_secondary_country"><?php _e( 'Country', 'monolith' ); ?></label></th>
 						<td>
 							<select name="monolith_secondary_country" id="monolith_secondary_country">
 								<?php foreach ( $countries as $country ) : ?>
@@ -479,7 +498,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_secondary_phone"><?php _e( 'Phone Number', 'monolith' ); ?></label>
+						<th scope="row"><label
+								for="monolith_secondary_phone"><?php _e( 'Phone Number', 'monolith' ); ?></label>
 						</th>
 						<td>
 							<input type="text" name="monolith_secondary_phone" id="monolith_secondary_phone"
@@ -493,13 +513,15 @@ add_action( 'admin_menu', function () {
 								for="monolith_secondary_secondary_phone"><?php _e( 'Secondary phone Number', 'monolith' ); ?></label>
 						</th>
 						<td>
-							<input type="text" name="monolith_secondary_secondary_phone" id="monolith_secondary_secondary_phone"
+							<input type="text" name="monolith_secondary_secondary_phone"
+							       id="monolith_secondary_secondary_phone"
 							       value="<?php echo get_option( 'monolith_secondary_secondary_phone' ) ? get_option( 'monolith_secondary_secondary_phone' ) : '' ?>"
 							       size="15" placeholder="(0) 123 906 1321">
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_secondary_fax"><?php _e( 'Fax Number', 'monolith' ); ?></label></th>
+						<th scope="row"><label
+								for="monolith_secondary_fax"><?php _e( 'Fax Number', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_secondary_fax" id="monolith_secondary_fax"
 							       value="<?php echo get_option( 'monolith_secondary_fax' ) ? get_option( 'monolith_secondary_fax' ) : '' ?>"
@@ -508,7 +530,8 @@ add_action( 'admin_menu', function () {
 						</td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="monolith_secondary_email"><?php _e( 'Email', 'monolith' ); ?></label></th>
+						<th scope="row"><label
+								for="monolith_secondary_email"><?php _e( 'Email', 'monolith' ); ?></label></th>
 						<td>
 							<input type="text" name="monolith_secondary_email" id="monolith_secondary_email"
 							       value="<?php echo get_option( 'monolith_secondary_email' ) ? get_option( 'monolith_secondary_email' ) : '' ?>"
@@ -524,41 +547,39 @@ add_action( 'admin_menu', function () {
 	} );
 } );
 
-if ( ! function_exists( 'set_default_site_options' ) ) {
-	/**
-	 * Add default site options if they don't exist in the database
-	 */
-	add_action( 'after_setup_theme', function () {
-		// blog
-		add_option( 'monolith_blog_page_title', 'Latest News' );
-		add_option( 'monolith_blog_page_introtext', '' );
-		
-		// contact
-		add_option( 'monolith_address_1', '' );
-		add_option( 'monolith_address_2', '' );
-		add_option( 'monolith_address_3', '' );
-		add_option( 'monolith_city', '' );
-		add_option( 'monolith_county', '' );
-		add_option( 'monolith_postcode', '' );
-		add_option( 'monolith_country', '' );
-		add_option( 'monolith_phone', '' );
-		add_option( 'monolith_secondary_phone', '' );
-		add_option( 'monolith_fax', '' );
-		add_option( 'monolith_email', '' );
-		add_option( 'monolith_company_number', '' );
-		
-		// secondary contact
-		add_option( 'monolith_secondary_address_1', '' );
-		add_option( 'monolith_secondary_address_2', '' );
-		add_option( 'monolith_secondary_address_3', '' );
-		add_option( 'monolith_secondary_city', '' );
-		add_option( 'monolith_secondary_county', '' );
-		add_option( 'monolith_secondary_postcode', '' );
-		add_option( 'monolith_secondary_country', '' );
-		add_option( 'monolith_secondary_phone', '' );
-		add_option( 'monolith_secondary_secondary_phone', '' );
-		add_option( 'monolith_secondary_fax', '' );
-		add_option( 'monolith_secondary_email', '' );
-		add_option( 'monolith_secondary_company_number', '' );
-	} );
-}
+/**
+ * Add default site options if they don't exist in the database
+ */
+add_action( 'after_setup_theme', function () {
+	// blog
+	add_option( 'monolith_blog_page_title', 'Latest News' );
+	add_option( 'monolith_blog_page_introtext', '' );
+	
+	// contact
+	add_option( 'monolith_address_1', '' );
+	add_option( 'monolith_address_2', '' );
+	add_option( 'monolith_address_3', '' );
+	add_option( 'monolith_city', '' );
+	add_option( 'monolith_county', '' );
+	add_option( 'monolith_postcode', '' );
+	add_option( 'monolith_country', '' );
+	add_option( 'monolith_phone', '' );
+	add_option( 'monolith_secondary_phone', '' );
+	add_option( 'monolith_fax', '' );
+	add_option( 'monolith_email', '' );
+	add_option( 'monolith_company_number', '' );
+	
+	// secondary contact
+	add_option( 'monolith_secondary_address_1', '' );
+	add_option( 'monolith_secondary_address_2', '' );
+	add_option( 'monolith_secondary_address_3', '' );
+	add_option( 'monolith_secondary_city', '' );
+	add_option( 'monolith_secondary_county', '' );
+	add_option( 'monolith_secondary_postcode', '' );
+	add_option( 'monolith_secondary_country', '' );
+	add_option( 'monolith_secondary_phone', '' );
+	add_option( 'monolith_secondary_secondary_phone', '' );
+	add_option( 'monolith_secondary_fax', '' );
+	add_option( 'monolith_secondary_email', '' );
+	add_option( 'monolith_secondary_company_number', '' );
+} );

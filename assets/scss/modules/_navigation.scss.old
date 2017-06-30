@@ -1,0 +1,126 @@
+// Navigation breakpoints
+.desktop-menu, .top-bar-left {
+  @include show-for(medium);
+}
+
+#mobile-menu, .title-bar {
+  @include hide-for(medium);
+}
+
+// -----------
+// Mobile menu
+// -----------
+
+	.title-bar {
+
+		.menu-icon {
+			float: right;
+		}//menu-icon
+
+	}//title-bar
+
+
+// -----------
+// Menu
+// -----------
+
+
+	.top-bar {
+
+		.menu {
+
+			li {
+
+				// normal anchor styles here
+				// -------------------------
+				a {
+
+					&:hover {
+						background-color: $primary-color;
+						color: $white;
+					}//hover
+
+				}//a
+
+				// set the hover states for when we have a parent with a dropdown
+				// --------------------------------------------------------------
+/*
+				&.is-dropdown-submenu-parent.is-active {
+					background-color: $primary-color;
+					color: $white !important;
+					a {
+						&:hover, &:focus {
+							color: $white !important;
+						}
+					}
+				}
+*/
+
+				// set active states for top level and dropdown anchors
+				// ----------------------------------------------------
+				&.active, &.current_page_item {
+
+					a > {
+						background-color: $primary-color;
+						color: $white;
+					}//a
+
+					ul.dropdown {
+						li.current_page_item {
+							a {
+								background-color: $primary-color;
+								color: $white;
+							}//a
+						}//li
+					}//dropdown
+
+				}//&.active, &.current_page_item
+				
+				// Special buttons in the menu using custom styles, usually the contact button
+				// ----------------------------------------------------
+				&.nav-menu-button {
+					a {
+						padding: 0.65rem 1.65rem;
+						color: $white;
+						font-weight: 600;
+						background-color: $primary-color;
+						transition: background-color 0.5s ease;
+						&:hover {
+							background-color: scale-color($primary-color, $lightness: -14%);
+							color: $white;
+						}//hover
+					}//a
+				}//nav-menu-button
+
+			}//li
+
+		}//menu
+
+	}//top-bar
+
+// -----------
+// Off Canvas
+// -----------
+
+	.off-canvas {
+	  > ul.menu {
+	    height: 100vh;
+	    padding: 1rem;
+	  }
+	}
+
+
+// Basic styles for post navigation. Nicolas Gallagher's "Micro clearfix"
+// https://css-tricks.com/snippets/css/clear-fix/
+.post-navigation:before,
+.post-navigation:after {
+  content: "";
+  display: table;
+}
+
+.post-navigation:after {
+  clear:both;
+}
+
+.nav-previous { float:left; }
+.nav-next { float:right; }

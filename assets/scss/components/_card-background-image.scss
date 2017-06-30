@@ -1,0 +1,66 @@
+.card-background-image {
+	@include grid-row();
+	position: relative;
+	padding-top: 60vw;
+	background-color: $primary-color;
+	@include breakpoint(medium) {
+		padding-top: 0;
+	}//medium
+	
+	.caption {
+		@include grid-column(12);
+		padding: 2rem;
+		color: $white;
+		@include breakpoint(medium) {
+			@include grid-column(6);
+			padding: 2rem;
+		}//medium
+		@include breakpoint(large) {
+			padding: 3rem;
+		}//large
+		
+		h3 {
+			@include responsive-font(3vw, 23px, 28px, 20px);
+		} // h3
+		
+		p {
+		}//p
+		
+		div.summary {
+			@include responsive-font(2vw, 14px, 20px);
+		} // div.summary
+		
+		.read-more {
+			display: block;
+			margin-top: 2rem;
+			@include breakpoint(medium) {
+				display: inline-block;
+				margin-top: 1rem;
+				padding: 1.2rem 1.7rem;
+			}//medium
+		} // a.read-more
+		
+	} // .caption
+	
+	.featured-image {
+		@include grid-column(12);
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		height: 60vw;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: auto;
+		@include breakpoint(medium) {
+			height: auto;
+			@include grid-column(6);
+		}//medium
+	} // .featured-image
+	
+	&:hover {
+		border-color: transparent !important // Remove the red border;
+	}//hover
+	
+} // .card-case-study

@@ -1,0 +1,55 @@
+// ---------------------------
+// Social Sharing area
+// ---------------------------
+.post-meta-block {
+	@include grid-row-nest();
+	&:after {
+		@include clear-rows();
+	}
+	padding-bottom: 1rem;
+	
+	.post-meta-date {
+		@include breakpoint(small) {
+			@include grid-column(12);
+		}
+		
+		@include breakpoint(medium) {
+			@include grid-column(6);
+		}
+		
+		time {
+			display: inline-block;
+			line-height: 2;
+			font-size: 0.9rem;
+			color: $medium-gray;
+		}
+		
+	}//post-meta-date
+	
+	.post-meta-sharing {
+		@include breakpoint(small) {
+			@include grid-column(12);
+		}
+		
+		@include breakpoint(medium) {
+			@include grid-column(6);
+			text-align: right;
+		}
+		
+		span.sharing-text {
+			display: inline-block;
+			line-height: 2;
+			margin-right: 0.5rem;
+			font-size: 0.9rem;
+			color: $medium-gray;
+		}//span
+		
+		.addthis_inline_share_toolbox {
+			@include breakpoint(medium) {
+				float: right;
+			}
+		}//addthis_inline_share_toolbox
+		
+	}//post-meta-sharing
+	
+}//post-meta-block
