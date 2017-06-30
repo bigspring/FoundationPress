@@ -9,7 +9,7 @@
 $image_src = null;
 
 // Determine what image to use as the banner background.
-if ( is_archive() ) {
+if ( is_archive() && !is_home() ) {
 	// Get non-thumbnail image using a suitable method for project requirements.
 	if ( is_post_type_archive() ) {
 		$cpt       = get_queried_object();
