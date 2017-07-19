@@ -1,0 +1,74 @@
+/* 
+Use this stylesheet to style the front end login page test
+*/
+
+/* colour the background here */
+html, body.login {
+	background: #ccc;
+}
+
+/* add the logo here */
+.login h1 a { 
+background-image:url('../images/logo.jpg') !important;
+background-size: auto !important;
+width: auto !important;
+height: 100px !important;
+margin-bottom: 0 !important;
+}
+
+/* style the login and back to blog links */
+.login #nav a, .login #backtoblog a {
+	color: white;
+}
+
+.login #nav a:hover, .login #backtoblog a:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+/* style the submit button */
+.wp-core-ui .button, .wp-core-ui .button-primary, .wp-core-ui .button-secondary {
+}
+
+/* 	style the login form */
+.login form {
+	background-color: transparent !important;
+	box-shadow: none;
+	margin-top: 0 !important;
+	padding-bottom: 26px !important;
+}
+
+.login form input {
+	height: 50px;
+	padding: 3px 10px !important;
+	border-radius: 3px !important;
+}
+
+.login form p.submit input {
+	height: auto !important;
+	background: transparent;
+	color: white;
+	text-shadow: none;
+	padding: 0.85em 1em !important;
+	border-radius: 3px;
+	width: 100%;
+	font-size: 18px;
+	font-weight: 600;
+	border: 3px solid white;
+	box-shadow: none;
+}
+
+.login form p.submit input:hover {
+	background-color: white;
+  color: #1e2e5c;	
+  border-color: white;
+}
+
+/* style the label text */
+.login label   {
+	color: white;
+}
+
+p#nav {
+	margin-top: 0 !important;
+}
