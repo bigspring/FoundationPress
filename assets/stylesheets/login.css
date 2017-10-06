@@ -38,7 +38,7 @@ margin-bottom: 0 !important;
 	padding-bottom: 26px !important;
 }
 
-.login form input {
+.login form input[type="text"], .login form input[type="password"] {
 	height: 50px;
 	padding: 3px 10px !important;
 	border-radius: 3px !important;
@@ -71,4 +71,8 @@ margin-bottom: 0 !important;
 
 p#nav {
 	margin-top: 0 !important;
+}
+
+p.forgetmenot {
+	margin-bottom: 1rem !important;
 }
