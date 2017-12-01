@@ -94,8 +94,8 @@ add_filter( 'gform_validation_message', function ( $message, $form ) {
 /**
  * Add browserSync code before closing body tag
  */
-add_action( 'foundationpress_before_closing_body', function () {
-	
+add_action( 'wp_footer', function () {
+
 	if ( ! defined( 'ENVIRONMENT' ) || ENVIRONMENT !== 'development' ) {
 		return false;
 	}
