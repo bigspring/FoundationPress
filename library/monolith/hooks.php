@@ -94,8 +94,8 @@ add_filter( 'gform_validation_message', function ( $message, $form ) {
 /**
  * Add browserSync code before closing body tag
  */
-add_action( 'foundationpress_before_closing_body', function () {
-	
+add_action( 'wp_footer', function () {
+
 	if ( ! defined( 'ENVIRONMENT' ) || ENVIRONMENT !== 'development' ) {
 		return false;
 	}
@@ -106,14 +106,14 @@ add_action( 'foundationpress_before_closing_body', function () {
 }, 99 );
 
 /**
- * Add schema for miain navigation links
+ * Add schema for main navigation links @TODO this needs looking into, it works for the header navigation but causes errors on the footer navigation
  */
-add_filter( 'nav_menu_link_attributes', 'add_attribute', 10, 3 );
-function add_attribute( $atts, $item, $args ) {
-	$atts['itemprop'] = 'url';
-	
-	return $atts;
-}
+//add_filter( 'nav_menu_link_attributes', 'add_attribute', 10, 3 );
+//function add_attribute( $atts, $item, $args ) {
+//	$atts['itemprop'] = 'url';
+//
+//	return $atts;
+//}
 
 /**
  * Enqueue the JS utility for handling media uploads in Monolith settings.
