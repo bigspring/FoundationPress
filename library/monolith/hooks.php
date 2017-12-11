@@ -106,7 +106,7 @@ add_action( 'wp_footer', function () {
 }, 99 );
 
 /**
- * Add schema for miain navigation links @TODO this needs looking into, it works for the header navigation but causes errors on the footer navigation
+ * Add schema for main navigation links @TODO this needs looking into, it works for the header navigation but causes errors on the footer navigation
  */
 //add_filter( 'nav_menu_link_attributes', 'add_attribute', 10, 3 );
 //function add_attribute( $atts, $item, $args ) {
