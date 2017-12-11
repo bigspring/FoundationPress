@@ -315,7 +315,7 @@ if ( ! function_exists( 'm3_fallback_image_src' ) ) {
 		
 		if ( ! $image ) {
 			// Yo dawg, I heard you like fallback images
-			$image = get_template_directory_uri() . '/assets/img/fallback.png';
+			$image = '<img src="' . get_template_directory_uri() . '/assets/images/fallback.png' . '">';
 		}
 		
 		return $image;
