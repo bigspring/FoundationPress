@@ -11,9 +11,9 @@
 	<?php do_action( 'monolith_before_builder_grid', $loop ); ?>
 	
 	<!-- start the block grid ul -->
-	<div class="<?php echo $args['classes']; ?>" data-equalizer data-equalize-on="medium">
+	<div class="<?php echo $args['classes']; ?> grid-x grid-margin-x" data-equalizer data-equalize-on="medium">
 		<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-			<div class="column">
+			<div class="cell">
 				<?php include( $part ); ?>
 			</div>
 		<?php endwhile; ?>
