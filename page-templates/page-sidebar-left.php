@@ -47,5 +47,4 @@ get_header(); ?>
 	<?php get_sidebar(); ?>
 	</div>
 </div>
->>>>>>> upstream/master
 <?php get_footer();

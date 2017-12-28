@@ -41,7 +41,6 @@ add_image_size( 'portrait-large', 1200, 1600, true );
 
 // Register the new image sizes for use in the add media modal in wp-admin
 function foundationpress_custom_sizes( $sizes ) {
-<<<<<<< HEAD
 	return array_merge( $sizes, array(
 		'portrait-tiny'   => __( 'Portrait Tiny' ),
 		'portrait-small'  => __( 'Portrait Small' ),
