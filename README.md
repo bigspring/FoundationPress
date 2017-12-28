@@ -1,9 +1,19 @@
-# M3
-This is a starter-theme for WordPress based on Foundation 6, the most advanced responsive (mobile-first) framework in the world. Please fork, copy, modify, delete, share or do whatever you like with this.
+# FoundationPress
+
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/olefredrik/foundationpress?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![GitHub version](https://badge.fury.io/gh/olefredrik%2Ffoundationpress.svg)](https://github.com/olefredrik/FoundationPress/releases)
+[![license](https://img.shields.io/npm/l/color-name-list.svg?colorB=ff77b4)](https://github.com/olefredrik/FoundationPress/blob/master/MIT-LICENSE.txt)
+[![Buy Me a Coffee at ko-fi.com](https://img.shields.io/badge/-Buy%20me%20a%20Coffee-orange.svg?colorB=593C1F&colorA=4e798d&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAVUlEQVR4AWNQtnJTQcZ%2Blb2fsWF0dQzYNRHWzIBdE2EDGGCaSNYI47x69fY%2FMRimnmiNyGqwavyflo6MaawRTTP1%2FIiM4dFBQBPl8UggyRHWSHYiBwCwA90T1NTlAQAAAABJRU5ErkJggg%3D%3D%0D%0A&logoWidth=14)](https://ko-fi.com/olefredrik)
+
+This is a starter-theme for WordPress based on Zurb's [Foundation for Sites 6](https://foundation.zurb.com/sites.html), the most advanced responsive (mobile-first) framework in the world. The purpose of FoundationPress, is to act as a small and handy toolbox that contains the essentials needed to build any design. FoundationPress is meant to be a starting point, not the final product.
+
+Please fork, copy, modify, delete, share or do whatever you like with this.
+
+All contributions are welcome!
 
 ## Requirements
 
-**This project requires [Node.js](http://nodejs.org) v4.x.x to v6.9.x to be installed on your machine.** Please be aware that you will most likely encounter problems with the installation if you are using v7.1.0 with all the latest features.
+**This project requires [Node.js](http://nodejs.org) v4.x.x to v6.11.x to be installed on your machine.** Please be aware that you might encounter problems with the installation if you are using the most current Node version (bleeding edge) with all the latest features.
 
 FoundationPress uses [Sass](http://Sass-lang.com/) (CSS with superpowers). In short, Sass is a CSS pre-processor that allows you to write styles more effectively and tidy.
 
@@ -21,91 +31,99 @@ $ cd FoundationPress
 $ npm install
 ```
 
-### 2. While you're working on your project, run:
+### 2. Configuration
+
+#### YAML config file
+FoundationPress includes a `config-default.yml` file. To make changes to the configuration, make a copy of `config-default.yml` and name it `config.yml` and make changes to that file. The `config.yml` file is ignored by git so that each environment can use a different configuration with the same git repo.
+
+At the start of the build process a check is done to see if a `config.yml` file exists. If `config.yml` exists, the configuration will be loaded from `config.yml`. If `config.yml` does not exist, `config-default.yml` will be used as a fallback.
+
+#### Browsersync setup
+If you want to take advantage of [Browsersync](https://www.browsersync.io/) (automatic browser refresh when a file is saved), simply open your `config.yml` file after creating it in the previous step, and put your local dev-server address and port (e.g http://localhost:8888) in the `url` property under the `BROWSERSYNC` object.
+
+#### Static asset hashing / cache breaker
+If you want to make sure your users see the latest changes after re-deploying your theme, you can enable static asset hashing. In your `config.yml`, set ``REVISIONING: true;``. Hashing will work on the ``npm run build`` and ``npm run dev`` commands. It will not be applied on the start command with browsersync. This is by design.  Hashing will only change if there are actual changes in the files.
+
+### 3. Get started
 
 ```bash
-$ npm run watch
+$ npm start
 ```
 
-If you want to take advantage of browser-sync (automatic browser refresh when a file is saved), simply open your Gulpfile.js and put your local dev-server address (e.g localhost) in this field ```var URL = '';``` , save the Gulpfile and run
-```bash
-$ npm run watch
-```
+### 4. Compile assets for production
 
-### 3. For building all the assets, run:
+When building for production, the CSS and JS will be minified. To minify the assets in your `/dist` folder, run
 
 ```bash
 $ npm run build
 ```
 
-Build all assets minified and without sourcemaps:
-```bash
-$ npm run production
+#### To create a .zip file of your theme, run:
+
 ```
-
-### 4. To create a .zip file of your theme, run:
-
-```bash
 $ npm run package
 ```
 
-Running this command will build and minify the theme's assets and place a `.zip` archive of the theme in the `packaged` directory. This excludes the developer files/directories from your theme like `node_modules`, `assets/components`, etc. to keep the theme lightweight for transferring the theme to a staging or production server.
+Running this command will build and minify the theme's assets and place a .zip archive of the theme in the `packaged` directory. This excludes the developer files/directories from your theme like `/node_modules`, `/src`, etc. to keep the theme lightweight for transferring the theme to a staging or production server.
 
-### Styles
+### Project structure
+
+In the `/src` folder you will the working files for all your assets. Every time you make a change to a file that is watched by Gulp, the output will be saved to the `/dist` folder. The contents of this folder is the compiled code that you should not touch (unless you have a good reason for it).
+
+The `/page-templates` folder contains templates that can be selected in the Pages section of the WordPress admin panel. To create a new page-template, simply create a new file in this folder and make sure to give it a template name.
+
+I guess the rest is quite self explanatory. Feel free to ask if you feel stuck.
+
+### Styles and Sass Compilation
 
  * `style.css`: Do not worry about this file. (For some reason) it's required by WordPress. All styling are handled in the Sass files described below
 
- * `assets/scss/foundation.scss`: Make imports for all your styles here
- * `assets/scss/global/*.scss`: Global settings
- * `assets/scss/components/*.scss`: Buttons etc.
- * `assets/scss/modules/*.scss`: Topbar, footer etc.
- * `assets/scss/templates/*.scss`: Page template spesific styling
+ * `src/assets/scss/app.scss`: Make imports for all your styles here
+ * `src/assets/scss/global/*.scss`: Global settings
+ * `src/assets/scss/components/*.scss`: Buttons etc.
+ * `src/assets/scss/modules/*.scss`: Topbar, footer etc.
+ * `src/assets/scss/templates/*.scss`: Page template styling
 
-Please note that you **must** run `npm run build` or `npm run watch` in your terminal for the styles to be copied and concatenated. See the [Gulpfile.js](https://github.com/olefredrik/FoundationPress/blob/master/gulpfile.js) for details
+ * `dist/assets/css/app.css`: This file is loaded in the `<head>` section of your document, and contains the compiled styles for your project.
 
-### Scripts
+If you're new to Sass, please note that you need to have Gulp running in the background (``npm start``), for any changes in your scss files to be compiled to `app.css`.
 
-* `assets/javascript/custom`: This is the folder where you put all your custom scripts. Every .js file you put in this directory will be minified and concatenated one single .js file. (This is good for site speed and performance)
+### JavaScript Compilation
 
-Please note that you must run `npm run build` or `npm run watch` in your terminal for the scripts to be copied and concatenated. See [Gulpfile.js](https://github.com/olefredrik/FoundationPress/blob/master/gulpfile.js) for details
+All JavaScript files, including Foundation's modules, are imported through the `src/assets/js/app.js` file. The files are imported using module dependency with [webpack](https://webpack.js.org/) as the module bundler.
 
-### The main styles and scripts generated by the build
+If you're unfamiliar with modules and module bundling, check out [this resource for node style require/exports](http://openmymind.net/2012/2/3/Node-Require-and-Exports/) and [this resource to understand ES6 modules](http://exploringjs.com/es6/ch_modules.html).
 
-Version control on these files are turned off because they are automatically generated as part of the build process.
+Foundation modules are loaded in the `src/assets/js/app.js` file. By default all components are loaded. You can also pick and choose which modules to include. Just follow the instructions in the file.
 
-* `assets/stylesheets/foundation.css`: All Sass files are minified and compiled to this file
-* `assets/stylesheets/foundation.css.map`: CSS source maps
+If you need to output additional JavaScript files separate from `app.js`, do the following:
+* Create new `custom.js` file in `src/assets/js/`. If you will be using jQuery, add `import $ from 'jquery';` at the top of the file.
+* In `config.yml`, add `src/assets/js/custom.js` to `PATHS.entries`.
+* Build (`npm start`)
+* You will now have a `custom.js` file outputted to the `dist/assets/js/` directory.
 
-* `assets/javascript/vendor`: Vendor scripts are copied from `assets/components/` to this directory. We use this path for enqueing the vendor scripts in WordPress.
+## Demo
 
-### Check For WordPress Coding Standards
+* [Clean FoundationPress install](http://foundationpress.olefredrik.com/)
+* [FoundationPress Kitchen Sink - see every single element in action](http://foundationpress.olefredrik.com/kitchen-sink/)
 
-Foundation comes with everything you need to run tests that will check your theme for WordPress Coding Standards. To enable this feature you'll need to install PHP Codesniffer, along with the WordPress Coding Standards set of "Sniffs". You'll need to have [Composer](https://getcomposer.org/) To install both run the following:
-```bash
-$ composer create-project wp-coding-standards/wpcs:dev-master --no-dev
-```
-When prompted to remove existing VCS, answer Yes by typing `Y`.
+## Local Development
+We recommend using one of the following setups for local WordPress development:
 
-Once you have installed the packages, you can check your entire theme by running:
-```bash
-$ npm run phpcs
-```
+* [MAMP](https://www.mamp.info/en/) (macOS)
+* [WAMP](http://www.wampserver.com/en/download-wampserver-64bits/) (Windows)
+* [LAMP](https://www.linux.com/learn/easy-lamp-server-installation) (Linux)
+* [Local](https://local.getflywheel.com/) (macOS/Windows)
+* [VVV (Varying Vagrant Vagrants)](https://github.com/Varying-Vagrant-Vagrants/VVV) (Vagrant Box)
+* [Trellis](https://roots.io/trellis/)
 
-If there are errors that Code Sniffer can fix automatically, run the following command to fix them:
-```bash
-$ npm run phpcbf
-```
+## Resources
 
-## Unit Testing With Travis-CI
-
-FoundationPress is completely ready to be deployed to and tested by Travis-CI for WordPress Coding Standards and best practices. All you need to do to activate the test is sign up and follow the instructions to point Travis-CI towards your repo. Just don't forget to update the status badge to point to your repositories unit test.
-[Travis-CI](https://travis-ci.org/)
-
-## UI toolkits for rapid prototyping
-
+* [Foundation UI Kit for Adobe XD](https://gumroad.com/l/foundation-ui-kit-xd)
 * [Foundation UI Kit for Axure RP](https://gumroad.com/l/foundation-ui-kit-axure-rp)
-* [FoundationXD - Foundation UI Kit for Adobe XD](https://gumroad.com/l/foundation-ui-kit-xd)
-* [FoundationPSD - Foundation UI Kit for Photoshop](https://gumroad.com/l/foundation-ui-kit-psd)
+* [Foundation UI Kit for Photoshop](https://gumroad.com/l/foundation-ui-kit-psd)
+* [Foundation 6 Shortcodes for Visual Composer](https://www.402websites.com/downloads/foundation-6-shortcodes-visual-composer/?ref=2&campaign=Foundation6ShortcodesforVisualComposer)
+
 
 ## Tutorials
 
@@ -159,6 +177,26 @@ FoundationPress is completely ready to be deployed to and tested by Travis-CI fo
 * [Wahl + Case](https://www.wahlandcase.com/)
 * [Forefront Dermatology](https://forefrontdermatology.com/)
 * [Wirthschaftsjunioren](http://www.wirtschaftsjunioren.org/)
+* [Morgridge Institute for Research](https://morgridge.org)
+* [Impeach Trump Now](https://impeachdonaldtrumpnow.org/)
 
 
 >Credit goes to all the brilliant designers and developers out there. Have **you** made a site that should be on this list? [Please let me know](https://twitter.com/olefredrik)
+
+## Contributing
+#### Here are ways to get involved:
+
+1. [Star](https://github.com/olefredrik/FoundationPress/stargazers) the project!
+2. Answer questions that come through [GitHub issues](https://github.com/olefredrik/FoundationPress/issues)
+3. Report a bug that you find
+4. Share a theme you've built on top of FoundationPress
+5. [Tweet](https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffoundationpress.olefredrik.com%2F&text=Check%20out%20FoundationPress%2C%20the%20ultimate%20%23WordPress%20starter-theme%20built%20on%20%23Foundation%206&tw_p=tweetbutton&url=http%3A%2F%2Ffoundationpress.olefredrik.com&via=olefredrik) and [blog](http://www.justinfriebel.com/my-first-experience-with-foundationpress-a-wordpress-starter-theme-106/) your experience of FoundationPress.
+
+#### Pull Requests
+
+Pull requests are highly appreciated. Please follow these guidelines:
+
+1. Solve a problem. Features are great, but even better is cleaning-up and fixing issues in the code that you discover
+2. Make sure that your code is bug-free and does not introduce new bugs
+3. Create a [pull request](https://help.github.com/articles/creating-a-pull-request)
+4. Verify that all the Travis-CI build checks have passed

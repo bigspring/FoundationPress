@@ -9,83 +9,54 @@
  * @since FoundationPress 1.0.0
  */
 
+
+// Check to see if rev-manifest exists for CSS and JS static asset revisioning
+//https://github.com/sindresorhus/gulp-rev/blob/master/integration.md
+
+if ( ! function_exists( 'foundationpress_asset_path' ) ) :
+	function foundationpress_asset_path( $filename ) {
+		$filename_split = explode( '.', $filename );
+		$dir            = end( $filename_split );
+		$manifest_path  = dirname( dirname( __FILE__ ) ) . '/dist/assets/' . $dir . '/rev-manifest.json';
+
+		if ( file_exists( $manifest_path ) ) {
+			$manifest = json_decode( file_get_contents( $manifest_path ), true );
+		} else {
+			$manifest = [];
+		}
+
+		if ( array_key_exists( $filename, $manifest ) ) {
+			return $manifest[ $filename ];
+		}
+		return $filename;
+	}
+endif;
+
+
 if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	function foundationpress_scripts() {
 
-	// Enqueue the main Stylesheet.
-	$cachebust_css = filemtime( get_template_directory() . '/assets/stylesheets/foundation.css' );
-	wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/assets/stylesheets/foundation.css', array(), $cachebust_css, 'all' );
+		// Enqueue the main Stylesheet.
+		wp_enqueue_style( 'main-stylesheet', get_template_directory_uri() . '/dist/assets/css/' . foundationpress_asset_path( 'app.css' ), array(), '2.10.4', 'all' );
 
-	// Deregister the jquery version bundled with WordPress.
-	wp_deregister_script( 'jquery' );
+		// Deregister the jquery version bundled with WordPress.
+		wp_deregister_script( 'jquery' );
 
-	// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
-	wp_enqueue_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js', array(), '2.1.0', false );
+		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
+		wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', array(), '3.2.1', false );
 
-	// If you'd like to cherry-pick the foundation components you need in your project, head over to gulpfile.js and see lines 35-54.
-	// It's a good idea to do this, performance-wise. No need to load everything if you're just going to use the grid anyway, you know :)
-	$cachebust_js = filemtime( get_template_directory() . '/assets/javascript/foundation.js' );
-	wp_enqueue_script( 'foundation', get_template_directory_uri() . '/assets/javascript/foundation.js', array('jquery'), $cachebust_js, true );
+		// Enqueue Foundation scripts
+		wp_enqueue_script( 'foundation', get_template_directory_uri() . '/dist/assets/js/' . foundationpress_asset_path( 'app.js' ), array( 'jquery' ), '2.10.4', true );
 
-	// Add the comment-reply library on pages where it is necessary
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+		// Enqueue FontAwesome from CDN. Uncomment the line below if you need FontAwesome.
+		//wp_enqueue_script( 'fontawesome', 'https://use.fontawesome.com/5016a31c8c.js', array(), '4.7.0', true );
+
+		// Add the comment-reply library on pages where it is necessary
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
 
 	}
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
 endif;
-
-// ---------------------------
-// M3 custom enqueued scripts
-// ---------------------------
-
-// Add a tinyMCE button
-if ( ! function_exists( 'my_add_mce_button' ) ) {
-	/**
-	 * Hooks your functions into the correct filters
-	 * @return array
-	 */
-
-	// Hooks your functions into the correct filters
-	function my_add_mce_button() {
-		// check user permissions
-		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
-			return;
-		}
-		// check if WYSIWYG is enabled
-		if ( 'true' === get_user_option( 'rich_editing' ) ) {
-			add_filter( 'mce_external_plugins', 'my_add_tinymce_plugin' );
-			add_filter( 'mce_buttons', 'my_register_mce_button' );
-		}
-	}
-
-	add_action( 'admin_head', 'my_add_mce_button' );
-}
-
-if ( ! function_exists( 'my_add_tinymce_plugin' ) ) {
-	/**
-	 * Register new button in the editor
-	 * @return array
-	 */
-
-	// Declare script for new button
-	function my_add_tinymce_plugin( $plugin_array ) {
-		$plugin_array['my_mce_button'] = get_template_directory_uri() . '/assets/javascript/m3-custom/mce-button.js';
-
-		return $plugin_array;
-	}
-}
-
-if ( ! function_exists( 'my_register_mce_button' ) ) {
-	/**
-	 * Register new button in the editor
-	 * @return array
-	 */
-	function my_register_mce_button( $buttons ) {
-		array_push( $buttons, 'my_mce_button' );
-
-		return $buttons;
-	}
-}

@@ -1,10 +1,14 @@
 .DS_Store
+node_modules
+npm-debug.log
+dist
+config.yml
 *.sass-cache*
 *.log
-node_modules/
 assets/components/
 assets/javascript/vendor/
-assets/javascript/custom/demosite.js
+.idea/
+*.swp
 packaged/
 wpcs/
 /config.codekit

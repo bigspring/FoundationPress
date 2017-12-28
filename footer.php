@@ -7,9 +7,9 @@
  * @package FoundationPress
  * @since FoundationPress 1.0.0
  */
-
 ?>
 
+<?php /*
 		</section>
 		<div class="footer-container" data-sticky-footer>
 			<footer class="footer">
@@ -101,10 +101,19 @@
 <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
 		</div><!-- Close off-canvas content -->
 	</div><!-- Close off-canvas wrapper -->
+
+*/ ?>
+
+<div class="footer-container">
+	<footer class="footer">
+		<?php dynamic_sidebar( 'footer-widgets' ); ?>
+	</footer>
+</div>
+
+<?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
+	</div><!-- Close off-canvas content -->
 <?php endif; ?>
 
-
 <?php wp_footer(); ?>
-
 </body>
 </html>
