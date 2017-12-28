@@ -1,3 +1,11 @@
-.block-breadcrumbs {
-	padding: 1rem 0 0;
-}//block-breadcrumbs
+.breadcrumb {
+	@include xy-grid-container;
+}
+
+.breadcrumb__grid {
+	@include xy-grid();
+}
+
+.breadcrumb__cell {
+	@include xy-cell(12);
+}
