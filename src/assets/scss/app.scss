@@ -1,6 +1,5 @@
 @charset 'utf-8';
 
-
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
@@ -58,13 +57,14 @@
   Add your scss files below to structure your project styles
 */
 
-// global
-// @import "global/m3-mixins";
+
 // Global
 @import "global/_accessibility";
 @import "global/colors";
 @import "global/wp-admin";
 @import "global/wp-overrides";
+@import "global/m3-mixins";
+
 
 // Modules
 @import "modules/navigation";
@@ -80,11 +80,9 @@
 @import "components/featured-image";
 @import "components/dividers";
 @import "components/links";
-/*
 @import "components/typography";
 @import "components/blockquote";
 @import "components/builder";
-@import "components/buttons";
 @import "components/hero";
 @import "components/header-standard";
 @import "components/header-banner";
@@ -101,12 +99,12 @@
 @import "components/gallery";
 @import "components/callouts";
 @import "components/blog-social-meta";
-*/
-//@import "components/mega-menu-description";
-// @import "components/mega-menu-two-level";
 
-//@import "components/gforms";
-//@import "components/mailchimp-form";
+@import "components/mega-menu-description";
+@import "components/mega-menu-two-level";
+
+@import "components/gforms";
+@import "components/mailchimp-form";
 
 
 // Templates
