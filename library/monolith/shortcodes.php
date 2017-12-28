@@ -420,7 +420,7 @@ add_shortcode( 'accordion_panel', 'monolith_accordion_panel_shortcode' );
  * @return string
  */
 function foundation_row_shortcode( $atts, $content = null ) {
-	return '<div class="row">' . apply_filters( 'the_content', $content ) . '</div>';
+	return '<div class="grid-x grid-margin-x">' . apply_filters( 'the_content', $content ) . '</div>';
 }
 
 add_shortcode( 'row', 'foundation_row_shortcode' );
@@ -439,7 +439,7 @@ function foundation_columns_shortcode( $atts, $content = null ) {
 		'columns' => '', /* large-12 small-5 etc */
 	), $atts ); // TODO can we handle these defaults through the builder class instead?
 
-	$output = '<div class="columns ' . $params['columns'] . '">';
+	$output = '<div class="cell ' . $params['columns'] . '">';
 	$output .= apply_filters( 'the_content', $content );
 	$output .= '</div>';
 
