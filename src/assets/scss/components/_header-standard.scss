@@ -1,13 +1,29 @@
 .header-standard {
-  padding: 3% 0;
-  color: $body-font-color;
-  @include grid-row();
-  .caption {
-    @include grid-column(12);
+	@include responsive-vertical-padding(6vw, 1rem, 6rem, 2rem);
+}//header-standard
 
-    h1 {
-	    margin: 0;
-    }
+.header-standard__container {
+	@include xy-grid-container;
+}//.header-standard__container
 
-  }//caption
-}//.header-standard
+.header-standard__grid {
+	@include xy-grid();
+}//.header-standard__grid
+
+.header-standard__caption {
+	
+	color: $body-font-color;
+	
+  @include breakpoint(small) {
+    @include xy-cell(12);
+  }
+
+  @include breakpoint(medium) {
+    @include xy-cell(8);
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+}//.header-standard__caption
