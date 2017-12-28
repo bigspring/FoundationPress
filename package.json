@@ -25,6 +25,7 @@
     "responsive"
   ],
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.0",
     "fontawesome": "^4.7.2",
     "foundation-sites": "6.4.3",
     "jquery": "~3.0.0",
