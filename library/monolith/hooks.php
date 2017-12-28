@@ -125,7 +125,7 @@ function m3_enqueue_media_uploader() {
 		wp_enqueue_media();
 		wp_register_script(
 			'm3-media-upload',
-			get_template_directory_uri() . '/assets/javascript/m3-custom/media-upload.js',
+			get_template_directory_uri() . '/src/assets/js/m3-custom/media-upload.js',
 			array( 'jquery' )
 		);
 		wp_enqueue_script( 'm3-media-upload' );
@@ -133,3 +133,56 @@ function m3_enqueue_media_uploader() {
 }
 
 add_action( 'admin_enqueue_scripts', 'm3_enqueue_media_uploader' );
+
+// ---------------------------
+// M3 custom enqueued scripts
+// ---------------------------
+
+// Add a tinyMCE button
+if ( ! function_exists( 'my_add_mce_button' ) ) {
+	/**
+	 * Hooks your functions into the correct filters
+	 * @return array
+	 */
+
+	// Hooks your functions into the correct filters
+	function my_add_mce_button() {
+		// check user permissions
+		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
+			return;
+		}
+		// check if WYSIWYG is enabled
+		if ( 'true' === get_user_option( 'rich_editing' ) ) {
+			add_filter( 'mce_external_plugins', 'my_add_tinymce_plugin' );
+			add_filter( 'mce_buttons', 'my_register_mce_button' );
+		}
+	}
+
+	add_action( 'admin_head', 'my_add_mce_button' );
+}
+
+if ( ! function_exists( 'my_add_tinymce_plugin' ) ) {
+	/**
+	 * Register new button in the editor
+	 * @return array
+	 */
+
+	// Declare script for new button
+	function my_add_tinymce_plugin( $plugin_array ) {
+		$plugin_array['my_mce_button'] = get_template_directory_uri() . '/src/assets/js/m3-custom/mce-button.js';
+
+		return $plugin_array;
+	}
+}
+
+if ( ! function_exists( 'my_register_mce_button' ) ) {
+	/**
+	 * Register new button in the editor
+	 * @return array
+	 */
+	function my_register_mce_button( $buttons ) {
+		array_push( $buttons, 'my_mce_button' );
+
+		return $buttons;
+	}
+}
