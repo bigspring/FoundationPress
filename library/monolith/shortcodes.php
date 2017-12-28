@@ -674,7 +674,7 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 				break;
 		}
 
-		$gallery_container = "<div class=\"gallery row {$block_class}\">";
+		$gallery_container = "<div class=\"gallery grid-x grid-margin-x {$block_class}\">";
 
 		$output = apply_filters( 'gallery_style', $gallery_container );
 
@@ -718,7 +718,7 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 			);
 
 			ob_start();
-			echo '<div class="column">' . $image_output . '</div>';
+			echo '<div class="cell">' . $image_output . '</div>';
 			$output .= ob_get_contents();
 			ob_end_clean();
 		}
