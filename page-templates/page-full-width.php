@@ -27,7 +27,9 @@ get_header(); ?>
 
 */ ?>
 
-<?php get_template_part( 'template-parts/header-standard' ); ?>
+<?php get_template_part( 'template-parts/header-banner' ); ?>
+<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+
 <div class="main-container">
 	<div class="main-grid">
 		<main class="main-content-full-width">

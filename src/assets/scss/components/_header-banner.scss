@@ -1,20 +1,38 @@
 .header-banner {
-
-	@include responsive-vertical-padding(8vw, 2rem, 10rem, 3rem);
-	margin-bottom: 2rem;
+	@include responsive-vertical-padding(6vw, 1rem, 6rem, 2rem);
 	position: relative;
 	background-size: cover;
 	background-position: center center;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat;	
+}//header-standard
+
+.header-banner__container {
+	@include xy-grid-container;
+}//.header-standard__container
+
+.header-banner__grid {
+	@include xy-grid();
+}//.header-standard__grid
+
+.header-banner__caption {
 	
+	color: $body-font-color;
+	position: relative;
+	z-index: 1;
+	
+  @include breakpoint(small) {
+    @include xy-cell(12);
+  }
 
-
-	.caption {
-		@include grid-column(12);
-		position: relative;
-		z-index: 1;
-	}
-}//.header-banner
+  @include breakpoint(medium) {
+    @include xy-cell(8);
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+}//.header-standard__caption
 
 // BLACKUP DIV
 // Just include <div class="blackup"></div>

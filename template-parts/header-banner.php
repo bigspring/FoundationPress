@@ -24,11 +24,14 @@ if ( is_archive() && !is_home() ) {
 
 $background_image_css = $image_src ? "background-image : url( '{$image_src}' )" : '';
 ?>
+
 <header class="header-banner" role="banner" style="<?php echo $background_image_css ?>">
-	<div class="row">
-		<div class="caption">
-			<?php get_template_part( '/template-parts/page-header-title' ); ?>
-			<?php get_template_part( '/template-parts/page-header-excerpt' ); ?>
+	<div class="header-banner__container">
+		<div class="header-banner__grid">
+			<div class="header-banner__caption">
+				<?php get_template_part( 'template-parts/page-header-title' ); ?>
+				<?php get_template_part( 'template-parts/page-header-excerpt' ); ?>
+			</div>
 		</div>
 	</div>
 </header>
