@@ -186,3 +186,7 @@ if ( ! function_exists( 'my_register_mce_button' ) ) {
 		return $buttons;
 	}
 }
+
+// Add support for excerpts on pages
+// ---------------------------------
+add_post_type_support( 'page', 'excerpt' );
