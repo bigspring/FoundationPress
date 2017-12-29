@@ -101,7 +101,7 @@ add_action( 'init', function () {
  * per-project, copy this filter to a suitable file and change $cpts_to_remove to suit your needs.
  */
 add_filter( 'monolith_settings_post_types', function ( $post_types ) {
-	$cpts_to_remove = array( 'post', 'page', 'attachment', 'revision', 'nav_menu_item' );
+	$cpts_to_remove = array( 'post', 'page', 'attachment', 'revision', 'nav_menu_item', 'custom_css', 'customize_changeset', 'acf-field-group', 'acf-field' );
 	foreach ( $cpts_to_remove as $cpt_to_remove ) {
 		unset( $post_types[ $cpt_to_remove ] );
 	}
