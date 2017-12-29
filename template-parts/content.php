@@ -19,13 +19,13 @@
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		}
 	?>
-		<?php foundationpress_entry_meta(); ?>
+		<?php get_template_part( 'template-parts/blog-social-meta' ); ?>
 	</header>
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 	</div>
 	<footer>
+		<hr />
 		<?php
 			wp_link_pages(
 				array(
