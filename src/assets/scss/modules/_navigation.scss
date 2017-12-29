@@ -15,6 +15,14 @@
 }
 
 // Mobile menu
+
+// rules to center align and space the button and logo
+.title-bar-left {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;		
+}
+
 .mobile-menu {
   display: none; // prevents repaint caused by JS hiding menu onload
 }
@@ -94,9 +102,11 @@
     line-height: 1;
     
     // hack to force menu anchors to grow and take up the same space as the logo
-    display: flex;
-    align-items: center;
-    height: 100%;
+    @include breakpoint(medium) {
+	    display: flex;
+	    align-items: center;
+	    height: 100%;
+    }
 
     &:hover:not(.button) {
       background-color: #42525D;
