@@ -726,8 +726,8 @@ if ( ! function_exists( 'fresco_gallery_shortcode' ) ) {
 		$output .= "</div>";
 
 		// Gallery good to go - include
-		wp_enqueue_style( 'fresco', get_template_directory_uri() . '/assets/lib/fresco-2.2.2/css/fresco/fresco.css' );
-		wp_enqueue_script( 'fresco', get_template_directory_uri() . '/assets/lib/fresco-2.2.2/js/fresco/fresco.js', array( 'jquery' ), false, true );
+		wp_enqueue_style( 'fresco', get_template_directory_uri() . '/src/assets/lib/fresco-2.2.2/css/fresco/fresco.css' );
+		wp_enqueue_script( 'fresco', get_template_directory_uri() . '/src/assets/lib/fresco-2.2.2/js/fresco/fresco.js', array( 'jquery' ), false, true );
 
 		return $output;
 	}
