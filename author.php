@@ -11,18 +11,22 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
 get_header(); ?>
 
 	<header class="header-standard" role="banner">
-		<div class="caption">
-			<h1>
-				<?= get_the_author_meta( 'first_name', get_query_var( 'author' ) ); ?>
-				<?= get_the_author_meta( 'last_name', get_query_var( 'author' ) ); ?>
-			</h1>
+		<div class="header-standard__container">
+			<div class="header-standard__grid">
+				<div class="header-standard__caption">
+					<h1>
+						<?= get_the_author_meta( 'first_name', get_query_var( 'author' ) ); ?>
+						<?= get_the_author_meta( 'last_name', get_query_var( 'author' ) ); ?>
+					</h1>
+				</div>
+			</div>
 		</div>
 	</header>
-	
-	<div id="page-author" role="main">
-		
-		<article <?php post_class( 'main-content' ) ?>>
-						
+
+<div class="main-container">
+	<div class="main-grid">
+		<main class="main-content">
+
 			<?php if( $curauth->user_url) : ?>
 				<p><?= $curauth->description ?></p>
 			<?php endif; ?>
@@ -64,10 +68,12 @@ get_header(); ?>
 			
 			<section class="block">
 				<h2>Check out my posts</h2>
-				<?php monolith_grid('card', 'small-up-1'); ?>
+				<?php monolith_grid('card', 'small-up-1 medium-up-2 large-up-3'); ?>
 			</section>
-			
-		</article>
-	
+
+
+		</main>
 	</div>
+</div>			
+	
 <?php get_footer();
