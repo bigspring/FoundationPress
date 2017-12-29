@@ -113,7 +113,13 @@
     }
   }
 
-  .menu .active > a { background-color: #ccc; }
+  .dropdown.menu .is-active > a { 
+	  background-color: #42525D; 
+	}
+
+  .dropdown.menu .current_page_item > a { 
+	  background-color: #42525D; 
+	}
 
   .menu>li:not(.menu-text)>a { padding: 1rem; }
   .menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
