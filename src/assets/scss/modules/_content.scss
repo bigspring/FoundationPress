@@ -4,10 +4,10 @@
 
 .main-grid {
   @include xy-grid();
-  margin-top: 1rem;
+  //margin-top: 1rem;
 
   @include breakpoint(medium) {
-    margin-top: 3rem;
+    //margin-top: 3rem;
   }
 
   &.sidebar-left {
