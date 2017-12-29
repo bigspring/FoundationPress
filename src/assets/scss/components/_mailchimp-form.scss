@@ -1,19 +1,19 @@
 #mc_embed_signup {
-	@include grid-row();
+	@include xy-grid;
 	padding: 1rem;
 
 	#mc-embedded-subscribe-form {
 
 		.mc-field-group {
-			@include grid-col(8, 0);
+			@include xy-cell(8, 'false', 0);
 		}//mc-field-group
 
 		.mc-button-container {
-			@include grid-col(4, 0);
+			@include xy-cell(4, 'false', 0);
 		}//mc-button-container
 
 		#mce-responses {
-			@include grid-col(8);
+			@include xy-cell(8);
 			float: left !important;
 		}//mce-responses
 
