@@ -64,8 +64,11 @@
 				  font-size: 0.8rem;
 				  padding-top: 0;
 				  padding-bottom: 0;			  
-	  	  }
-  	  }
-    }
+	  	  }//a
+			  &.is-active a {
+				  background-color: transparent;
+			  }
+  	  }//li
+    }//ul
   }
 }
