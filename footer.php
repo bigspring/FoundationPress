@@ -108,6 +108,45 @@
 	<footer class="footer">
 		<?php dynamic_sidebar( 'footer-widgets' ); ?>
 	</footer>
+	
+	<div class="legal-footer-container">
+			<div class="legal-footer-info">
+					<ul class="menu">
+							<!-- start the footer menu -->
+								<!-- static list item for copyright / date -->
+								<li>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></li>
+								
+								<!-- start menu items -->
+									<?php // args for the custom footer menu
+									$args = array(
+										'container'       => false, // remove nav container
+										'items_wrap'      => '%3$s', // remove ul
+										'container_class' => '', // class of container
+										'menu'            => '', // menu name
+										'menu_class'      => 'legal-footer-info', // adding custom nav class
+										'theme_location'  => 'legal-footer-menu', // where it's located in the theme
+										'before'          => '', // before each link <a>
+										'after'           => '', // after each link </a>
+										'link_before'     => '', // before each link text
+										'link_after'      => '', // after each link text
+										'depth'           => 5, // limit the depth of the nav
+										'fallback_cb'     => false,
+									);
+									
+									wp_nav_menu( $args );
+									?>
+								<!-- end menu items -->
+								<li>
+									<?php $nofollow = is_front_page() ? '' : 'rel="nofollow"'; ?>
+									<a  href="https://www.hallaminternet.com/web-creative/" <?php echo $nofollow; ?>>
+										<?php _e('Website by Hallam', 'monolith'); ?>
+									</a>
+								</li>
+							<!-- end the footer menu -->
+					</ul>
+			</div><!-- legal-footer-info seperators -->
+	</div><!-- legal-footer-container -->
+	
 </div>
 
 <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>

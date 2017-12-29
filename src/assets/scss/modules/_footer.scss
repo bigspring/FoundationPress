@@ -10,12 +10,39 @@
   padding: rem-calc(30) 0;
 
   section {
-    @include xy-cell(auto);
+    @include xy-cell(12);
+	  @include breakpoint(medium) {
+	    @include xy-cell(auto);
+	  }
   }
 
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+  }
+  
+  ul.menu {
+	  flex-direction: column;
+	  li a {
+		  padding-left: 0;
+		  padding-right: 0;
+	  }
+  }
+
+  ul.menu.social-icons {
+	  flex-direction: row;
+  }
+
+}
+
+.legal-footer-container {
+  @include xy-grid-container;
+  @include xy-grid;
+  .legal-footer-info {
+    @include xy-cell(12);
+    ul.menu {
+  	  justify-content: center;
+    }
   }
 }
