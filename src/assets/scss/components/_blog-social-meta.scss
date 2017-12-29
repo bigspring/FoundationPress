@@ -2,19 +2,21 @@
 // Social Sharing area
 // ---------------------------
 .post-meta-block {
-	@include grid-row-nest();
+  @include xy-grid;
+/*
 	&:after {
 		@include clear-rows();
 	}
+*/
 	padding-bottom: 1rem;
 	
 	.post-meta-date {
 		@include breakpoint(small) {
-			@include grid-column(12);
+			@include xy-cell(12, 'false', 0);
 		}
 		
 		@include breakpoint(medium) {
-			@include grid-column(6);
+			@include xy-cell(6, 'false', 0);
 		}
 		
 		time {
@@ -28,11 +30,11 @@
 	
 	.post-meta-sharing {
 		@include breakpoint(small) {
-			@include grid-column(12);
+			@include xy-cell(12, 'false', 0);
 		}
 		
 		@include breakpoint(medium) {
-			@include grid-column(6);
+			@include xy-cell(6, 'false', 0);
 			text-align: right;
 		}
 		
