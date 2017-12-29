@@ -21,7 +21,7 @@
 .no-padding-left {padding-left: 0;}
 
 
-// 02 – TYPO
+// TYPO
 // =========================
 
   // text muted – a relic from the Bootstrap Years <3
@@ -233,7 +233,7 @@
 		}//li
 	}//address-list
 
-// 03 – SPACERS
+// SPACERS
 // =========================
 
 	hr {
@@ -247,18 +247,8 @@
 
   }
 
-// 04 - TEXT COLUMNS
-// =========================
 
-  .text-columns {
-
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
-
-  }
-
-// 05 - ADDRESS
+// ADDRESS
 // =========================
 
 	ul.address-list.menu {
