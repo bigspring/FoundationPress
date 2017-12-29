@@ -9,14 +9,6 @@
 		// -----------------
 			
 			@include responsive-vertical-padding(6vw, 1rem, 6rem, 2rem);
-			
-			&.block-no-bottom-pad {
-				padding-bottom: 0;
-			}//block-no-bottom-pad
-
-			&.block-no-top-pad {
-				padding-top: 0;
-			}//block-no-top-pad
 
 		// top header rules
 		// the top heading always needs its
@@ -26,16 +18,5 @@
 			.block-heading {
 				margin-top: 0;
 			}
-
-		// BOTTOM BUTTON RULES
-		// Button at bottom of block
-		// always needs bottom margin removing
-		// -----------------------------------
-
-			.button {
-				&.block-bottom-button {
-					margin-bottom: 0;
-				}
-			}//button
 
 	}//block

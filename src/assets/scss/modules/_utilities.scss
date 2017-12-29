@@ -3,22 +3,23 @@
 
 // Description: Utility classes used by Monolith for lists, text styles etc
 
-// CONTENTS
-// =========================
 
-// 01 – MARGINS
-// 02 – TYPO
-// 03 – SPACERS
-// 04 – TEXT COLUMNS
-
-
-// 01 – MARGINS
+// MARGINS
 // =========================
 .no-margin {margin: 0;}
 .no-margin-top {margin-top: 0;}
 .no-margin-right {margin-right: 0;}
 .no-margin-bottom {margin-bottom: 0;}
 .no-margin-left {margin-left: 0;}
+
+// PADDINGS
+// =========================
+.no-padding {padding: 0;}
+.no-padding-top {padding-top: 0;}
+.no-padding-right {padding-right: 0;}
+.no-padding-bottom {padding-bottom: 0;}
+.no-padding-left {padding-left: 0;}
+
 
 // 02 – TYPO
 // =========================
