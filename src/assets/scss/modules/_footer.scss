@@ -24,9 +24,20 @@
   
   ul.menu {
 	  flex-direction: column;
-	  li a {
-		  padding-left: 0;
-		  padding-right: 0;
+	  li {
+		  a {
+			  padding-left: 0;
+			  padding-right: 0;
+			  color: $body-font-color;
+			  font-size: 0.8rem;
+			  &:hover {
+				  text-decoration: underline;
+			  }			  
+		  }
+		  &.current_page_item a {
+			  background-color: transparent;
+			  text-decoration: underline;
+		  }
 	  }
   }
 
@@ -39,10 +50,22 @@
 .legal-footer-container {
   @include xy-grid-container;
   @include xy-grid;
+  margin-bottom: 1.875rem;
   .legal-footer-info {
     @include xy-cell(12);
     ul.menu {
   	  justify-content: center;
+  	  li {
+			  color: $body-font-color;
+			  font-size: 0.8rem;	
+			  line-height: 1;		  
+	  	  a {
+				  color: $body-font-color;
+				  font-size: 0.8rem;
+				  padding-top: 0;
+				  padding-bottom: 0;			  
+	  	  }
+  	  }
     }
   }
 }
