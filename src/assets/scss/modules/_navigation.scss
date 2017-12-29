@@ -53,12 +53,29 @@
 // Tablet and desktop menu
 
 .top-bar {
-
+	
+	// hack to force menu anchors to grow and take up the same space as the logo
+	align-items: stretch;
+	
+	.top-bar-right {
+		flex: 2 1 auto;
+	}
+	
+	.top-bar-left {
+		flex: 0 4 auto;
+	}
+	
   .top-bar-title a {
     font-size: 1rem;
     color: #B9B9B9;
     padding-left: 1rem;
     line-height: 1.8;
+  }
+  
+  // hack to force menu anchors to grow and take up the same space as the logo
+  .menu.desktop-menu {
+	  height: 100%;
+	  justify-content: flex-end;
   }
 
   .menu a {
@@ -66,8 +83,20 @@
     padding-top: 0;
     padding-bottom: 0;
     font-weight: bold;
-    font-size: 0.8rem;
+    @include breakpoint(medium) {
+	    font-size: 1.5vw;
+    }
+    @include breakpoint(large) {
+	    font-size: 0.8rem;
+    }
+
+
     line-height: 1;
+    
+    // hack to force menu anchors to grow and take up the same space as the logo
+    display: flex;
+    align-items: center;
+    height: 100%;
 
     &:hover:not(.button) {
       background-color: #42525D;
